@@ -218,6 +218,13 @@
         imagemAcessorio2 = "https://i.imgur.com/OWGO9bw.png"; encantamentoAcessorio2 = 0; slotsAcessorio2 = 0; itemITaxaCritico = 0; itemIAspdPorcentagem = 0; itemIAspdFixa = 0; itemITaxaCritico = 0; itemIAspdPorcentagem = 0; itemIAspdFixa = 0; itemIIgnorarDefesa = 0; itemIAtaque = 0; itemIAtaqueArmaPorcentagem = 0; itemIDanoFisico = 0; itemIDanoMVP = 0; itemIDanoDistancia = 0; itemIDanoCriticoPorcentagem = 0; itemIDanoFisico = 0; itemIDanoRacial = 0; itemIDanoPropriedade = 0; itemIDanoTamanho = 0; itemIForca = 0; itemIAgilidade = 0; itemIDestreza = 0; itemISorte = 0;
       }
 
+      function marianne() {
+        imagemTopo = "https://i.imgur.com/HEzTtvS.png";
+        slotsTopo = 1;
+        itemAAtaque = 50;
+        itemADestreza = 2;
+      }
+
       function esquilo() {
         imagemTopo = "https://i.imgur.com/NsbeGXx.png";
         slotsTopo = 1;
@@ -368,6 +375,11 @@
         slotsMeio = 0;
       }
 
+      function venda() {
+        imagemMeio = "https://i.imgur.com/ajuYxVh.png";
+        slotsMeio = 0;
+      }
+
       function serafim() {
         imagemMeio = "https://i.imgur.com/NJZnAj4.png";
         slotsMeio = 0;
@@ -388,6 +400,11 @@
         slotsMeio = 0;
         itemBDestreza = 1;
         itemBDanoFisico = 3;
+      }
+
+      function escuros() {
+        imagemMeio = "https://i.imgur.com/e4rkMFR.png";
+        slotsMeio = 1;
       }
 
       function pdesbravador() {
@@ -448,6 +465,16 @@
         imagemBaixo = "https://i.imgur.com/vQgLDqh.png";
         itemCDanoDistancia = 2;
         itemCDestreza = 1;
+      }
+
+      function infame() {
+        imagemBaixo = "https://i.imgur.com/5BrMgvP.png";
+        if($("#itemMeio").val() == "2202") {
+          itemCTaxaCritico = parseInt((parseInt($("#for").val()) + parseInt($("#sor").val())) / 80) * 5;
+          itemCDanoFisico = parseInt((parseInt($("#for").val()) + parseInt($("#sor").val())) / 80) * 6;
+          itemCDanoCriticoPorcentagem = parseInt((parseInt($("#for").val()) + parseInt($("#sor").val())) / 80) * 10;
+          itemCAspdPorcentagem = parseInt((parseInt($("#agi").val()) + parseInt($("#vit").val())) / 80) * 5;
+        }
       }
 
       function pouring() {
@@ -1005,6 +1032,33 @@
         itemGAspdPorcentagem = 3;
       }
 
+      function grilhoes() {
+        imagemSapatos = "https://i.imgur.com/aj9womM.png";
+        slotsSapatos = 0;
+        encantamentoSapatos = "nenhum";
+      }
+
+      function apresidiario(acessorio) {
+        if(acessorio == "acessorio1") {
+          imagemAcessorio1 = "https://i.imgur.com/6EyaVpZ.png";
+          slotsAcessorio1 = 1;
+          itemHAtaque = 10;
+          if($("#itemSapatos").val() == "2408") { itemHAtaque += Math.min(10, parseInt($("#refinoItemSapatos").val())); }
+          if($("#itemMeio").val() == "2295") { itemHAtaque += 10; }
+          if($("#itemAcessorio2").val() == "2655") { itemHAtaque += 10; }
+        }
+        if(acessorio == "acessorio2") {
+          imagemAcessorio2 = "https://i.imgur.com/6EyaVpZ.png";
+          slotsAcessorio2 = 1;
+          itemIAtaque = 10;
+          if($("#itemAcessorio1").val() != "2913") {
+            if($("#itemSapatos").val() == "2408") { itemIAtaque += Math.min(10, parseInt($("#refinoItemSapatos").val())); }
+            if($("#itemMeio").val() == "2295") { itemIAtaque += 10; }
+          }
+          if($("#itemAcessorio1").val() == "2655") { itemIAtaque += 10; }
+        }
+      }
+
       function cpetal(acessorio) {
         if(acessorio == "acessorio1") {
           imagemAcessorio1 = "https://i.imgur.com/e89MbjU.png";
@@ -1045,6 +1099,29 @@
                 itemIAspdFixa = 3;
               }
             }
+          }
+        }
+      }
+
+      function ckirin(acessorio) {
+        if(acessorio == "acessorio1") {
+          imagemAcessorio1 = "https://i.imgur.com/Kd25UwJ.png";
+          slotsAcessorio1 = 1;
+          itemHAgilidade = 2;
+          itemHAspdPorcentagem = 2;
+          if(parseInt($("#agi").val()) >= 100) itemHAspdPorcentagem += 5;
+          if($("#faw-e1").val() == "faw-e1-aa1" || $("#faw-e2").val() == "faw-e2-aa1" || $("#faw-e3").val() == "faw-e3-aa1") itemHAspdFixa += 1;
+          if($("#faw-e1").val() == "faw-e1-aa2" || $("#faw-e2").val() == "faw-e2-aa2" || $("#faw-e3").val() == "faw-e3-aa2") itemHAspdFixa += 1;
+        }
+        if(acessorio == "acessorio2") {
+          imagemAcessorio2 = "https://i.imgur.com/Kd25UwJ.png";
+          slotsAcessorio2 = 1;
+          itemIAgilidade = 2;
+          itemIAspdPorcentagem = 2;
+          if(parseInt($("#agi").val()) >= 100) itemIAspdPorcentagem += 5;
+          if($("#itemAcessorio1").val() != "28501") {
+            if($("#faw-e1").val() == "faw-e1-aa1" || $("#faw-e2").val() == "faw-e2-aa1" || $("#faw-e3").val() == "faw-e3-aa1") itemIAspdFixa += 1;
+            if($("#faw-e1").val() == "faw-e1-aa2" || $("#faw-e2").val() == "faw-e2-aa2" || $("#faw-e3").val() == "faw-e3-aa2") itemIAspdFixa += 1;
           }
         }
       }
@@ -1288,6 +1365,19 @@
           slotsAcessorio2 = 1;
           itemIAspdPorcentagem = 10;
           if(parseInt($("#for").val()) >= 120) { itemIAtaque += 50; }
+        }
+      }
+
+      function bferro(acessorio) {
+        if(acessorio == "acessorio1") {
+          imagemAcessorio1 = "https://i.imgur.com/jcXop1Y.png";
+          slotsAcessorio1 = 0;
+          if($("#itemSapatos").val() == "2408") { itemHAtaque = 50; }
+        }
+        if(acessorio == "acessorio2") {
+          imagemAcessorio2 = "https://i.imgur.com/jcXop1Y.png";
+          slotsAcessorio2 = 0;
+          if($("#itemSapatos").val() == "2408" && $("#itemAcessorio1").val() != "2655") { itemIAtaque = 50; }
         }
       }
 
@@ -1778,6 +1868,9 @@
         resetarTopo();
         if(itemTopo != "") {
           switch (itemTopo) {
+            case "5342":
+              marianne();
+              break;
             case "19316":
               esquilo();
               break;
@@ -1838,6 +1931,9 @@
             case "19110b":
               popstarb();
               break;
+            case "2295":
+              venda();
+              break;
             case "18912":
               resetarMeio();
               imagemMeio = "https://i.imgur.com/n7aMkmY.png";
@@ -1851,6 +1947,9 @@
               break;
             case "5325":
               bionicos();
+              break;
+            case "2202":
+              escuros();
               break;
             case "19393":
               pdesbravador();
@@ -1884,6 +1983,9 @@
               break;
             case "19305b":
               fadasb();
+              break;
+            case "28502":
+              infame();
               break;
             case "18844":
               pouring();
@@ -2131,6 +2233,9 @@
             case "2448":
               svelozes();
               break;
+            case "2408":
+              grilhoes();
+              break;
             default:
               resetarSapatos();
           }
@@ -2145,6 +2250,12 @@
         resetarAcessorio1();
         if(itemAcessorio1 != "") {
           switch (itemAcessorio1) {
+            case "2913":
+              apresidiario("acessorio1");
+              break;
+            case "28501":
+              ckirin("acessorio1");
+              break;
             case "490031":
               cpetal("acessorio1");
               break;
@@ -2190,6 +2301,9 @@
             case "28561":
               adraco("acessorio1");
               break;
+            case "2655":
+              bferro("acessorio1");
+              break;
             case "2855":
               rabogp("acessorio1");
               break;
@@ -2214,6 +2328,12 @@
         resetarAcessorio2();
         if(itemAcessorio2 != "") {
           switch (itemAcessorio2) {
+            case "2913":
+              apresidiario("acessorio2");
+              break;
+            case "28501":
+              ckirin("acessorio2");
+              break;
             case "490031":
               cpetal("acessorio2");
               break;
@@ -2258,6 +2378,9 @@
               break;
             case "28561":
               adraco("acessorio2");
+              break;
+            case "2655":
+              bferro("acessorio2");
               break;
             case "2855":
               rabogp("acessorio2");
@@ -3613,6 +3736,7 @@
           <td colspan="5">
             <select autocomplete="off" id="itemTopo" style="width:100%;margin-right:1%">
               <option value="">Nenhum</option>
+              <option value="5342">Boneca de Marianne [1] - Ativado</option>
               <option value="19316">Capuz de Esquilo [1]</option>
               <option value="19316a">Capuz de Esquilo [1] - Ativado</option>
               <option value="19296">Chapéu Chique com Pena [1]</option>
@@ -3749,11 +3873,13 @@
               <option value="19456a">Máscara do Tengu Corvo [1]</option>
               <option value="19456b">Máscara do Tengu Corvo [0]</option>
               <option value="5325">Óculos Biônicos</option>
+              <option value="2202">Óculos Escuros [1]</option>
               <option value="19393">Pedra do Desbravador</option>
               <option value="19444a">Tapa-Olho Cósmico [1]</option>
               <option value="19444b">Tapa-Olho Cósmico [0]</option>
               <option value="19110a">Tiara de Popstar [1]</option>
               <option value="19110b">Tiara de Popstar [0]</option>
+              <option value="2295">Venda</option>
             </select>
           </td>
           <td colspan="5">
@@ -3873,6 +3999,7 @@
               <option value="19268">Hálito de Verme com Rosto</option>
               <option value="19305a">Lampião das Fadas (Faro Aguçado 1/2)</option>
               <option value="19305b">Lampião das Fadas (Mira 1 / DES +1)</option>
+              <option value="28502">Lenço Infame</option>
               <option value="5361">Máscara de Fugitivo</option>
               <option value="19112">Pergaminho do Tengu</option>
               <option value="19321">Pombinho Branco</option>
@@ -4729,6 +4856,7 @@
               <option value="22000b">Botas Temporais FOR [0]</option>
               <option value="22005a">Botas Temporais SOR [1]</option>
               <option value="22005b">Botas Temporais SOR [0]</option>
+              <option value="2408">Grilhões</option>
               <option value="22071">Salto Alto Elegante [1]</option>
               <option value="22195">Sapatos Inteligentes [1]</option>
               <option value="22082">Sapatos Luxuosos [1]</option>
@@ -4872,13 +5000,16 @@
           <td colspan="7" align="center">
             <select autocomplete="off" id="itemAcessorio1" style="width:100%;margin-right:1%">
               <option value="">Nenhum</option>
+              <option value="2913">Algemas de Presidiário [1]</option>
               <option value="32205">Anel de Esmeralda [1]</option>
               <option value="28505">Anel do Capiroto [1]</option>
               <option value="32243">Anel do Desbravador [1]</option>
               <option value="32221">Anel do Senhor do Tempo [1]</option>
               <option value="28561">Anel Dracônico do Veterano [1]</option>
+              <option value="2655">Bola de Ferro Ensanguentada</option>
               <option value="28411">Brincos de Esmeralda [1]</option>
               <option value="490031">Cauda de Petal [1]</option>
+              <option value="28501">Chifres de Kirin [1]</option>
               <option value="28433">Cristal da Luz Azul [1]</option>
               <option value="28492a">Diário do Renegado [1]</option>
               <option value="28492b">Diário do Renegado [1] - Força Violentíssima</option>
@@ -5012,13 +5143,16 @@
           <td colspan="7" align="center">
             <select autocomplete="off" id="itemAcessorio2" style="width:100%;margin-right:1%">
               <option value="">Nenhum</option>
+              <option value="2913">Algemas de Presidiário [1]</option>
               <option value="32205">Anel de Esmeralda [1]</option>
               <option value="28505">Anel do Capiroto [1]</option>
               <option value="32243">Anel do Desbravador [1]</option>
               <option value="32221">Anel do Senhor do Tempo [1]</option>
               <option value="28561">Anel Dracônico do Veterano [1]</option>
+              <option value="2655">Bola de Ferro Ensanguentada</option>
               <option value="28411">Brincos de Esmeralda [1]</option>
               <option value="490031">Cauda de Petal [1]</option>
+              <option value="28501">Chifres de Kirin [1]</option>
               <option value="28433">Cristal da Luz Azul [1]</option>
               <option value="28492a">Diário do Renegado [1]</option>
               <option value="28492b">Diário do Renegado [1] - Força Violentíssima</option>
