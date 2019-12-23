@@ -479,6 +479,7 @@
       function khalitzburg() {
         imagemArmadura = "https://i.imgur.com/sJnds93.png";
         slotsArmadura = 1;
+        encantamentoArmadura = "nenhum";
         var refinoArmadura = parseInt($("#refinoItemArmadura").val());
         if(refinoArmadura > 15) { refinoArmadura = 15; }
         itemDDanoDistancia = parseInt(refinoArmadura / 3) * 6;
@@ -487,6 +488,7 @@
       function abissal() {
         imagemArmadura = "https://i.imgur.com/ZECpolH.png";
         slotsArmadura = 1;
+        encantamentoArmadura = "nenhum";
         if(parseInt($("#refinoItemArmadura").val()) >= 7) { if($("#racaMonstro").val() == "3" || $("#racaMonstro").val() == "7") itemDDanoRacial += 10; if(parseInt($("#propriedadeMonstro").val()) >= 60 && parseInt($("#propriedadeMonstro").val()) <= 73) itemDDanoPropriedade += 10; }
         if(parseInt($("#refinoItemArmadura").val()) >= 9) { if($("#racaMonstro").val() == "3" || $("#racaMonstro").val() == "7") itemDDanoRacial += 15; if(parseInt($("#propriedadeMonstro").val()) >= 60 && parseInt($("#propriedadeMonstro").val()) <= 73) itemDDanoPropriedade += 15; }
         if(parseInt($("#refinoItemArmadura").val()) >= 11) { if($("#racaMonstro").val() == "3" || $("#racaMonstro").val() == "7") itemDDanoRacial += 15; if(parseInt($("#propriedadeMonstro").val()) >= 60 && parseInt($("#propriedadeMonstro").val()) <= 73) itemDDanoPropriedade += 15; }
@@ -495,6 +497,7 @@
       function robegraca() {
         imagemArmadura = "https://i.imgur.com/D643xSS.png";
         slotsArmadura = 1;
+        encantamentoArmadura = "nenhum";
         itemDAspdPorcentagem += parseInt($("#refinoItemArmadura").val());
         if(parseInt($("#refinoItemArmadura").val()) >= 7) { itemDDanoFisico = 10; }
         if(parseInt($("#refinoItemArmadura").val()) >= 9) { itemDDanoFisico = 20; }
@@ -504,12 +507,14 @@
       function eclipse() {
         imagemArmadura = "https://i.imgur.com/vLrwKkH.png";
         slotsArmadura = 1;
+        encantamentoArmadura = "nenhum";
         if($("#cartaArmadura").val() == "4324" && ($("#propriedadeMonstro").val() == "40" || $("#propriedadeMonstro").val() == "41" || $("#propriedadeMonstro").val() == "42" || $("#propriedadeMonstro").val() == "43")) { itemDDanoPropriedade = parseInt($("#refinoItemArmadura").val()) * 5; }
       }
 
       function afortunado() {
         imagemArmadura = "https://i.imgur.com/5yDR2ZP.png";
         slotsArmadura = 1;
+        encantamentoArmadura = "nenhum";
         itemDAtaque = 50;
         itemDDanoCriticoPorcentagem = parseInt($("#refinoItemArmadura").val() / 3) * 2;
         if(parseInt($("#refinoItemArmadura").val()) >= 7 && ($("#racaMonstro").val() == "2" || $("#racaMonstro").val() == "3")) itemDIgnorarDefesa += 30;
@@ -524,6 +529,7 @@
       function astuto() {
         imagemArmadura = "https://i.imgur.com/yqORvyJ.png";
         slotsArmadura = 1;
+        encantamentoArmadura = "nenhum";
         itemDAtaque = 50;
         itemDDanoDistancia = parseInt($("#refinoItemArmadura").val() / 3) * 2;
         if(parseInt($("#refinoItemArmadura").val()) >= 7 && ($("#racaMonstro").val() == "2" || $("#racaMonstro").val() == "3")) itemDIgnorarDefesa += 30;
@@ -538,6 +544,7 @@
       function agil() {
         imagemArmadura = "https://i.imgur.com/cDvAOA9.png";
         slotsArmadura = 1;
+        encantamentoArmadura = "nenhum";
         itemDAtaque = 50;
         itemDAspdPorcentagem = parseInt($("#refinoItemArmadura").val() / 3) * 2;
         if(parseInt($("#refinoItemArmadura").val()) >= 7 && ($("#racaMonstro").val() == "2" || $("#racaMonstro").val() == "3")) itemDIgnorarDefesa += 30;
@@ -552,6 +559,7 @@
       function robusto() {
         imagemArmadura = "https://i.imgur.com/f9guj3v.pngpng";
         slotsArmadura = 1;
+        encantamentoArmadura = "nenhum";
         itemDAtaque = 50;
         itemDDanoRacial = parseInt($("#refinoItemArmadura").val() / 3) * 2;
         if(parseInt($("#refinoItemArmadura").val()) >= 7 && ($("#racaMonstro").val() == "2" || $("#racaMonstro").val() == "3")) itemDIgnorarDefesa += 30;
@@ -566,6 +574,7 @@
       function vermelho() {
         imagemArmadura = "https://i.imgur.com/8pOV2Wf.png";
         slotsArmadura = 1;
+        encantamentoArmadura = "nenhum";
         itemDForca = 1;
         itemDAgilidade = 1;
         itemDDestreza = 1;
@@ -577,13 +586,14 @@
       function sstempo() {
         imagemArmadura = "https://i.imgur.com/yVqCibM.png";
         slotsArmadura = 1;
+        encantamentoArmadura = "nenhum";
         itemDAtaque = 50;
       }
 
       function colete() {
         imagemArmadura = "https://i.imgur.com/5p3HJq7.png";
         slotsArmadura = 0;
-        itemDAtaque = 60;
+        encantamentoArmadura = "exc";
         if(parseInt($("#itemCapa").val()) == 20773) { }
         if(parseInt($("#itemCapa").val()) == 20773 && parseInt($("#nivelPersonagem").val()) >= 130) { }
       }
@@ -591,6 +601,7 @@
       function vorags() {
         imagemArmadura = "https://i.imgur.com/IeMptmo.png";
         slotsArmadura = 1;
+        encantamentoArmadura = "nenhum";
         itemDDanoDistancia = 2;
         if(parseInt($("#refinoItemArmadura").val()) == 8) { itemDDanoDistancia = 4; }
         if(parseInt($("#refinoItemArmadura").val()) >= 9) { itemDDanoDistancia = 7; }
@@ -607,6 +618,7 @@
       function ocultacaob() {
         imagemArmadura = "https://i.imgur.com/YVg16tF.png";
         slotsArmadura = 1;
+        encantamentoArmadura = "nenhum";
         itemDDanoFisico = 10;
         itemDTaxaCritico = 20;
       }
@@ -847,8 +859,7 @@
       function motor() {
         imagemCapa = "https://i.imgur.com/dshD7zb.png";
         slotsCapa = 0;
-        encantamentoCapa = "nenhum";
-        itemFAtaque = 60;
+        encantamentoCapa = "exc";
         if($("#itemArmadura").val() == "15128") { resetarArmadura(); colete(); cartaArmadura(); definirArmadura(); }
       }
 
@@ -1422,14 +1433,29 @@
               $(".encantamentosSobrenatural select").each(function(){ $(this).val(""); }); $(".encantamentosSobrenatural").hide();
           }
         }
+        if(posicao == "armadura") {
+          $(".encantamentosColeteEXC").hide();
+          switch (encantamento) {
+            case "exc":
+              $(".encantamentosColeteEXC").show();
+              break;
+            default:
+              $(".encantamentosColeteEXC select").each(function(){ $(this).val(""); }); $(".encantamentosColeteEXC").hide();
+          }
+        }
         if(posicao == "capa") {
+          $(".encantamentosFAW, .encantamentosMotorEXC").hide();
           switch (encantamento) {
             case "faw":
               $(".encantamentosFAW").show();
+              $(".encantamentosMotorEXC select").each(function(){ $(this).val(""); });
+              break;
+            case "exc":
+              $(".encantamentosMotorEXC").show();
+              $(".encantamentosFAW select").each(function(){ $(this).val(""); });
               break;
             default:
-              $(".encantamentosFAW select").each(function(){ $(this).val(""); });
-              $(".encantamentosFAW").hide();
+              $(".encantamentosFAW select, .encantamentosMotorEXC select").each(function(){ $(this).val(""); });
           }
         }
         if(posicao == "sapatos") {
@@ -1471,13 +1497,18 @@
       }
 
       function cartaArmadura() {
-      if($("#cartaArmadura").val() == "4601") { itemDDanoFisico += 15; }
-      if($("#cartaArmadura").val() == "4602") { itemDDanoFisico += 20; }
+        if($("#cartaArmadura").val() == "4601") { itemDDanoFisico += 15; }
+        if($("#cartaArmadura").val() == "4602") { itemDDanoFisico += 20; }
         if($("#cartaArmadura").val() == "4419" && ($("#propriedadeMonstro").val() == "10" || $("#propriedadeMonstro").val() == "11" || $("#propriedadeMonstro").val() == "12" || $("#propriedadeMonstro").val() == "13")) { itemDDanoPropriedade += 50; }
         if($("#cartaArmadura").val() == "27126") { if($("#racaMonstro").val() == "2" || $("#racaMonstro").val() == "6") itemDDanoRacial += 40; if(parseInt($("#propriedadeMonstro").val()) >= 20 && parseInt($("#propriedadeMonstro").val()) <= 33) itemDDanoPropriedade += 40; }
         if($("#cartaArmadura").val() == "4426") { itemDDanoFisico = itemDDanoFisico + 10; }
         if($("#cartaArmadura").val() == "4408") { if($("#racaMonstro").val() == "1" || $("#racaMonstro").val() == "3") itemDDanoRacial += 40; if(parseInt($("#propriedadeMonstro").val()) >= 50 && parseInt($("#propriedadeMonstro").val()) <= 63) itemDDanoPropriedade += 40; }
         if($("#cartaArmadura").val() == "4337") { itemDAtaque = itemDAtaque + 25; }
+        if($("#colexc-e1").val() == "exc-e1-for") { itemDAtaque += parseInt(parseInt($("#for").val()) / 10) * 5; if(parseInt($("#refinoItemArmadura").val()) >= 7) itemDAtaque += 10; }
+        if($("#colexc-e1").val() == "exc-e1-atq") { itemDAtaque += 20; }
+        if($("#colexc-e2").val() == "exc-e2-atq") { itemDAtaque += 20; }
+        if($("#colexc-e3").val() == "exc-e3-atq") { itemDAtaque += 20; }
+        if($("#colexc-e3").val() == "exc-e3-vda") { itemDAspdFixa += 1; }
       }
 
       function cartaArco() {
@@ -1609,6 +1640,10 @@
         if($("#faw-e3").val() == "faw-e3-fa3") { itemFDanoCriticoPorcentagem += 8; }
         if($("#faw-e3").val() == "faw-e3-fa2") { itemFDanoCriticoPorcentagem += 6; }
         if($("#faw-e3").val() == "faw-e3-fa1") { itemFDanoCriticoPorcentagem += 4; }
+        if($("#motexc-e1").val() == "exc-e1-atq") { itemFAtaque += 20; }
+        if($("#motexc-e2").val() == "exc-e2-atq") { itemFAtaque += 20; }
+        if($("#motexc-e3").val() == "exc-e3-atq") { itemFAtaque += 20; }
+        if($("#motexc-e3").val() == "exc-e3-vda") { itemFAspdFixa += 1; }
       }
 
       function cartaSapatos() {
@@ -1677,39 +1712,39 @@
       }
 
       function definirMeio() {
-        $("#imagemMeio").attr("src",imagemMeio); $("#itemBTaxaCritico").val(itemBTaxaCritico); $("#itemBAspdPorcentagem").val(itemBAspdPorcentagem); $("#itemBAspdFixa").val(itemBAspdFixa); $("#itemBIgnorarDefesa").val(itemBIgnorarDefesa); $("#itemBAtaque").val(itemBAtaque); $("#itemBAtaqueArmaPorcentagem").val(itemBAtaqueArmaPorcentagem); $("#itemBDanoFisico").val(itemBDanoFisico); $("#itemBDanoMVP").val(itemBDanoMVP); $("#itemBDanoDistancia").val(itemBDanoDistancia); $("#itemBDanoCriticoPorcentagem").val(itemBDanoCriticoPorcentagem); $("#itemBDanoRacial").val(itemBDanoRacial); $("#itemBDanoPropriedade").val(itemBDanoPropriedade); $("#itemBDanoTamanho").val(itemBDanoTamanho); $("#itemBDestreza").val(itemBDestreza); $("#itemBForca").val(itemBForca); $("#itemBAgilidade").val(itemBAgilidade); $("#itemBSorte").val(itemBSorte);
+        $("#imagemMeio").attr("src",imagemMeio); if($("#imagemMeio").attr("src") != "https://i.imgur.com/OWGO9bw.png") { $("#imagemMeio").addClass("pointer"); } else { $("#imagemMeio").removeClass("pointer"); } $("#itemBTaxaCritico").val(itemBTaxaCritico); $("#itemBAspdPorcentagem").val(itemBAspdPorcentagem); $("#itemBAspdFixa").val(itemBAspdFixa); $("#itemBIgnorarDefesa").val(itemBIgnorarDefesa); $("#itemBAtaque").val(itemBAtaque); $("#itemBAtaqueArmaPorcentagem").val(itemBAtaqueArmaPorcentagem); $("#itemBDanoFisico").val(itemBDanoFisico); $("#itemBDanoMVP").val(itemBDanoMVP); $("#itemBDanoDistancia").val(itemBDanoDistancia); $("#itemBDanoCriticoPorcentagem").val(itemBDanoCriticoPorcentagem); $("#itemBDanoRacial").val(itemBDanoRacial); $("#itemBDanoPropriedade").val(itemBDanoPropriedade); $("#itemBDanoTamanho").val(itemBDanoTamanho); $("#itemBDestreza").val(itemBDestreza); $("#itemBForca").val(itemBForca); $("#itemBAgilidade").val(itemBAgilidade); $("#itemBSorte").val(itemBSorte);
       }
 
       function definirBaixo() {
-        $("#imagemBaixo").attr("src",imagemBaixo); $("#itemCTaxaCritico").val(itemCTaxaCritico); $("#itemCAspdPorcentagem").val(itemCAspdPorcentagem); $("#itemCAspdFixa").val(itemCAspdFixa); $("#itemCIgnorarDefesa").val(itemCIgnorarDefesa); $("#itemCAtaque").val(itemCAtaque); $("#itemCAtaqueArmaPorcentagem").val(itemCAtaqueArmaPorcentagem); $("#itemCDanoFisico").val(itemCDanoFisico); $("#itemCDanoMVP").val(itemCDanoMVP); $("#itemCDanoDistancia").val(itemCDanoDistancia); $("#itemCDanoCriticoPorcentagem").val(itemCDanoCriticoPorcentagem); $("#itemCDanoRacial").val(itemCDanoRacial); $("#itemCDanoPropriedade").val(itemCDanoPropriedade); $("#itemCDanoTamanho").val(itemCDanoTamanho); $("#itemCDestreza").val(itemCDestreza); $("#itemCForca").val(itemCForca); $("#itemCAgilidade").val(itemCAgilidade); $("#itemCSorte").val(itemCSorte);
+        $("#imagemBaixo").attr("src",imagemBaixo); if($("#imagemBaixo").attr("src") != "https://i.imgur.com/OWGO9bw.png") { $("#imagemBaixo").addClass("pointer"); } else { $("#imagemBaixo").removeClass("pointer"); } $("#itemCTaxaCritico").val(itemCTaxaCritico); $("#itemCAspdPorcentagem").val(itemCAspdPorcentagem); $("#itemCAspdFixa").val(itemCAspdFixa); $("#itemCIgnorarDefesa").val(itemCIgnorarDefesa); $("#itemCAtaque").val(itemCAtaque); $("#itemCAtaqueArmaPorcentagem").val(itemCAtaqueArmaPorcentagem); $("#itemCDanoFisico").val(itemCDanoFisico); $("#itemCDanoMVP").val(itemCDanoMVP); $("#itemCDanoDistancia").val(itemCDanoDistancia); $("#itemCDanoCriticoPorcentagem").val(itemCDanoCriticoPorcentagem); $("#itemCDanoRacial").val(itemCDanoRacial); $("#itemCDanoPropriedade").val(itemCDanoPropriedade); $("#itemCDanoTamanho").val(itemCDanoTamanho); $("#itemCDestreza").val(itemCDestreza); $("#itemCForca").val(itemCForca); $("#itemCAgilidade").val(itemCAgilidade); $("#itemCSorte").val(itemCSorte);
       }
 
       function definirArmadura() {
-        $("#imagemArmadura").attr("src",imagemArmadura); $("#itemDTaxaCritico").val(itemDTaxaCritico); $("#itemDAspdPorcentagem").val(itemDAspdPorcentagem); $("#itemDAspdFixa").val(itemDAspdFixa); $("#itemDIgnorarDefesa").val(itemDIgnorarDefesa); $("#itemDAtaque").val(itemDAtaque); $("#itemDAtaqueArmaPorcentagem").val(itemDAtaqueArmaPorcentagem); $("#itemDDanoFisico").val(itemDDanoFisico); $("#itemDDanoMVP").val(itemDDanoMVP); $("#itemDDanoDistancia").val(itemDDanoDistancia); $("#itemDDanoCriticoPorcentagem").val(itemDDanoCriticoPorcentagem); $("#itemDDanoRacial").val(itemDDanoRacial); $("#itemDDanoPropriedade").val(itemDDanoPropriedade); $("#itemDDanoTamanho").val(itemDDanoTamanho); $("#itemDDestreza").val(itemDDestreza); $("#itemDForca").val(itemDForca); $("#itemDAgilidade").val(itemDAgilidade); $("#itemDSorte").val(itemDSorte);
+        $("#imagemArmadura").attr("src",imagemArmadura); if($("#imagemArmadura").attr("src") != "https://i.imgur.com/OWGO9bw.png") { $("#imagemArmadura").addClass("pointer"); } else { $("#imagemArmadura").removeClass("pointer"); } $("#itemDTaxaCritico").val(itemDTaxaCritico); $("#itemDAspdPorcentagem").val(itemDAspdPorcentagem); $("#itemDAspdFixa").val(itemDAspdFixa); $("#itemDIgnorarDefesa").val(itemDIgnorarDefesa); $("#itemDAtaque").val(itemDAtaque); $("#itemDAtaqueArmaPorcentagem").val(itemDAtaqueArmaPorcentagem); $("#itemDDanoFisico").val(itemDDanoFisico); $("#itemDDanoMVP").val(itemDDanoMVP); $("#itemDDanoDistancia").val(itemDDanoDistancia); $("#itemDDanoCriticoPorcentagem").val(itemDDanoCriticoPorcentagem); $("#itemDDanoRacial").val(itemDDanoRacial); $("#itemDDanoPropriedade").val(itemDDanoPropriedade); $("#itemDDanoTamanho").val(itemDDanoTamanho); $("#itemDDestreza").val(itemDDestreza); $("#itemDForca").val(itemDForca); $("#itemDAgilidade").val(itemDAgilidade); $("#itemDSorte").val(itemDSorte);
       }
 
       function definirArco() {
-        $("#imagemArco").attr("src",imagemArco); $("#itemETaxaCritico").val(itemETaxaCritico); $("#itemEAspdPorcentagem").val(itemEAspdPorcentagem); $("#itemEAspdFixa").val(itemEAspdFixa); $("#itemEIgnorarDefesa").val(itemEIgnorarDefesa); $("#itemEAtaque").val(itemEAtaque); $("#itemEAtaqueEquipamento").val(itemEAtaqueEquipamento); $("#flechaAtaque").val(flechaAtaque); $("#itemEAtaqueArmaPorcentagem").val(itemEAtaqueArmaPorcentagem); $("#itemEDanoFisico").val(itemEDanoFisico); $("#itemEDanoMVP").val(itemEDanoMVP); $("#itemEDanoDistancia").val(itemEDanoDistancia); $("#itemEDanoCriticoPorcentagem").val(itemEDanoCriticoPorcentagem); $("#itemEDanoRacial").val(itemEDanoRacial); $("#itemEDanoPropriedade").val(itemEDanoPropriedade); $("#itemEDanoTamanho").val(itemEDanoTamanho); $("#itemEDestreza").val(itemEDestreza); $("#itemEForca").val(itemEForca); $("#itemEAgilidade").val(itemEAgilidade); $("#itemESorte").val(itemESorte);
+        $("#imagemArco").attr("src",imagemArco); if($("#imagemArco").attr("src") != "https://i.imgur.com/OWGO9bw.png") { $("#imagemArco").addClass("pointer"); } else { $("#imagemArco").removeClass("pointer"); } $("#itemETaxaCritico").val(itemETaxaCritico); $("#itemEAspdPorcentagem").val(itemEAspdPorcentagem); $("#itemEAspdFixa").val(itemEAspdFixa); $("#itemEIgnorarDefesa").val(itemEIgnorarDefesa); $("#itemEAtaque").val(itemEAtaque); $("#itemEAtaqueEquipamento").val(itemEAtaqueEquipamento); $("#flechaAtaque").val(flechaAtaque); $("#itemEAtaqueArmaPorcentagem").val(itemEAtaqueArmaPorcentagem); $("#itemEDanoFisico").val(itemEDanoFisico); $("#itemEDanoMVP").val(itemEDanoMVP); $("#itemEDanoDistancia").val(itemEDanoDistancia); $("#itemEDanoCriticoPorcentagem").val(itemEDanoCriticoPorcentagem); $("#itemEDanoRacial").val(itemEDanoRacial); $("#itemEDanoPropriedade").val(itemEDanoPropriedade); $("#itemEDanoTamanho").val(itemEDanoTamanho); $("#itemEDestreza").val(itemEDestreza); $("#itemEForca").val(itemEForca); $("#itemEAgilidade").val(itemEAgilidade); $("#itemESorte").val(itemESorte);
       }
 
       function definirEscudo() {
-        $("#imagemEscudo").attr("src",imagemEscudo); $("#itemJAtaque").val(itemJAtaque);
+        $("#imagemEscudo").attr("src",imagemEscudo); if($("#imagemEscudo").attr("src") != "https://i.imgur.com/OWGO9bw.png") { $("#imagemEscudo").addClass("pointer"); } else { $("#imagemEscudo").removeClass("pointer"); } $("#itemJAtaque").val(itemJAtaque);
       }
 
       function definirCapa() {
-        $("#imagemCapa").attr("src",imagemCapa); $("#itemFTaxaCritico").val(itemFTaxaCritico); $("#itemFAspdPorcentagem").val(itemFAspdPorcentagem); $("#itemFAspdFixa").val(itemFAspdFixa); $("#itemFIgnorarDefesa").val(itemFIgnorarDefesa); $("#itemFAtaque").val(itemFAtaque); $("#itemFAtaqueArmaPorcentagem").val(itemFAtaqueArmaPorcentagem); $("#itemFDanoFisico").val(itemFDanoFisico); $("#itemFDanoMVP").val(itemFDanoMVP); $("#itemFDanoDistancia").val(itemFDanoDistancia); $("#itemFDanoCriticoPorcentagem").val(itemFDanoCriticoPorcentagem); $("#itemFDanoRacial").val(itemFDanoRacial); $("#itemFDanoPropriedade").val(itemFDanoPropriedade); $("#itemFDanoTamanho").val(itemFDanoTamanho); $("#itemFDestreza").val(itemFDestreza); $("#itemFForca").val(itemFForca); $("#itemFAgilidade").val(itemFAgilidade); $("#itemFSorte").val(itemFSorte);
+        $("#imagemCapa").attr("src",imagemCapa); if($("#imagemCapa").attr("src") != "https://i.imgur.com/OWGO9bw.png") { $("#imagemCapa").addClass("pointer"); } else { $("#imagemCapa").removeClass("pointer"); } $("#itemFTaxaCritico").val(itemFTaxaCritico); $("#itemFAspdPorcentagem").val(itemFAspdPorcentagem); $("#itemFAspdFixa").val(itemFAspdFixa); $("#itemFIgnorarDefesa").val(itemFIgnorarDefesa); $("#itemFAtaque").val(itemFAtaque); $("#itemFAtaqueArmaPorcentagem").val(itemFAtaqueArmaPorcentagem); $("#itemFDanoFisico").val(itemFDanoFisico); $("#itemFDanoMVP").val(itemFDanoMVP); $("#itemFDanoDistancia").val(itemFDanoDistancia); $("#itemFDanoCriticoPorcentagem").val(itemFDanoCriticoPorcentagem); $("#itemFDanoRacial").val(itemFDanoRacial); $("#itemFDanoPropriedade").val(itemFDanoPropriedade); $("#itemFDanoTamanho").val(itemFDanoTamanho); $("#itemFDestreza").val(itemFDestreza); $("#itemFForca").val(itemFForca); $("#itemFAgilidade").val(itemFAgilidade); $("#itemFSorte").val(itemFSorte);
       }
 
       function definirSapatos() {
-        $("#imagemSapatos").attr("src",imagemSapatos); $("#itemGTaxaCritico").val(itemGTaxaCritico); $("#itemGAspdPorcentagem").val(itemGAspdPorcentagem); $("#itemGAspdFixa").val(itemGAspdFixa); $("#itemGIgnorarDefesa").val(itemGIgnorarDefesa); $("#itemGAtaque").val(itemGAtaque); $("#itemGAtaqueArmaPorcentagem").val(itemGAtaqueArmaPorcentagem); $("#itemGDanoFisico").val(itemGDanoFisico); $("#itemGDanoMVP").val(itemGDanoMVP); $("#itemGDanoDistancia").val(itemGDanoDistancia); $("#itemGDanoCriticoPorcentagem").val(itemGDanoCriticoPorcentagem); $("#itemGDanoRacial").val(itemGDanoRacial); $("#itemGDanoPropriedade").val(itemGDanoPropriedade); $("#itemGDanoTamanho").val(itemGDanoTamanho); $("#itemGDestreza").val(itemGDestreza); $("#itemGForca").val(itemGForca); $("#itemGAgilidade").val(itemGAgilidade); $("#itemGSorte").val(itemGSorte);
+        $("#imagemSapatos").attr("src",imagemSapatos); if($("#imagemSapatos").attr("src") != "https://i.imgur.com/OWGO9bw.png") { $("#imagemSapatos").addClass("pointer"); } else { $("#imagemSapatos").removeClass("pointer"); } $("#itemGTaxaCritico").val(itemGTaxaCritico); $("#itemGAspdPorcentagem").val(itemGAspdPorcentagem); $("#itemGAspdFixa").val(itemGAspdFixa); $("#itemGIgnorarDefesa").val(itemGIgnorarDefesa); $("#itemGAtaque").val(itemGAtaque); $("#itemGAtaqueArmaPorcentagem").val(itemGAtaqueArmaPorcentagem); $("#itemGDanoFisico").val(itemGDanoFisico); $("#itemGDanoMVP").val(itemGDanoMVP); $("#itemGDanoDistancia").val(itemGDanoDistancia); $("#itemGDanoCriticoPorcentagem").val(itemGDanoCriticoPorcentagem); $("#itemGDanoRacial").val(itemGDanoRacial); $("#itemGDanoPropriedade").val(itemGDanoPropriedade); $("#itemGDanoTamanho").val(itemGDanoTamanho); $("#itemGDestreza").val(itemGDestreza); $("#itemGForca").val(itemGForca); $("#itemGAgilidade").val(itemGAgilidade); $("#itemGSorte").val(itemGSorte);
       }
 
       function definirAcessorio1() {
-        $("#imagemAcessorio1").attr("src",imagemAcessorio1); $("#itemHTaxaCritico").val(itemHTaxaCritico); $("#itemHAspdPorcentagem").val(itemHAspdPorcentagem); $("#itemHAspdFixa").val(itemHAspdFixa); $("#itemHIgnorarDefesa").val(itemHIgnorarDefesa); $("#itemHAtaque").val(itemHAtaque); $("#itemHAtaqueArmaPorcentagem").val(itemHAtaqueArmaPorcentagem); $("#itemHDanoFisico").val(itemHDanoFisico); $("#itemHDanoMVP").val(itemHDanoMVP); $("#itemHDanoDistancia").val(itemHDanoDistancia); $("#itemHDanoCriticoPorcentagem").val(itemHDanoCriticoPorcentagem); $("#itemHDanoRacial").val(itemHDanoRacial); $("#itemHDanoPropriedade").val(itemHDanoPropriedade); $("#itemHDanoTamanho").val(itemHDanoTamanho); $("#itemHDestreza").val(itemHDestreza); $("#itemHForca").val(itemHForca); $("#itemHAgilidade").val(itemHAgilidade); $("#itemHSorte").val(itemHSorte);
+        $("#imagemAcessorio1").attr("src",imagemAcessorio1); if($("#imagemAcessorio1").attr("src") != "https://i.imgur.com/OWGO9bw.png") { $("#imagemAcessorio1").addClass("pointer"); } else { $("#imagemAcessorio1").removeClass("pointer"); } $("#itemHTaxaCritico").val(itemHTaxaCritico); $("#itemHAspdPorcentagem").val(itemHAspdPorcentagem); $("#itemHAspdFixa").val(itemHAspdFixa); $("#itemHIgnorarDefesa").val(itemHIgnorarDefesa); $("#itemHAtaque").val(itemHAtaque); $("#itemHAtaqueArmaPorcentagem").val(itemHAtaqueArmaPorcentagem); $("#itemHDanoFisico").val(itemHDanoFisico); $("#itemHDanoMVP").val(itemHDanoMVP); $("#itemHDanoDistancia").val(itemHDanoDistancia); $("#itemHDanoCriticoPorcentagem").val(itemHDanoCriticoPorcentagem); $("#itemHDanoRacial").val(itemHDanoRacial); $("#itemHDanoPropriedade").val(itemHDanoPropriedade); $("#itemHDanoTamanho").val(itemHDanoTamanho); $("#itemHDestreza").val(itemHDestreza); $("#itemHForca").val(itemHForca); $("#itemHAgilidade").val(itemHAgilidade); $("#itemHSorte").val(itemHSorte);
       }
 
       function definirAcessorio2() {
-        $("#imagemAcessorio2").attr("src",imagemAcessorio2); $("#itemITaxaCritico").val(itemITaxaCritico); $("#itemIAspdPorcentagem").val(itemIAspdPorcentagem); $("#itemIAspdFixa").val(itemIAspdFixa); $("#itemIIgnorarDefesa").val(itemIIgnorarDefesa); $("#itemIAtaque").val(itemIAtaque); $("#itemIAtaqueArmaPorcentagem").val(itemIAtaqueArmaPorcentagem); $("#itemIDanoFisico").val(itemIDanoFisico); $("#itemIDanoMVP").val(itemIDanoMVP); $("#itemIDanoDistancia").val(itemIDanoDistancia); $("#itemIDanoCriticoPorcentagem").val(itemIDanoCriticoPorcentagem); $("#itemIDanoRacial").val(itemIDanoRacial); $("#itemIDanoPropriedade").val(itemIDanoPropriedade); $("#itemIDanoTamanho").val(itemIDanoTamanho); $("#itemIDestreza").val(itemIDestreza); $("#itemIForca").val(itemIForca); $("#itemIAgilidade").val(itemIAgilidade); $("#itemISorte").val(itemISorte);
+        $("#imagemAcessorio2").attr("src",imagemAcessorio2); if($("#imagemAcessorio2").attr("src") != "https://i.imgur.com/OWGO9bw.png") { $("#imagemAcessorio2").addClass("pointer"); } else { $("#imagemAcessorio2").removeClass("pointer"); } $("#itemITaxaCritico").val(itemITaxaCritico); $("#itemIAspdPorcentagem").val(itemIAspdPorcentagem); $("#itemIAspdFixa").val(itemIAspdFixa); $("#itemIIgnorarDefesa").val(itemIIgnorarDefesa); $("#itemIAtaque").val(itemIAtaque); $("#itemIAtaqueArmaPorcentagem").val(itemIAtaqueArmaPorcentagem); $("#itemIDanoFisico").val(itemIDanoFisico); $("#itemIDanoMVP").val(itemIDanoMVP); $("#itemIDanoDistancia").val(itemIDanoDistancia); $("#itemIDanoCriticoPorcentagem").val(itemIDanoCriticoPorcentagem); $("#itemIDanoRacial").val(itemIDanoRacial); $("#itemIDanoPropriedade").val(itemIDanoPropriedade); $("#itemIDanoTamanho").val(itemIDanoTamanho); $("#itemIDestreza").val(itemIDestreza); $("#itemIForca").val(itemIForca); $("#itemIAgilidade").val(itemIAgilidade); $("#itemISorte").val(itemISorte);
       }
 
       function calcularPontosAtributo() {
@@ -1917,6 +1952,7 @@
           }
         }
         exibirSlots(slotsArmadura, "armadura");
+        exibirEnchants(encantamentoArmadura, "armadura");
         cartaArmadura();
         definirArmadura();
 
@@ -2567,7 +2603,7 @@
         calcularPontosAtributo();
 
         var vaiQuebrar = "sim";
-        if($("#cartaArco1").val() == "4407" || $("#cartaArco1").val() == "4072" || $("#cartaArco2").val() == "4407" || $("#cartaArco2").val() == "4072" || $("#sobren-e1").val() == "sobren-e1-golem") { vaiQuebrar = "nao"; }
+        if($("#prevestirarma").prop("checked") == true || $("#cartaArco1").val() == "4407" || $("#cartaArco1").val() == "4072" || $("#cartaArco2").val() == "4407" || $("#cartaArco2").val() == "4072" || $("#sobren-e1").val() == "sobren-e1-golem") { vaiQuebrar = "nao"; }
 
         if(vaiQuebrar == "sim") {
           var golpesPraQuebrar = 0;
@@ -3971,7 +4007,7 @@
               <option value="15353">Armadura do Herói Ágil [1]</option>
               <option value="15354">Armadura do Herói Astuto [1]</option>
               <option value="15278">Armadura do Herói Robusto [1]</option>
-              <option value="15128">Colete E.X.C. [3x A-ATQ]</option>
+              <option value="15128">Colete E.X.C.</option>
               <option value="15421">Robe da Graça Divina [1]</option>
               <option value="15383">Sobretudo do Senhor do Tempo [1]</option>
               <option value="19048">Traje de Luta Jogos Vorags [1]</option>
@@ -3990,6 +4026,28 @@
               <option value="4419">Carta Ktullanux</option>
               <option value="4408">Carta Pesar Noturno</option>
               <option value="4337">Carta Porcellio</option>
+            </select>
+          </td>
+        </tr>
+        <tr class="alwaysShow encantamentos encantamentosColeteEXC">
+          <td colspan="4" align="center">
+            <select autocomplete="off" id="colexc-e1" style="width:100%;margin-right:1%">
+              <option value="">Nenhum</option>
+              <option value="exc-e1-for">A-FOR</option>
+              <option value="exc-e1-atq">A-ATQ</option>
+            </select>
+          </td>
+          <td colspan="4">
+            <select autocomplete="off" id="colexc-e2" style="width:100%">
+              <option value="">Nenhum</option>
+              <option value="exc-e2-atq">A-ATQ</option>
+            </select>
+          </td>
+          <td colspan="4">
+            <select autocomplete="off" id="colexc-e3" style="width:100%">
+              <option value="">Nenhum</option>
+              <option value="exc-e3-atq">A-ATQ</option>
+              <option value="exc-e3-vda">A-VdA</option>
             </select>
           </td>
         </tr>
@@ -4446,7 +4504,7 @@
               <option value="20963">Manto Temporal FOR [1]</option>
               <option value="20968">Manto Temporal SOR [1]</option>
               <option value="2576">Mochila da Aventura [1]</option>
-              <option value="20773">Motor E.X.C. (3x A-ATQ)</option>
+              <option value="20773">Motor E.X.C.</option>
               <option value="20718a">Pele da Rainha Verme [1] (Des 4/4, Super Des)</option>
               <option value="20799">Toalha do Mochileiro [1]</option>
             </select>
@@ -4515,6 +4573,27 @@
               <option value="faw-e3-fa3">Fatal 3</option>
               <option value="faw-e3-fa2">Fatal 2</option>
               <option value="faw-e3-fa1">Fatal 1</option>
+            </select>
+          </td>
+        </tr>
+        <tr class="alwaysShow encantamentos encantamentosMotorEXC">
+          <td colspan="4" align="center">
+            <select autocomplete="off" id="motexc-e1" style="width:100%;margin-right:1%">
+              <option value="">Nenhum</option>
+              <option value="exc-e1-atq">A-ATQ</option>
+            </select>
+          </td>
+          <td colspan="4">
+            <select autocomplete="off" id="motexc-e2" style="width:100%">
+              <option value="">Nenhum</option>
+              <option value="exc-e2-atq">A-ATQ</option>
+            </select>
+          </td>
+          <td colspan="4">
+            <select autocomplete="off" id="motexc-e3" style="width:100%">
+              <option value="">Nenhum</option>
+              <option value="exc-e3-atq">A-ATQ</option>
+              <option value="exc-e3-vda">A-VdA</option>
             </select>
           </td>
         </tr>
@@ -5090,6 +5169,7 @@
         <div class="filtro-dano"><input type="checkbox" id="ptransfray"> <label for="ptransfray"><img src="https://i.imgur.com/grQ0v9W.png"> <span>Perg. Transf: Mavka / Raydric</span></label></div>
         <div class="filtro-aspd"><input type="checkbox" id="ptransfdev"> <label for="ptransfdev"><img src="https://i.imgur.com/grQ0v9W.png"> <span>Perg. Transf: Deviruchi</span></label></div>
         <div class="filtro-dano"><input type="checkbox" id="ptransfpor"> <label for="ptransfpor"><img src="https://i.imgur.com/grQ0v9W.png"> <span>Perg. Transf: Poring</span></label></div>
+        <div class=""><input type="checkbox" id="prevestirarma"> <label for="prevestirarma"><img src="https://i.imgur.com/grQ0v9W.png"> <span>Pergaminho de Revestir Arma</span></label></div>
       </div>
     </div>
   </div>
