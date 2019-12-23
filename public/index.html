@@ -1066,16 +1066,19 @@
           itemHDanoCriticoPorcentagem = 5;
           itemHDanoMVP = 5;
           itemHAspdFixa = 1;
+          itemHTaxaCritico = 5;
           if($("#itemTopo").val() == "19316" || $("#itemTopo").val() == "19316a") {
             if(parseInt($("#refinoItemTopo").val()) >= 6) {
               itemHDanoCriticoPorcentagem = 15;
               itemHDanoMVP = 15;
               itemHAspdFixa = 2;
+              itemHTaxaCritico += 10;
             }
             if(parseInt($("#refinoItemTopo").val()) >= 8) {
               itemHDanoCriticoPorcentagem = 30;
               itemHDanoMVP = 30;
               itemHAspdFixa = 3;
+              itemHTaxaCritico += 15;
             }
           }
           if($("#itemAcessorio2").val() == "490031") { resetarAcessorio2(); cpetal("acessorio2"); definirAcessorio2(); }
@@ -1086,17 +1089,20 @@
           itemIDanoCriticoPorcentagem = 5;
           itemIDanoMVP = 5;
           itemIAspdFixa = 1;
+          itemITaxaCritico = 5;
           if($("#itemTopo").val() == "19316" || $("#itemTopo").val() == "19316a") {
             if($("#itemAcessorio1").val() != "490031") {
               if(parseInt($("#refinoItemTopo").val()) >= 6) {
                 itemIDanoCriticoPorcentagem = 15;
                 itemIDanoMVP = 15;
                 itemIAspdFixa = 2;
+                itemITaxaCritico += 10;
               }
               if(parseInt($("#refinoItemTopo").val()) >= 8) {
                 itemIDanoCriticoPorcentagem = 30;
                 itemIDanoMVP = 30;
                 itemIAspdFixa = 3;
+                itemITaxaCritico += 15;
               }
             }
           }
@@ -2678,7 +2684,7 @@
         WeaponATK = Math.floor(((itemEAtaque) + Math.floor(itemEAtaque * Math.floor(DES / 200))) * reducaoTamanho); // removed Variance and OverUpgradeBonus
         ExtraATK = somatoriaItensAtaque + flechaAtaque + somatoriaConsumiveisAtaque; // removed PseudoBuffATK
 
-        danoCausado = Math.floor(Math.floor(Math.floor(Math.floor((((StatusATK * 2) + ataqueInvestigar + itemJAtaque) + Math.floor(Math.floor(Math.floor(Math.floor(Math.floor(Math.floor((Math.floor(WeaponATK * somatoriaItensAtaquePorcentagem) + ExtraATK) * multiplicadorElemental) * somatoriaItensDanoFisico) * somatoriaItensDanoMVP) * somatoriaItensDanoRacial) * somatoriaItensDanoPropriedade) * somatoriaItensDanoTamanho)) * somatoriaItensDanoDistancia) * 1.4) * somatoriaItensDanoCritico) * reducaoDanoMostro);
+        danoCausado = Math.floor(Math.floor(Math.floor(Math.floor((((StatusATK * 2) + ataqueInvestigar) + Math.floor(Math.floor(Math.floor(Math.floor(Math.floor(Math.floor((Math.floor(WeaponATK * somatoriaItensAtaquePorcentagem) + ExtraATK + itemJAtaque) * multiplicadorElemental) * somatoriaItensDanoFisico) * somatoriaItensDanoMVP) * somatoriaItensDanoRacial) * somatoriaItensDanoPropriedade) * somatoriaItensDanoTamanho)) * somatoriaItensDanoDistancia) * 1.4) * somatoriaItensDanoCritico) * reducaoDanoMostro);
 
         contadorMudancas++;
 
