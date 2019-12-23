@@ -2662,9 +2662,9 @@
         if($("#btyr").is(":checked")) { somatoriaConsumiveisAtaque += 20; }
         if($("#pbencao").is(":checked")) { bonusFor += 10; bonusDes += 10; }
         if($("#pagilidade").is(":checked")) { bonusAgi += 12; }
-        if($("#ptransfray").is(":checked")) { somatoriaItensDanoDistancia += 25; if(selectAlterado.is("#ptransfray")) $("#ptransfdev, #ptransfpor").prop("checked", false); }
+        if($("#ptransfray").is(":checked")) { somatoriaItensDanoDistancia += 0.25; if(selectAlterado.is("#ptransfray")) $("#ptransfdev, #ptransfpor").prop("checked", false); }
         if($("#ptransfdev").is(":checked")) { somatoriaItensAspdFixa += 1; if(selectAlterado.is("#ptransfdev")) $("#ptransfray, #ptransfpor").prop("checked", false); }
-        if($("#ptransfpor").is(":checked")) { somatoriaItensDanoCritico += 5; if(selectAlterado.is("#ptransfpor")) $("#ptransfray, #ptransfdev").prop("checked", false); }
+        if($("#ptransfpor").is(":checked")) { somatoriaItensDanoCritico += 0.05; if(selectAlterado.is("#ptransfpor")) $("#ptransfray, #ptransfdev").prop("checked", false); }
 
         $("#bonusFor").val("+" + bonusFor);
         $("#bonusAgi").val("+" + bonusAgi);
