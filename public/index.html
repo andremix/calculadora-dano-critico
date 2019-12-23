@@ -2608,7 +2608,7 @@
         hardDEF = parseInt($("#hardDEF").val());
 
         if($("#tamanho").val() == "0" || $("#tamanho").val() == "1") reducaoTamanho = 1; if($("#tamanho").val() == "2") reducaoTamanho = 0.75;
-        if($("#cartaArco1").val() == "4137" || $("#sobren-e1").val() == "sobren-e1-drake") { reducaoTamanho = 1; }
+        if($("#cartaArco1").val() == "4137" || $("#cartaArco2").val() == "4137" || $("#sobren-e1").val() == "sobren-e1-drake") { reducaoTamanho = 1; }
 
         somatoriaItensIgnorarDefesa = itemAIgnorarDefesa + itemBIgnorarDefesa + itemCIgnorarDefesa + itemDIgnorarDefesa + itemEIgnorarDefesa + itemFIgnorarDefesa + itemGIgnorarDefesa + itemHIgnorarDefesa + itemIIgnorarDefesa;
         if(somatoriaItensIgnorarDefesa > 100) { somatoriaItensIgnorarDefesa = 100; }
