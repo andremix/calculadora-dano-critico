@@ -8,7 +8,7 @@
   },
   "author": "",
   "license": "ISC",
-  "dependendices": {
+  "dependencices": {
     "express": "*",
     "axios": "*"
   }
