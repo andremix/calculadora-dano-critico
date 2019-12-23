@@ -2731,7 +2731,8 @@
 
         calcularPontosAtributo();
 
-        var vaiQuebrar = "sim";
+        var vaiQuebrar = "nao";
+        if($("#itemAcessorio1").val() == "28492b" || $("#itemAcessorio1").val() == "28492d" || $("#itemAcessorio2").val() == "28492b" || $("#itemAcessorio2").val() == "28492d") vaiQuebrar = "sim";
         if($("#prevestirarma").prop("checked") == true || $("#cartaArco1").val() == "4407" || $("#cartaArco1").val() == "4072" || $("#cartaArco2").val() == "4407" || $("#cartaArco2").val() == "4072" || $("#sobren-e1").val() == "sobren-e1-golem") { vaiQuebrar = "nao"; }
 
         if(vaiQuebrar == "sim") {
