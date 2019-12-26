@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Calculadora de dano crítico para Renegados</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script type="text/javascript">
@@ -103,6 +103,7 @@
         } else {
           $(".controladorAtributos.mais").attr("disabled", false)
         }
+        calcularPontosAtributo();
       });
       $("#nivelClasse").on("change", function() {
         if(!$.isNumeric($(this).val())) { $(this).val(60); }
@@ -1857,6 +1858,7 @@
             pontosAtributoTotais -= pontosGastosPorAtributo[ii];
           }
         });
+        if($("#adotado").prop("checked")) { pontosAtributoTotais -= 52; }
         $("#disponiveis").val(pontosAtributoTotais);
       }
 
@@ -2723,7 +2725,7 @@
         statASPD = Math.sqrt( ( AGI * 9.9987 ) + ( DES * 0.1922 ) );
         var aspdMultiplier = 0;
         if($("#itemAcessorio1").val() == "28492c" || $("#itemAcessorio1").val() == "28492d" || $("#itemAcessorio2").val() == "28492c" || $("#itemAcessorio2").val() == "28492d") { aspdMultiplier += 30; }
-        aspdMultiplier = ( 100 - aspdMultiplier ) / 100.0;
+        aspdMultiplier = ( 100 - aspdMultiplier ) / 100;
         AspdFinal = ( 200 - ( 200 - ( jobASPD - aspdCorrection + statASPD * aspdPenalty ) ) * aspdMultiplier );
         percentAspdEquipment = (195 - AspdFinal) * (somatoriaItensAspdPorcentagem / 100);
         AspdFinal += percentAspdEquipment
