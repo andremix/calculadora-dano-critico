@@ -308,6 +308,19 @@
         if($("#itemArco").val() == "1730" || $("#itemArco").val() == "1731" || $("#itemArco").val() == "1732" || $("#itemArco").val() == "1733") { itemADanoDistancia = itemADanoDistancia + 45; }
       }
 
+      function emorrigane() {
+        imagemTopo = "https://i.imgur.com/rLVuPLK.png";
+        slotsTopo = 0;
+        itemASorte = 2;
+        itemAAtaque = 3;
+        if($("#itemCapa").val() == "2519" && ($("#itemAcessorio1").val() == "2650" || $("#itemAcessorio2").val() == "2650") && ($("#itemAcessorio1").val() == "2651" || $("#itemAcessorio2").val() == "2651")) {
+          itemAForca += 2;
+          itemATaxaCritico += 13;
+          itemASorte += 9;
+          itemAAtaque += 18;
+        }
+      }
+
       function tapaoa() {
         imagemMeio = "https://i.imgur.com/ku2c0dr.png";
         slotsMeio = 1;
@@ -913,6 +926,12 @@
         itemFAspdPorcentagem = 10;
       }
 
+      function mmorrigane() {
+        imagemCapa = "https://i.imgur.com/GML9aTe.png";
+        slotsCapa = 0;
+        itemFSorte = 2;
+      }
+
       function mochileiro() {
         imagemCapa = "https://i.imgur.com/OO6u84L.png";
         slotsCapa = 1;
@@ -1132,6 +1151,36 @@
             if($("#faw-e1").val() == "faw-e1-aa1" || $("#faw-e2").val() == "faw-e2-aa1" || $("#faw-e3").val() == "faw-e3-aa1") itemIAspdFixa += 1;
             if($("#faw-e1").val() == "faw-e1-aa2" || $("#faw-e2").val() == "faw-e2-aa2" || $("#faw-e3").val() == "faw-e3-aa2") itemIAspdFixa += 1;
           }
+        }
+      }
+
+      function cmorrigane(acessorio) {
+        if(acessorio == "acessorio1") {
+          imagemAcessorio1 = "https://i.imgur.com/9lTIYxB.png";
+          slotsAcessorio1 = 0;
+          itemHAtaque = 5;
+          itemHTaxaCritico = 3;
+        }
+        if(acessorio == "acessorio2") {
+          imagemAcessorio2 = "https://i.imgur.com/9lTIYxB.png";
+          slotsAcessorio2 = 0;
+          itemIAtaque = 5;
+          itemITaxaCritico = 3;
+        }
+      }
+
+      function cmorrigane(acessorio) {
+        if(acessorio == "acessorio1") {
+          imagemAcessorio1 = "https://i.imgur.com/8UxsH8S.png";
+          slotsAcessorio1 = 0;
+          itemHForca = 2;
+          itemHTaxaCritico = 3;
+        }
+        if(acessorio == "acessorio2") {
+          imagemAcessorio2 = "https://i.imgur.com/8UxsH8S.png";
+          slotsAcessorio2 = 0;
+          itemIForca = 2;
+          itemITaxaCritico = 3;
         }
       }
 
@@ -1908,6 +1957,9 @@
             case "19019":
               copas();
               break;
+            case "5127":
+              emorrigane();
+              break;
             default:
               resetarTopo();
           }
@@ -2176,8 +2228,11 @@
             case "2576":
               mochila();
               break;
-            case "20939":
+            case "2519":
               mstempo();
+              break;
+            case "20939":
+              mmorrigane();
               break;
             case "20799":
               mochileiro();
@@ -2266,6 +2321,12 @@
             case "28501":
               ckirin("acessorio1");
               break;
+            case "2650":
+              cmorrigane("acessorio1");
+              break;
+            case "2651":
+              pmorrigane("acessorio1");
+              break;
             case "490031":
               cpetal("acessorio1");
               break;
@@ -2343,6 +2404,12 @@
               break;
             case "28501":
               ckirin("acessorio2");
+              break;
+            case "2650":
+              cmorrigane("acessorio2");
+              break;
+            case "2651":
+              pmorrigane("acessorio2");
               break;
             case "490031":
               cpetal("acessorio2");
@@ -3753,6 +3820,7 @@
               <option value="19296">Chapéu Chique com Pena [1]</option>
               <option value="18541">Chapéu de Caçador [1]</option>
               <option value="19019">Coroa da Rainha de Copas [1]</option>
+              <option value="5127">Elmo de Morrigane</option>
               <option value="19263">Elmo de Xogunato [1]</option>
               <option value="19029">Miniatura de Alice [1] + mascote Alice leal</option>
               <option value="19111">Olho da Cecil [1]</option>
@@ -4634,6 +4702,7 @@
             <select autocomplete="off" id="itemCapa" style="width:100%;margin-right:1%">
               <option value="">Nenhum</option>
               <option value="2589">Asas de Arcanjo Caído [1]</option>
+              <option value="2519">Manteau de Morrigane</option>
               <option value="20939">Manto do Senhor do Tempo [1]</option>
               <option value="20941">Manto Fênix [1]</option>
               <option value="20922">Manto Leviatã [1]</option>
@@ -5021,6 +5090,7 @@
               <option value="28411">Brincos de Esmeralda [1]</option>
               <option value="490031">Cauda de Petal [1]</option>
               <option value="28501">Chifres de Kirin [1]</option>
+              <option value="2650">Cinto de Morrigante</option>
               <option value="28433">Cristal da Luz Azul [1]</option>
               <option value="28492a">Diário do Renegado [1]</option>
               <option value="28492b">Diário do Renegado [1] - Força Violentíssima</option>
@@ -5030,6 +5100,7 @@
               <option value="2928b">Luva da Sorte [0]</option>
               <option value="28531">Luvas do Vigor [1]</option>
               <option value="28565">Máscara de Oni [1]</option>
+              <option value="2651">Pingente de Morrigante</option>
               <option value="28438">Pó de Fada [1]</option>
               <option value="28521">Proteção do Gigante [1]</option>
               <option value="28491">Punhal de Matagi [1]</option>
@@ -5164,6 +5235,7 @@
               <option value="28411">Brincos de Esmeralda [1]</option>
               <option value="490031">Cauda de Petal [1]</option>
               <option value="28501">Chifres de Kirin [1]</option>
+              <option value="2650">Cinto de Morrigante</option>
               <option value="28433">Cristal da Luz Azul [1]</option>
               <option value="28492a">Diário do Renegado [1]</option>
               <option value="28492b">Diário do Renegado [1] - Força Violentíssima</option>
@@ -5173,6 +5245,7 @@
               <option value="2928b">Luva da Sorte [0]</option>
               <option value="28531">Luvas do Vigor [1]</option>
               <option value="28565">Máscara de Oni [1]</option>
+              <option value="2651">Pingente de Morrigante</option>
               <option value="28438">Pó de Fada [1]</option>
               <option value="28521">Proteção do Gigante [1]</option>
               <option value="28491">Punhal de Matagi [1]</option>
