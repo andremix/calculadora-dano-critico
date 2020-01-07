@@ -175,6 +175,75 @@
         });
       }
 
+      var lastStylizedClicked = false;
+      function stylizeSelect(selectElement) {
+        let newSelectId = selectElement.attr("id");
+        let optionSelected = selectElement.find("option:selected").text();
+        let optionsTextColor = selectElement.css("color");
+        let newSelect = `<div class="select-group` + (selectElement.attr("disabled") ? " disabled" : "") + `" select-target="` + newSelectId + `">
+          <span style="color: ` + optionsTextColor + `">` + optionSelected + `</span>
+            <div class="select-options-group">
+              <div class="select-text">
+                <input type="text" placeholder="Filtrar">
+              </div>
+              <div class="select-options">`;
+        selectElement.find("option").each(function() {
+          let optionValue = $(this).val();
+          let optionText = $(this).text();
+          newSelect += `<span value="` + optionValue + `">` + optionText + `</span>`;
+        });
+        newSelect += `</div>
+        </div>`;
+        selectElement.hide();
+        selectElement.before(newSelect);
+      }
+
+      function destroyStylizedSelect(selectElement) {
+        selectElement.remove();
+      }
+
+      $("select").each(function() {
+        stylizeSelect($(this));
+      });
+
+      $(".select-group > span").on("click", function() {
+        if(!$(this).closest(".select-group").is(".disabled")) {
+          let selectGroup = $(this).closest(".select-group");
+          if(selectGroup.hasClass("active")) {
+            selectGroup.removeClass("active");
+          } else {
+            selectGroup.addClass("active");
+            selectGroup.find(".select-options").scrollTop(0);
+            selectGroup.find("input").focus();
+          }
+        }
+      });
+      $(window).click(function(e) {
+        $target = $(event.target);
+        $(".select-group.active").not($target.closest(".select-group.active")).removeClass("active");
+      });
+      jQuery.expr[':'].Contains = function(a, i, m) {
+        return jQuery(a).text().toUpperCase()
+            .indexOf(m[3].toUpperCase()) >= 0;
+      };
+      $(".select-group input").keyup(function() {
+        let textInput = $(this).val();
+        $(this).closest(".select-group").find(".select-options span").hide();
+        $(this).closest(".select-group").find(".select-options span:Contains(" + textInput + ")").show();
+      });
+      $(".select-options span").click(function() {
+        let optionValue = $(this).attr("value");
+        let optionText = $(this).text();
+        let optionId = $(this).closest(".select-group").attr("select-target");
+        lastStylizedClicked = optionId;
+        $("#" + optionId).val(optionValue);
+        $(this).closest(".select-group").find("> span").text(optionText);
+        $(this).closest(".select-options").find("span").removeClass("active");
+        $(this).addClass("active");
+        $(".select-group.active").removeClass("active");
+        $("#" + optionId).trigger("change");
+      });
+
       colorirInput();
 
       $("input.numero").change(function(){
@@ -247,7 +316,7 @@
         itemAIgnorarDefesa = 70;
         itemATaxaCritico = 50;
         itemAAspdFixa = 4;
-        if(parseInt($("#refinoItemTopo").val()) < 11) { $("#refinoItemTopo").val("11"); }
+        if(parseInt($("#refinoItemTopo").val()) < 11) { $("#refinoItemTopo").val("11").change(); }
       }
 
       function chique() {
@@ -774,8 +843,6 @@
         slotsArco = 1;
         encantamentoArco = "nenhum";
         itemEAtaque = 95 + (refinoItemArco * 5);
-        if($("#itemTopo").val() == "19019") { resetarTopo(); copas(); cartaTopo(); definirTopo(); }
-        if($("#itemArmadura").val() == "19048") { resetarArmadura(); vorags(); cartaArmadura(); definirArmadura(); }
       }
 
       function gakkung() {
@@ -903,7 +970,6 @@
         imagemCapa = "https://i.imgur.com/dshD7zb.png";
         slotsCapa = 0;
         encantamentoCapa = "exc";
-        if($("#itemArmadura").val() == "15128") { resetarArmadura(); colete(); cartaArmadura(); definirArmadura(); }
       }
 
       function mochila() {
@@ -952,7 +1018,6 @@
         encantamentoCapa = "nenhum";
         itemFDestreza = 9;
         if(parseInt($("#refinoItemCapa").val()) >= 8) { itemFDestreza = 12; }
-        if($("#itemBaixo").val() == "19268") { resetarBaixo(); halito(); definirBaixo(); }
       }
 
       function temporaissor(slot) {
@@ -1103,7 +1168,6 @@
               itemHTaxaCritico += 15;
             }
           }
-          if($("#itemAcessorio2").val() == "490031") { resetarAcessorio2(); cpetal("acessorio2"); definirAcessorio2(); }
         }
         if(acessorio == "acessorio2") {
           imagemAcessorio2 = "https://i.imgur.com/e89MbjU.png";
@@ -1329,7 +1393,6 @@
           itemIDanoCriticoPorcentagem = 2;
           if(parseInt($("#sor").val()) >= 100) { itemIDanoCriticoPorcentagem = 12; }
         }
-        if($("#itemCapa").val() == "2589") { resetarCapa(); arcanjo(); definirCapa(); }
       }
 
       function esmeralda(acessorio) {
@@ -2759,8 +2822,6 @@
 
         contadorMudancas++;
 
-        console.log(contadorMudancas);
-
         if(contadorMudancas % 40 == 0 && contadorMudancas != 0) $("#monster-image .balloon").show();
 
         // Preparação de propriedade para dano do Impatco Explosivo
@@ -2778,8 +2839,6 @@
         bonusFrenesiForcaViolentissima = 1 + frenesi + forcaViolentissima;
 
         danoCausadoFinal = Math.floor((danoCausado * bonusFrenesiForcaViolentissima) + bonusImpactoExplosivo);
-
-        //console.log(danoCausadoFinal);
 
         somatoriaAcertoCritico += Math.floor(1 + (SOR / 3)) + itemATaxaCritico + itemBTaxaCritico + itemCTaxaCritico + itemDTaxaCritico + itemETaxaCritico + itemFTaxaCritico + itemGTaxaCritico + itemHTaxaCritico + itemITaxaCritico;
         $("#taxacritico").val(somatoriaAcertoCritico);
@@ -2820,6 +2879,18 @@
           $("#danofinal").val(danoCausadoFinal);
           $("#armaquebrada").text("");
         }
+
+        $("select").each(function() {
+          let selectId = $(this).attr("id");
+          let selectOption = $(this).find("option:selected").attr("value");
+          let selectText = $(this).find("option:selected").text();
+          let optionsTextColor = $(this).css("color");
+          if($(this).is(":disabled")) { $(".select-group[select-target='" + selectId + "']").addClass("disabled"); } else { $(".select-group[select-target='" + selectId + "']").removeClass("disabled"); }
+          $(".select-group[select-target='" + selectId + "'] > span").css("color", optionsTextColor);
+          $(".select-group[select-target='" + selectId + "'] > span").text(selectText);
+          $(".select-group[select-target='" + selectId + "'] .select-options span").removeClass("active");
+          $(".select-group[select-target='" + selectId + "'] .select-options span[value='" + selectOption + "']").addClass("active");
+        });
 
       });
 
@@ -2904,6 +2975,7 @@
     table {
       width: 100%;
       margin: 0 auto 10px;
+      table-layout: fixed;
     }
 
     .janelaEquipamento {
@@ -3405,6 +3477,101 @@
       cursor: pointer;
     }
 
+    .select-group {
+      box-sizing: border-box;
+      width: 100%;
+      position: relative;
+      text-align: left;
+    }
+    .select-group * {
+      -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+         -khtml-user-select: none; /* Konqueror HTML */
+           -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none;
+      box-sizing: border-box;
+      font-size: 10px;
+    }
+    .select-group > span {
+      display: block;
+      width: 100%;
+      border: 1px solid #ffffff;
+      padding: 5px 25px 5px 5px;
+      height: 24px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      cursor: pointer;
+      box-sizing: border-box;
+      background: #f4f4f4;
+    }
+    .select-group.disabled > span {
+      cursor: default;
+    }
+    .select-group:not(.disabled) > span:hover, .select-group:not(.disabled).active > span {
+      border-color: #89b0ec;
+      background: white;
+      outline: 1px solid #89b0ec;
+      outline-offset: -2px;
+    }
+    .select-group:not(.disabled):after {
+      display: block;
+      content: "";
+      width: 22px;
+      height: 22px;
+      background-image: url("https://i.imgur.com/0MkM49x.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      right: 3px;
+      top: 1px;
+      pointer-events: none;
+      transform: scale(0.8);
+    }
+    .select-group .select-options-group {
+      display: none;
+      width: 100%;
+      position: absolute;
+      top: 100%;
+      border: 1px solid #89b0ec;
+      border-top-width: 0px;
+      z-index: 1;
+    }
+    .select-group.active .select-options-group {
+      display: block;
+    }
+    .select-group .select-options {
+      overflow-y: scroll;
+      max-height: 165px;
+      border-top: 1px solid #eee;
+    }
+    .select-group .select-options-group .select-text {
+      background: white;
+      padding: 3px;
+    }
+    .select-group .select-options-group .select-text input:active, .select-group .select-options-group .select-text input:focus {
+      outline: 1px solid white;
+      border: 1px solid #ccc;
+    }
+    .select-group .select-options-group .select-text input {
+      padding: 3px;
+    }
+    .select-group .select-options-group span {
+      display: block;
+      width: 100%;
+      background: white;
+      padding: 5px;
+      line-height: 1.4em;
+      cursor: pointer;
+    }
+    .select-group .select-options-group span:not(:first-child) {
+      border-top: 1px solid #eee;
+    }
+    .select-group .select-options-group span:hover, .select-group .select-options-group span.active {
+      background: #d6e3f7;
+    }
+
     @media screen and (max-width:579px) {
       .columns .columnLeft,
       .columns .columnRight {
@@ -3767,18 +3934,18 @@
     <div class="columnLeft janelaEquipamento">
       <table cellspacing="0" cellpadding="5">
         <colgroup>
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
         </colgroup>
         <tr class="alwaysShow">
           <th colspan="3"><img src="https://i.imgur.com/dGfpOV4.png" width="9" height="9" class="showhideImage escondendo" alt="showhide button"></th>
@@ -3923,18 +4090,18 @@
     <div class="columnRight janelaEquipamento">
       <table cellspacing="0" cellpadding="5">
         <colgroup>
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
         </colgroup>
         <tr class="alwaysShow">
           <th colspan="3"><img src="https://i.imgur.com/dGfpOV4.png" width="9" height="9" class="showhideImage escondendo" alt="showhide button"></th>
@@ -4050,18 +4217,18 @@
     <div class="columnLeft janelaEquipamento">
       <table cellspacing="0" cellpadding="5">
         <colgroup>
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
         </colgroup>
         <tr class="alwaysShow">
           <th colspan="3"><img src="https://i.imgur.com/dGfpOV4.png" width="9" height="9" class="showhideImage escondendo" alt="showhide button"></th>
@@ -4159,18 +4326,18 @@
     <div class="columnRight janelaEquipamento">
       <table cellspacing="0" cellpadding="5">
         <colgroup>
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
         </colgroup>
         <tr class="alwaysShow">
           <th colspan="3"><img src="https://i.imgur.com/dGfpOV4.png" width="9" height="9" class="showhideImage escondendo" alt="showhide button"></th>
@@ -4333,18 +4500,18 @@
     <div class="columnLeft janelaEquipamento">
       <table cellspacing="0" cellpadding="5">
         <colgroup>
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
         </colgroup>
         <tr class="alwaysShow">
           <th colspan="3"><img src="https://i.imgur.com/dGfpOV4.png" width="9" height="9" class="showhideImage escondendo" alt="showhide button"></th>
@@ -4614,18 +4781,18 @@
     <div class="columnRight janelaEquipamento">
       <table cellspacing="0" cellpadding="5">
         <colgroup>
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
         </colgroup>
         <tr class="alwaysShow">
           <th colspan="3"><img src="https://i.imgur.com/dGfpOV4.png" width="9" height="9" class="showhideImage escondendo" alt="showhide button"></th>
@@ -4654,18 +4821,18 @@
     <div class="columnLeft janelaEquipamento">
       <table cellspacing="0" cellpadding="5">
         <colgroup>
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
         </colgroup>
         <tr class="alwaysShow">
           <th colspan="3"><img src="https://i.imgur.com/dGfpOV4.png" width="9" height="9" class="showhideImage escondendo" alt="showhide button"></th>
@@ -4878,18 +5045,18 @@
     <div class="columnRight janelaEquipamento">
       <table cellspacing="0" cellpadding="5">
         <colgroup>
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
         </colgroup>
         <tr class="alwaysShow">
           <th colspan="3"><img src="https://i.imgur.com/dGfpOV4.png" width="9" height="9" class="showhideImage escondendo" alt="showhide button"></th>
@@ -5058,18 +5225,18 @@
     <div class="columnLeft janelaEquipamento">
       <table cellspacing="0" cellpadding="5">
         <colgroup>
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
         </colgroup>
         <tr class="alwaysShow">
           <th colspan="3"><img src="https://i.imgur.com/dGfpOV4.png" width="9" height="9" class="showhideImage escondendo" alt="showhide button"></th>
@@ -5203,18 +5370,18 @@
     <div class="columnRight janelaEquipamento">
       <table cellspacing="0" cellpadding="5">
         <colgroup>
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
-          <col width="8.4%">
-          <col width="8.3%">
-          <col width="8.3%">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
+          <col width="21">
         </colgroup>
         <tr class="alwaysShow">
           <th colspan="3"><img src="https://i.imgur.com/dGfpOV4.png" width="9" height="9" class="showhideImage escondendo" alt="showhide button"></th>
