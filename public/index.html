@@ -67,6 +67,7 @@
           if(numero < maximoAtributos) { $("#" + element).val(numero + 1); }
           if(numero > maximoAtributos) { $("#" + element).val(maximoAtributos); }
         }
+        $("#" + element).focus();
         $("#" + element).trigger("change");
       });
       $("table img").click(function() {
