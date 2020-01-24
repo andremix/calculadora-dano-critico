@@ -2818,7 +2818,7 @@
         WeaponATK = Math.floor(((itemEAtaque) + Math.floor(itemEAtaque * Math.floor(DES / 200))) * reducaoTamanho); // removed Variance and OverUpgradeBonus
         ExtraATK = somatoriaItensAtaque + flechaAtaque + somatoriaConsumiveisAtaque; // removed PseudoBuffATK
 
-        danoCausado = Math.floor(Math.floor(Math.floor(Math.floor((((StatusATK * 2) + ataqueInvestigar) + Math.floor(Math.floor(Math.floor(Math.floor(Math.floor(Math.floor((Math.floor(WeaponATK * somatoriaItensAtaquePorcentagem) + ExtraATK + itemJAtaque) * multiplicadorElemental) * somatoriaItensDanoFisico) * somatoriaItensDanoMVP) * somatoriaItensDanoRacial) * somatoriaItensDanoPropriedade) * somatoriaItensDanoTamanho)) * somatoriaItensDanoDistancia) * 1.4) * somatoriaItensDanoCritico) * reducaoDanoMostro);
+        danoCausado = Math.floor(Math.floor(Math.floor(Math.floor((((StatusATK * 2)) + Math.floor(Math.floor(Math.floor(Math.floor(Math.floor(Math.floor((Math.floor(WeaponATK * somatoriaItensAtaquePorcentagem) + ExtraATK + itemJAtaque + ataqueInvestigar) * multiplicadorElemental) * somatoriaItensDanoFisico) * somatoriaItensDanoMVP) * somatoriaItensDanoRacial) * somatoriaItensDanoPropriedade) * somatoriaItensDanoTamanho)) * somatoriaItensDanoDistancia) * 1.4) * somatoriaItensDanoCritico) * reducaoDanoMostro);
 
         contadorMudancas++;
 
