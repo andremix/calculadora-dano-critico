@@ -2749,7 +2749,7 @@
         if(somatoriaItensIgnorarDefesa > 100) { somatoriaItensIgnorarDefesa = 100; }
         somatoriaItensIgnorarDefesa = 1 - (somatoriaItensIgnorarDefesa / 100);
         defesaMonstroIgnorada = hardDEF * somatoriaItensIgnorarDefesa;
-        if($("#cartaArco1").val() == "4399") { ataqueInvestigar = defesaMonstroIgnorada / 2; defesaMonstroIgnorada = 0; }
+        if($("#cartaArco1").val() == "4399" || $("#cartaArco2").val() == "4399") { ataqueInvestigar = defesaMonstroIgnorada / 2; defesaMonstroIgnorada = 0; }
         reducaoDanoMostro = (4000 + defesaMonstroIgnorada) / (4000 + (defesaMonstroIgnorada * 10));
         somatoriaItensAtaque = itemAAtaque + itemBAtaque + itemCAtaque + itemDAtaque + itemEAtaqueEquipamento + itemFAtaque + itemGAtaque + itemHAtaque + itemIAtaque;
         somatoriaItensAtaquePorcentagem = 1 + ((itemAAtaqueArmaPorcentagem + itemBAtaqueArmaPorcentagem + itemCAtaqueArmaPorcentagem + itemDAtaqueArmaPorcentagem + itemEAtaqueArmaPorcentagem + itemFAtaqueArmaPorcentagem + itemGAtaqueArmaPorcentagem + itemHAtaqueArmaPorcentagem + itemIAtaqueArmaPorcentagem) / 100);
