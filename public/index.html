@@ -1808,30 +1808,30 @@
         if($("#catapa-e2").val() == "catapa-e2-pc2") {  }
         if($("#catapa-e2").val() == "catapa-e2-pc1") {  }
         if($("#malang-e1").val() == "malang-e1-ma6") { itemEDanoDistancia += 12; }
-        if($("#malang-e1").val() == "malang-e1-ma6") { itemEDanoDistancia += 10; }
-        if($("#malang-e1").val() == "malang-e1-ma6") { itemEDanoDistancia += 8; }
-        if($("#malang-e1").val() == "malang-e1-ma6") { itemEDanoDistancia += 6; }
-        if($("#malang-e1").val() == "malang-e1-ma6") { itemEDanoDistancia += 4; }
-        if($("#malang-e1").val() == "malang-e1-el8") { itemEAtaque += 27; }
-        if($("#malang-e1").val() == "malang-e1-el7") { itemEAtaque += 24; }
-        if($("#malang-e1").val() == "malang-e1-el6") { itemEAtaque += 21; }
-        if($("#malang-e1").val() == "malang-e1-el5") { itemEAtaque += 18; }
-        if($("#malang-e1").val() == "malang-e1-el4") { itemEAtaque += 15; }
+        if($("#malang-e1").val() == "malang-e1-ma5") { itemEDanoDistancia += 10; }
+        if($("#malang-e1").val() == "malang-e1-ma4") { itemEDanoDistancia += 8; }
+        if($("#malang-e1").val() == "malang-e1-ma3") { itemEDanoDistancia += 6; }
+        if($("#malang-e1").val() == "malang-e1-ma2") { itemEDanoDistancia += 4; }
+        if($("#malang-e1").val() == "malang-e1-el8") { itemEAtaqueEquipamento += 27; }
+        if($("#malang-e1").val() == "malang-e1-el7") { itemEAtaqueEquipamento += 24; }
+        if($("#malang-e1").val() == "malang-e1-el6") { itemEAtaqueEquipamento += 21; }
+        if($("#malang-e1").val() == "malang-e1-el5") { itemEAtaqueEquipamento += 18; }
+        if($("#malang-e1").val() == "malang-e1-el4") { itemEAtaqueEquipamento += 15; }
         if($("#malang-e1").val() == "malang-e1-pc5") { itemETaxaCritico += 15; }
         if($("#malang-e1").val() == "malang-e1-pc4") { itemETaxaCritico += 14; }
         if($("#malang-e1").val() == "malang-e1-pc3") { itemETaxaCritico += 12; }
         if($("#malang-e1").val() == "malang-e1-pc2") { itemETaxaCritico += 9; }
         if($("#malang-e1").val() == "malang-e1-va1") { itemEAspdFixa += 1; }
         if($("#malang-e2").val() == "malang-e2-ma6") { itemEDanoDistancia += 12; }
-        if($("#malang-e2").val() == "malang-e2-ma6") { itemEDanoDistancia += 10; }
-        if($("#malang-e2").val() == "malang-e2-ma6") { itemEDanoDistancia += 8; }
-        if($("#malang-e2").val() == "malang-e2-ma6") { itemEDanoDistancia += 6; }
-        if($("#malang-e2").val() == "malang-e2-ma6") { itemEDanoDistancia += 4; }
-        if($("#malang-e2").val() == "malang-e2-el8") { itemEAtaque += 27; }
-        if($("#malang-e2").val() == "malang-e2-el7") { itemEAtaque += 24; }
-        if($("#malang-e2").val() == "malang-e2-el6") { itemEAtaque += 21; }
-        if($("#malang-e2").val() == "malang-e2-el5") { itemEAtaque += 18; }
-        if($("#malang-e2").val() == "malang-e2-el4") { itemEAtaque += 15; }
+        if($("#malang-e2").val() == "malang-e2-ma5") { itemEDanoDistancia += 10; }
+        if($("#malang-e2").val() == "malang-e2-ma4") { itemEDanoDistancia += 8; }
+        if($("#malang-e2").val() == "malang-e2-ma3") { itemEDanoDistancia += 6; }
+        if($("#malang-e2").val() == "malang-e2-ma2") { itemEDanoDistancia += 4; }
+        if($("#malang-e2").val() == "malang-e2-el8") { itemEAtaqueEquipamento += 27; }
+        if($("#malang-e2").val() == "malang-e2-el7") { itemEAtaqueEquipamento += 24; }
+        if($("#malang-e2").val() == "malang-e2-el6") { itemEAtaqueEquipamento += 21; }
+        if($("#malang-e2").val() == "malang-e2-el5") { itemEAtaqueEquipamento += 18; }
+        if($("#malang-e2").val() == "malang-e2-el4") { itemEAtaqueEquipamento += 15; }
         if($("#malang-e2").val() == "malang-e2-pc5") { itemETaxaCritico += 15; }
         if($("#malang-e2").val() == "malang-e2-pc4") { itemETaxaCritico += 14; }
         if($("#malang-e2").val() == "malang-e2-pc3") { itemETaxaCritico += 12; }
@@ -2967,10 +2967,8 @@
       });
 
       $(".columns.toHide table").each(function() {
-        var numeroTrAparecendo = $(this).find("tr.alwaysShow").length;
         $(this).find("tr").not(".alwaysShow").css("display","none");
-        $(this).find("tr").not(".alwaysShow").css("display","none");
-        $(this).find("tr:nth-child("+numeroTrAparecendo+")").after("<tr class='alwaysShow showhide'><th colspan='12'><input type='button' value='+ mostrar bônus' class='escondendo'></td></tr>");
+        $(this).find("tr.bonusItem").first().before("<tr class='alwaysShow showhide'><th colspan='12'><input type='button' value='+ mostrar bônus' class='escondendo'></td></tr>");
       });
 
       $(".showhide input, .showhideImage").click(function() {
