@@ -750,7 +750,7 @@
       function demoniaco(selectAlterado) {
         imagemArco = "https://i.imgur.com/u3OhyOC.png";
         slotsArco = 2;
-        encantamentoArco = "nenhum";
+        encantamentoArco = "malang2";
         if(selectAlterado.is("#itemArco")) { $("#itemFlecha").val("1767"); }
         if($("#itemFlecha").val() == "1767") { itemEDanoDistancia = 50; }
         itemEAtaque = 130 + (refinoItemArco * 7);
@@ -1645,14 +1645,22 @@
           switch (encantamento) {
             case "sobrenatural":
               $(".encantamentosCatapa select").each(function(){ $(this).val(""); }); $(".encantamentosCatapa").hide();
+              $(".encantamentosMalangdo2 select").each(function(){ $(this).val(""); }); $(".encantamentosMalangdo2").hide();
               $(".encantamentosSobrenatural").show();
               break;
             case "catapa":
               $(".encantamentosSobrenatural select").each(function(){ $(this).val(""); }); $(".encantamentosSobrenatural").hide();
+              $(".encantamentosMalangdo2 select").each(function(){ $(this).val(""); }); $(".encantamentosMalangdo2").hide();
               $(".encantamentosCatapa").show();
+              break;
+            case "malang2":
+              $(".encantamentosSobrenatural select").each(function(){ $(this).val(""); }); $(".encantamentosSobrenatural").hide();
+              $(".encantamentosCatapa select").each(function(){ $(this).val(""); }); $(".encantamentosCatapa").hide();
+              $(".encantamentosMalangdo2").show();
               break;
             default:
               $(".encantamentosCatapa select").each(function(){ $(this).val(""); }); $(".encantamentosCatapa").hide();
+              $(".encantamentosMalangdo2 select").each(function(){ $(this).val(""); }); $(".encantamentosMalangdo2").hide();
               $(".encantamentosSobrenatural select").each(function(){ $(this).val(""); }); $(".encantamentosSobrenatural").hide();
           }
         }
@@ -1799,6 +1807,36 @@
         if($("#catapa-e2").val() == "catapa-e2-pc3") {  }
         if($("#catapa-e2").val() == "catapa-e2-pc2") {  }
         if($("#catapa-e2").val() == "catapa-e2-pc1") {  }
+        if($("#malang-e1").val() == "malang-e1-ma6") { itemEDanoDistancia += 12; }
+        if($("#malang-e1").val() == "malang-e1-ma6") { itemEDanoDistancia += 10; }
+        if($("#malang-e1").val() == "malang-e1-ma6") { itemEDanoDistancia += 8; }
+        if($("#malang-e1").val() == "malang-e1-ma6") { itemEDanoDistancia += 6; }
+        if($("#malang-e1").val() == "malang-e1-ma6") { itemEDanoDistancia += 4; }
+        if($("#malang-e1").val() == "malang-e1-el8") { itemEAtaque += 27; }
+        if($("#malang-e1").val() == "malang-e1-el7") { itemEAtaque += 24; }
+        if($("#malang-e1").val() == "malang-e1-el6") { itemEAtaque += 21; }
+        if($("#malang-e1").val() == "malang-e1-el5") { itemEAtaque += 18; }
+        if($("#malang-e1").val() == "malang-e1-el4") { itemEAtaque += 15; }
+        if($("#malang-e1").val() == "malang-e1-pc5") { itemETaxaCritico += 15; }
+        if($("#malang-e1").val() == "malang-e1-pc4") { itemETaxaCritico += 14; }
+        if($("#malang-e1").val() == "malang-e1-pc3") { itemETaxaCritico += 12; }
+        if($("#malang-e1").val() == "malang-e1-pc2") { itemETaxaCritico += 9; }
+        if($("#malang-e1").val() == "malang-e1-va1") { itemEAspdFixa += 1; }
+        if($("#malang-e2").val() == "malang-e2-ma6") { itemEDanoDistancia += 12; }
+        if($("#malang-e2").val() == "malang-e2-ma6") { itemEDanoDistancia += 10; }
+        if($("#malang-e2").val() == "malang-e2-ma6") { itemEDanoDistancia += 8; }
+        if($("#malang-e2").val() == "malang-e2-ma6") { itemEDanoDistancia += 6; }
+        if($("#malang-e2").val() == "malang-e2-ma6") { itemEDanoDistancia += 4; }
+        if($("#malang-e2").val() == "malang-e2-el8") { itemEAtaque += 27; }
+        if($("#malang-e2").val() == "malang-e2-el7") { itemEAtaque += 24; }
+        if($("#malang-e2").val() == "malang-e2-el6") { itemEAtaque += 21; }
+        if($("#malang-e2").val() == "malang-e2-el5") { itemEAtaque += 18; }
+        if($("#malang-e2").val() == "malang-e2-el4") { itemEAtaque += 15; }
+        if($("#malang-e2").val() == "malang-e2-pc5") { itemETaxaCritico += 15; }
+        if($("#malang-e2").val() == "malang-e2-pc4") { itemETaxaCritico += 14; }
+        if($("#malang-e2").val() == "malang-e2-pc3") { itemETaxaCritico += 12; }
+        if($("#malang-e2").val() == "malang-e2-pc2") { itemETaxaCritico += 9; }
+        if($("#malang-e2").val() == "malang-e2-va1") { itemEAspdFixa += 1; }
       }
 
       function flechaArco() {
@@ -1898,6 +1936,7 @@
         if($("#cartaAcessorio1").val() == "27018") { itemHAspdPorcentagem += 1; if(parseInt($("#nivelPersonagem").val()) >= 90) { itemHAspdPorcentagem += 1; } if(parseInt($("#nivelPersonagem").val()) >= 120) { itemHAspdPorcentagem += 1; } }
         if($("#cartaAcessorio1").val() == "4430") { itemHAtaque += parseInt(parseInt($("#nivelClasse").val()) / 10); itemHTaxaCritico += parseInt(parseInt($("#nivelClasse").val()) / 10); }
         if($("#cartaAcessorio1").val() == "4508") { itemHAtaque = itemHAtaque + 20; }
+        if($("#cartaAcessorio1").val() == "4639") { itemHDanoFisico += 1; }
         if($("#cartaAcessorio1").val() == "4922") { itemHDestreza += 4; itemHSorte -= 4; }
         if($("#cartaAcessorio1").val() == "4064") { itemHDestreza = itemHDestreza + 3; }
         if($("#cartaAcessorio1").val() == "4923") { itemHSorte += 1; itemHDestreza -= 1; itemHTaxaCritico += 1; }
@@ -1917,6 +1956,7 @@
         if($("#cartaAcessorio2").val() == "27018") { itemIAspdPorcentagem += 1; if(parseInt($("#nivelPersonagem").val()) >= 90) { itemIAspdPorcentagem += 1; } if(parseInt($("#nivelPersonagem").val()) >= 120) { itemIAspdPorcentagem += 1; } }
         if($("#cartaAcessorio2").val() == "4430") { itemIAtaque += parseInt(parseInt($("#nivelClasse").val()) / 10); itemITaxaCritico += parseInt(parseInt($("#nivelClasse").val()) / 10); }
         if($("#cartaAcessorio2").val() == "4508") { itemIAtaque = itemIAtaque + 20; }
+        if($("#cartaAcessorio2").val() == "4639") { itemIDanoFisico += 1; }
         if($("#cartaAcessorio2").val() == "4922") { itemIDestreza += 4; itemAISorte -= 4; }
         if($("#cartaAcessorio2").val() == "4064") { itemIDestreza = itemIDestreza + 3; }
         if($("#cartaAcessorio2").val() == "4923") { itemISorte += 1; itemIDestreza -= 1; itemITaxaCritico += 1; }
@@ -4765,6 +4805,48 @@
             </select>
           </td>
         </tr>
+        <tr class="alwaysShow encantamentos encantamentosMalangdo2">
+          <td colspan="6">
+            <select autocomplete="off" id="malang-e1" style="width:100%">
+              <option value="">Nenhum</option>
+              <option value="malang-e1-ma6">Mira Apurada 6</option>
+              <option value="malang-e1-ma5">Mira Apurada 5</option>
+              <option value="malang-e1-ma4">Mira Apurada 4</option>
+              <option value="malang-e1-ma3">Mira Apurada 3</option>
+              <option value="malang-e1-ma2">Mira Apurada 2</option>
+              <option value="malang-e1-el8">Espírito do Lutador 8</option>
+              <option value="malang-e1-el7">Espírito do Lutador 7</option>
+              <option value="malang-e1-el6">Espírito do Lutador 6</option>
+              <option value="malang-e1-el5">Espírito do Lutador 5</option>
+              <option value="malang-e1-el4">Espírito do Lutador 4</option>
+              <option value="malang-e1-pc5">Pedra de Crítico 5</option>
+              <option value="malang-e1-pc4">Pedra de Crítico 4</option>
+              <option value="malang-e1-pc3">Pedra de Crítico 3</option>
+              <option value="malang-e1-pc2">Pedra de Crítico 2</option>
+              <option value="malang-e1-va1">Velocidade de ataque +1</option>
+            </select>
+          </td>
+          <td colspan="6">
+            <select autocomplete="off" id="malang-e2" style="width:100%">
+              <option value="">Nenhum</option>
+              <option value="malang-e2-ma6">Mira Apurada 6</option>
+              <option value="malang-e2-ma5">Mira Apurada 5</option>
+              <option value="malang-e2-ma4">Mira Apurada 4</option>
+              <option value="malang-e2-ma3">Mira Apurada 3</option>
+              <option value="malang-e2-ma2">Mira Apurada 2</option>
+              <option value="malang-e2-el8">Espírito do Lutador 8</option>
+              <option value="malang-e2-el7">Espírito do Lutador 7</option>
+              <option value="malang-e2-el6">Espírito do Lutador 6</option>
+              <option value="malang-e2-el5">Espírito do Lutador 5</option>
+              <option value="malang-e2-el4">Espírito do Lutador 4</option>
+              <option value="malang-e2-pc5">Pedra de Crítico 5</option>
+              <option value="malang-e2-pc4">Pedra de Crítico 4</option>
+              <option value="malang-e2-pc3">Pedra de Crítico 3</option>
+              <option value="malang-e2-pc2">Pedra de Crítico 2</option>
+              <option value="malang-e2-va1">Velocidade de ataque +1</option>
+            </select>
+          </td>
+        </tr>
         <tr class="bonusItem">
           <td colspan="9">Taxa de Crítico</td>
           <td colspan="3"><input disabled type="text" autocomplete="off" class="numero" id="itemETaxaCritico"></td>
@@ -5360,6 +5442,7 @@
               <option value="4091">Carta Kobold</option>
               <option value="4256">Carta Orc Arqueiro</option>
               <option value="4508">Carta Scaraba Dourado</option>
+              <option value="4639">Carta Tappy</option>
               <option value="4631">Carta Visconde Coruja</option>
               <option value="4064">Carta Zerom</option>
               <option value="4914">Essência de Morroc AGI1</option>
@@ -5510,6 +5593,7 @@
               <option value="4091">Carta Kobold</option>
               <option value="4256">Carta Orc Arqueiro</option>
               <option value="4508">Carta Scaraba Dourado</option>
+              <option value="4639">Carta Tappy</option>
               <option value="4631">Carta Visconde Coruja</option>
               <option value="4064">Carta Zerom</option>
               <option value="4914">Essência de Morroc AGI1</option>
