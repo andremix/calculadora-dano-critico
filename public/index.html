@@ -722,6 +722,17 @@
         if(parseInt($("#itemCapa").val()) == 20773 && parseInt($("#nivelPersonagem").val()) >= 130) { }
       }
 
+      function senshi() {
+        imagemArmadura = "https://i.imgur.com/YjWHLdU.png";
+        slotsArmadura = 1;
+        encantamentoArmadura = "nenhum";
+        itemDAtaque = 10;
+        itemDIgnorarDefesa = 10;
+        if(parseInt($("#refinoItemCapa").val()) == 7) { itemDAtaque = 30; itemDIgnorarDefesa = 30; }
+        if(parseInt($("#refinoItemCapa").val()) == 8) { itemDAtaque = 50; itemDIgnorarDefesa = 50; }
+        if(parseInt($("#refinoItemCapa").val()) >= 9) { itemDAtaque = 80; itemDIgnorarDefesa = 70; }
+      }
+
       function vorags() {
         imagemArmadura = "https://i.imgur.com/IeMptmo.png";
         slotsArmadura = 1;
@@ -2222,6 +2233,9 @@
               break;
             case "15128":
               colete();
+              break;
+            case "15283":
+              senshi();
               break;
             case "19048":
               vorags();
@@ -4478,6 +4492,7 @@
               <option value="15354">Armadura do Herói Astuto [1]</option>
               <option value="15278">Armadura do Herói Robusto [1]</option>
               <option value="15128">Colete E.X.C.</option>
+              <option value="15283">Couraça de Senshi [1]</option>
               <option value="15421">Robe da Graça Divina [1]</option>
               <option value="15383">Sobretudo do Senhor do Tempo [1]</option>
               <option value="19048">Traje de Luta Jogos Vorags [1]</option>
