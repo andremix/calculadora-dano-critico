@@ -264,8 +264,8 @@ $(document).ready(function(){
   });
   $(window).keyup(function(e){
     e.preventDefault();
+    var arrayCompleto = $(".select-group.active input, .select-group.active .select-options span:not(.hiding)");
     if(e.which == 38 || e.which == 40) {
-      var arrayCompleto = $(".select-group.active input, .select-group.active .select-options span:not(.hiding)");
       $(".select-group.active input, .select-group.active .select-options span.tempselect").removeClass("tempselect");
       if(e.which == 38 && selectGroupCurrentPosition > 0) {
         selectGroupCurrentPosition--;
@@ -279,7 +279,11 @@ $(document).ready(function(){
       arrayCompleto.eq(selectGroupCurrentPosition).focus();
     }
     if(e.which == 13) {
-      $(".select-group.active :focus").click();
+      if(selectGroupCurrentPosition == 0) {
+        arrayCompleto.eq(1).click();
+      } else {
+        $(".select-group.active :focus").click();
+      }
     }
   });
   $(".select-options span").click(function() {
@@ -288,8 +292,10 @@ $(document).ready(function(){
     let optionId = $(this).closest(".select-group").attr("select-target");
     lastStylizedClicked = optionId;
     $("#" + optionId).val(optionValue);
+    $(".select-group.active input").val("");
     $(this).closest(".select-group").find("> span").text(optionText);
     $(this).closest(".select-options").find("span").removeClass("active");
+    $(this).closest(".select-options").find("span").removeClass("hiding");
     $(this).addClass("active");
     $(".select-group.active").removeClass("active");
     $("#" + optionId).trigger("change");
