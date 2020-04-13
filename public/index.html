@@ -191,7 +191,7 @@
         selectElement.find("option").each(function() {
           let optionValue = $(this).val();
           let optionText = $(this).text();
-          newSelect += `<span value="` + optionValue + `">` + optionText + `</span>`;
+          newSelect += `<span tabindex='' value="` + optionValue + `">` + optionText + `</span>`;
         });
         newSelect += `</div>
         </div>`;
@@ -209,6 +209,7 @@
 
       $(".select-group > span").on("click", function() {
         if(!$(this).closest(".select-group").is(".disabled")) {
+          $(".select-group .select-options span.tempselect").removeClass("tempselect");
           let selectGroup = $(this).closest(".select-group");
           if(selectGroup.hasClass("active")) {
             selectGroup.removeClass("active");
@@ -223,14 +224,73 @@
         $target = $(event.target);
         $(".select-group.active").not($target.closest(".select-group.active")).removeClass("active");
       });
-      jQuery.expr[':'].Contains = function(a, i, m) {
-        return jQuery(a).text().toUpperCase()
-            .indexOf(m[3].toUpperCase()) >= 0;
-      };
-      $(".select-group input").keyup(function() {
+      // jQuery.expr[':'].Contains = function(a, i, m) {
+      //   return jQuery(a).text().toUpperCase()
+      //       .indexOf(m[3].toUpperCase()) >= 0;
+      // };
+      function retira_acentos(nome) {
+      	com_acento = "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝŔÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿŕ";
+      	sem_acento = "AAAAAAACEEEEIIIIDNOOOOOOUUUUYRsBaaaaaaaceeeeiiiionoooooouuuuybyr";
+      	novoNome="";
+      	for(i=0; i<nome.length; i++) {
+      		troca=false;
+      		for (a=0; a<com_acento.length; a++) {
+      			if (nome.substr(i,1)==com_acento.substr(a,1)) {
+      				novoNome+=sem_acento.substr(a,1);
+      				troca=true;
+      				break;
+      			}
+      		}
+      		if (troca==false) {
+      			novoNome+=nome.substr(i,1);
+      		}
+      	}
+      	return novoNome.toUpperCase();
+      }
+      var selectGroupCurrentPosition = 0;
+      $(".select-group input").keyup(function(e) {
         let textInput = $(this).val();
-        $(this).closest(".select-group").find(".select-options span").hide();
-        $(this).closest(".select-group").find(".select-options span:Contains(" + textInput + ")").show();
+        let thisElem = $(this).closest(".select-group").find(".select-options span");
+        if(e.which == 38 || e.which == 40) {
+          // nothing
+        } else {
+          selectGroupCurrentPosition = 0;
+          thisElem.hide();
+          //$(this).closest(".select-group").find(".select-options span:Contains(" + textInput + ")").show();
+          thisElem.each(function(){
+            if(retira_acentos($(this).text()).includes(retira_acentos(textInput))) {
+              $(this).show();
+            }
+          });
+        }
+      });
+      $(".select-group input").focus(function(){
+        selectGroupCurrentPosition = 0;
+      });
+      $(window).keydown(function(e){
+        if(e.which == 38 || e.which == 40) {
+          e.preventDefault();
+        }
+      });
+      $(window).keyup(function(e){
+        e.preventDefault();
+        if(e.which == 38 || e.which == 40) {
+          var arrayCompleto = $(".select-group.active input, .select-group.active .select-options span");
+          $(".select-group.active input, .select-group.active .select-options span.tempselect").removeClass("tempselect");
+          if(e.which == 38 && selectGroupCurrentPosition > 0) {
+            selectGroupCurrentPosition--;
+          }
+          if(e.which == 40 && selectGroupCurrentPosition < arrayCompleto.length) {
+            selectGroupCurrentPosition++;
+          }
+          if(selectGroupCurrentPosition != 0) {
+            arrayCompleto.eq(selectGroupCurrentPosition).addClass("tempselect");
+          }
+          arrayCompleto.eq(selectGroupCurrentPosition).focus();
+        }
+        if(e.which == 13) {
+          $(".select-group.active :focus").click();
+        }
       });
       $(".select-options span").click(function() {
         let optionValue = $(this).attr("value");
@@ -3654,6 +3714,9 @@
     }
     .select-group .select-options-group span:hover, .select-group .select-options-group span.active {
       background: #d6e3f7;
+    }
+    .select-group .select-options-group span.tempselect {
+      background: #e3e6ec;
     }
 
     @media screen and (max-width:579px) {
