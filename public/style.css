@@ -652,6 +652,12 @@ background: #9abce0;
 .select-group .select-options-group span.tempselect {
   background: #e3e6ec;
 }
+.showing {
+  display: block !important;
+}
+.hiding {
+  display: none !important;
+}
 
 @media screen and (max-width:579px) {
   .columns .columnLeft,

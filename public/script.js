@@ -181,7 +181,7 @@ $(document).ready(function(){
     selectElement.find("option").each(function() {
       let optionValue = $(this).val();
       let optionText = $(this).text();
-      newSelect += `<span tabindex='' value="` + optionValue + `">` + optionText + `</span>`;
+      newSelect += `<span tabindex='16' value="` + optionValue + `">` + optionText + `</span>`;
     });
     newSelect += `</div>
     </div>`;
@@ -245,11 +245,11 @@ $(document).ready(function(){
       // nothing
     } else {
       selectGroupCurrentPosition = 0;
-      thisElem.hide();
+      thisElem.addClass("hiding");
       //$(this).closest(".select-group").find(".select-options span:Contains(" + textInput + ")").show();
       thisElem.each(function(){
         if(retira_acentos($(this).text()).includes(retira_acentos(textInput))) {
-          $(this).show();
+          $(this).removeClass("hiding");
         }
       });
     }
@@ -265,12 +265,12 @@ $(document).ready(function(){
   $(window).keyup(function(e){
     e.preventDefault();
     if(e.which == 38 || e.which == 40) {
-      var arrayCompleto = $(".select-group.active input, .select-group.active .select-options span");
+      var arrayCompleto = $(".select-group.active input, .select-group.active .select-options span:not(.hiding)");
       $(".select-group.active input, .select-group.active .select-options span.tempselect").removeClass("tempselect");
       if(e.which == 38 && selectGroupCurrentPosition > 0) {
         selectGroupCurrentPosition--;
       }
-      if(e.which == 40 && selectGroupCurrentPosition < arrayCompleto.length) {
+      if(e.which == 40 && selectGroupCurrentPosition < arrayCompleto.length - 1) {
         selectGroupCurrentPosition++;
       }
       if(selectGroupCurrentPosition != 0) {
