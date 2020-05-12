@@ -395,6 +395,35 @@ $(document).ready(function(){
     if($("#cartaAcessorio1").val() == "4256" || $("#cartaAcessorio2").val() == "4256") { itemAAspdPorcentagem = 3; }
   }
 
+  function coelinhoa() {
+    imagemTopo = "https://i.imgur.com/n2EiVU6.png";
+    slotsTopo = 1;
+    itemAAtaque = 5 + Math.max(0, parseInt($("#refinoItemTopo").val()) - 4);
+    itemAAspdPorcentagem = 10;
+  }
+
+  function coelinhob() {
+    imagemTopo = "https://i.imgur.com/n2EiVU6.png";
+    slotsTopo = 1;
+    itemAAtaque = 5 + Math.max(0, parseInt($("#refinoItemTopo").val()) - 4);
+    itemADanoCriticoPorcentagem = 3;
+    itemATaxaCritico = 9;
+  }
+
+  function coelinhoc() {
+    imagemTopo = "https://i.imgur.com/n2EiVU6.png";
+    slotsTopo = 1;
+    itemAAtaque = 5 + Math.max(0, parseInt($("#refinoItemTopo").val()) - 4);
+    itemAAtaque += 15;
+  }
+
+  function coelinhod() {
+    imagemTopo = "https://i.imgur.com/n2EiVU6.png";
+    slotsTopo = 1;
+    itemAAtaque = 5 + Math.max(0, parseInt($("#refinoItemTopo").val()) - 4);
+    itemADanoDistancia = 6;
+  }
+
   function malice() {
     imagemTopo = "https://i.imgur.com/AxAlrv2.png";
     slotsTopo = 1;
@@ -476,9 +505,9 @@ $(document).ready(function(){
     }
   }
 
-  function marcas() {
+  function marcas(slot) {
     imagemMeio = "https://i.imgur.com/VlLLCRq.png";
-    slotsMeio = 0;
+    slotsMeio = slot;
     itemBDanoCriticoPorcentagem = 3;
     itemBDanoCriticoPorcentagem -= parseInt($("#des").val() / 10) * 2;
     itemBAtaque = parseInt($("#sor").val() / 10) * 2;
@@ -568,7 +597,7 @@ $(document).ready(function(){
   function ccomodo() {
     imagemBaixo = "https://i.imgur.com/r0LZcop.png";
     itemCDanoCriticoPorcentagem = 5;
-    if($("#itemMeio").val() == "5918") {
+    if($("#itemMeio").val() == "5918a" || $("#itemMeio").val() == "5918b") {
       itemCDanoCriticoPorcentagem += 2;
       itemCDanoCriticoPorcentagem += parseInt($("#des").val() / 10) * 2;
       itemCAspdFixa = 1;
@@ -620,6 +649,12 @@ $(document).ready(function(){
     itemCDestreza = 1;
   }
 
+  function fadasc() {
+    imagemBaixo = "https://i.imgur.com/vQgLDqh.png";
+    itemCDanoFisico = 2;
+    itemCAtaque = 9;
+  }
+
   function infame() {
     imagemBaixo = "https://i.imgur.com/5BrMgvP.png";
     if($("#itemMeio").val() == "2202") {
@@ -636,6 +671,11 @@ $(document).ready(function(){
     itemCAgilidade = 2;
     itemCDestreza = 2;
     itemCSorte = 2;
+  }
+
+  function angeling() {
+    imagemBaixo = "https://i.imgur.com/SBWUNnH.png";
+    itemCAspdFixa = 1;
   }
 
   function halito() {
@@ -1281,8 +1321,8 @@ $(document).ready(function(){
       itemHAgilidade = 2;
       itemHAspdPorcentagem = 2;
       if(parseInt($("#agi").val()) >= 100) itemHAspdPorcentagem += 5;
-      if($("#faw-e1").val() == "faw-e1-aa1" || $("#faw-e2").val() == "faw-e2-aa1" || $("#faw-e3").val() == "faw-e3-aa1") itemHAspdFixa += 1;
-      if($("#faw-e1").val() == "faw-e1-aa2" || $("#faw-e2").val() == "faw-e2-aa2" || $("#faw-e3").val() == "faw-e3-aa2") itemHAspdFixa += 1;
+      if($("#itemTopo").val() == "5457a" || $("#faw-e1").val() == "faw-e1-aa1" || $("#faw-e2").val() == "faw-e2-aa1" || $("#faw-e3").val() == "faw-e3-aa1") itemHAspdFixa += 1;
+      if($("#itemTopo").val() == "5457a" || $("#faw-e1").val() == "faw-e1-aa2" || $("#faw-e2").val() == "faw-e2-aa2" || $("#faw-e3").val() == "faw-e3-aa2") itemHAspdFixa += 1;
     }
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/Kd25UwJ.png";
@@ -1291,8 +1331,8 @@ $(document).ready(function(){
       itemIAspdPorcentagem = 2;
       if(parseInt($("#agi").val()) >= 100) itemIAspdPorcentagem += 5;
       if($("#itemAcessorio1").val() != "28501") {
-        if($("#faw-e1").val() == "faw-e1-aa1" || $("#faw-e2").val() == "faw-e2-aa1" || $("#faw-e3").val() == "faw-e3-aa1") itemIAspdFixa += 1;
-        if($("#faw-e1").val() == "faw-e1-aa2" || $("#faw-e2").val() == "faw-e2-aa2" || $("#faw-e3").val() == "faw-e3-aa2") itemIAspdFixa += 1;
+        if($("#itemTopo").val() == "5457a" || $("#faw-e1").val() == "faw-e1-aa1" || $("#faw-e2").val() == "faw-e2-aa1" || $("#faw-e3").val() == "faw-e3-aa1") itemIAspdFixa += 1;
+        if($("#itemTopo").val() == "5457a" || $("#faw-e1").val() == "faw-e1-aa2" || $("#faw-e2").val() == "faw-e2-aa2" || $("#faw-e3").val() == "faw-e3-aa2") itemIAspdFixa += 1;
       }
     }
   }
@@ -1420,10 +1460,10 @@ $(document).ready(function(){
       itemHDestreza = 2;
       itemHDanoDistancia = 2;
       if(parseInt($("#des").val()) >= 100) { itemHDanoDistancia += 5; }
-      if($("#faw-e1").val() == "faw-e1-ma1" || $("#faw-e2").val() == "faw-e2-ma1" || $("#faw-e3").val() == "faw-e3-ma1" || $("#catapa-e1").val() == "catapa-e1-ma1" || $("#catapa-e2").val() == "catapa-e2-ma1" || $("#itemBaixo").val() == "19305b") {
+      if($("#itemTopo").val() == "5457d" || $("#faw-e1").val() == "faw-e1-ma1" || $("#faw-e2").val() == "faw-e2-ma1" || $("#faw-e3").val() == "faw-e3-ma1" || $("#catapa-e1").val() == "catapa-e1-ma1" || $("#catapa-e2").val() == "catapa-e2-ma1" || $("#itemBaixo").val() == "19305b") {
         itemHDanoDistancia += 5;
       }
-      if($("#faw-e1").val() == "faw-e1-ma2" || $("#faw-e2").val() == "faw-e2-ma2" || $("#faw-e3").val() == "faw-e3-ma2" || $("#catapa-e1").val() == "catapa-e1-ma2" || $("#catapa-e2").val() == "catapa-e2-ma2") {
+      if($("#itemTopo").val() == "5457d" || $("#faw-e1").val() == "faw-e1-ma2" || $("#faw-e2").val() == "faw-e2-ma2" || $("#faw-e3").val() == "faw-e3-ma2" || $("#catapa-e1").val() == "catapa-e1-ma2" || $("#catapa-e2").val() == "catapa-e2-ma2") {
         itemHDanoDistancia += 5;
       }
     }
@@ -1434,10 +1474,10 @@ $(document).ready(function(){
       itemIDanoDistancia = 2;
       if(parseInt($("#des").val()) >= 100) { itemIDanoDistancia += 5; }
       if($("#itemAcessorio1").val() != "28438") {
-        if($("#faw-e1").val() == "faw-e1-ma1" || $("#faw-e2").val() == "faw-e2-ma1" || $("#faw-e3").val() == "faw-e3-ma1" || $("#catapa-e1").val() == "catapa-e1-ma1" || $("#catapa-e2").val() == "catapa-e2-ma1" || $("#itemBaixo").val() == "19305b") {
+        if($("#itemTopo").val() == "5457d" || $("#faw-e1").val() == "faw-e1-ma1" || $("#faw-e2").val() == "faw-e2-ma1" || $("#faw-e3").val() == "faw-e3-ma1" || $("#catapa-e1").val() == "catapa-e1-ma1" || $("#catapa-e2").val() == "catapa-e2-ma1" || $("#itemBaixo").val() == "19305b") {
           itemIDanoDistancia += 5;
         }
-        if($("#faw-e1").val() == "faw-e1-ma2" || $("#faw-e2").val() == "faw-e2-ma2" || $("#faw-e3").val() == "faw-e3-ma2" || $("#catapa-e1").val() == "catapa-e1-ma2" || $("#catapa-e2").val() == "catapa-e2-ma2") {
+        if($("#itemTopo").val() == "5457d" || $("#faw-e1").val() == "faw-e1-ma2" || $("#faw-e2").val() == "faw-e2-ma2" || $("#faw-e3").val() == "faw-e3-ma2" || $("#catapa-e1").val() == "catapa-e1-ma2" || $("#catapa-e2").val() == "catapa-e2-ma2") {
           itemIDanoDistancia += 5;
         }
       }
@@ -1504,6 +1544,23 @@ $(document).ready(function(){
     }
   }
 
+  function pugilista(acessorio) {
+    if(acessorio == "acessorio1") {
+      imagemAcessorio1 = "https://i.imgur.com/S2qlDzg.png";
+      itemHForca = 2;
+      itemHDanoRacial = 2;
+      if(parseInt($("#for").val()) >= 100) { itemHDanoRacial += 5; }
+      if($("#itemTopo").val() == "5457c") { itemHDanoRacial += 10; }
+    }
+    if(acessorio == "acessorio2") {
+      imagemAcessorio2 = "https://i.imgur.com/S2qlDzg.png";
+      itemIForca = 2;
+      itemIDanoRacial = 2;
+      if(parseInt($("#for").val()) >= 100) { itemIDanoRacial += 5; }
+      if($("#itemTopo").val() == "5457c" && $("#itemAcessorio1").val() != "28434") { itemIDanoRacial += 10; }
+    }
+  }
+
   function lvigor(acessorio) {
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/6bk46dI.png";
@@ -1526,7 +1583,7 @@ $(document).ready(function(){
       itemHSorte = 2;
       itemHTaxaCritico = 5;
       if(parseInt($("#sor").val()) >= 100) { itemHTaxaCritico += 10; }
-      if($("#itemBaixo").val() == "19305a") { itemHTaxaCritico += 20; }
+      if($("#itemTopo").val() == "5457b" || $("#itemBaixo").val() == "19305a") { itemHTaxaCritico += 20; }
     }
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/MxF2SxP.png";
@@ -1534,7 +1591,7 @@ $(document).ready(function(){
       itemISorte = 2;
       itemITaxaCritico = 5;
       if(parseInt($("#sor").val()) >= 100) { itemITaxaCritico += 10; }
-      if($("#itemBaixo").val() == "19305a" && $("#itemAcessorio1") != "28491") { itemITaxaCritico += 20; }
+      if($("#itemTopo").val() == "5457b" || $("#itemBaixo").val() == "19305a" && $("#itemAcessorio1") != "28491") { itemITaxaCritico += 20; }
     }
   }
 
@@ -2124,6 +2181,18 @@ $(document).ready(function(){
         case "400006":
           cocar();
           break;
+        case "5457a":
+          coelinhoa();
+          break;
+        case "5457b":
+          coelinhob();
+          break;
+        case "5457c":
+          coelinhoc();
+          break;
+        case "5457d":
+          coelinhod();
+          break;
         case "19029":
           malice();
           break;
@@ -2163,8 +2232,11 @@ $(document).ready(function(){
         case "19444b":
           tapaob();
           break;
-        case "5918":
-          marcas();
+        case "5918a":
+          marcas(1);
+          break;
+        case "5918b":
+          marcas(0);
           break;
         case "19456a":
           mtengua();
@@ -2231,11 +2303,17 @@ $(document).ready(function(){
         case "19305b":
           fadasb();
           break;
+        case "19305c":
+          fadasc();
+          break;
         case "28502":
           infame();
           break;
         case "18844":
           pouring();
+          break;
+        case "18858":
+          angeling();
           break;
         case "19268":
           halito();
@@ -2548,6 +2626,9 @@ $(document).ready(function(){
         case "28492d":
           diario("acessorio1");
           break;
+        case "28434":
+          pugilista("acessorio1");
+          break;
         case "28531":
           lvigor("acessorio1");
           break;
@@ -2631,6 +2712,9 @@ $(document).ready(function(){
         case "28492c":
         case "28492d":
           diario("acessorio2");
+          break;
+        case "28434":
+          pugilista("acessorio2");
           break;
         case "28531":
           lvigor("acessorio2");
