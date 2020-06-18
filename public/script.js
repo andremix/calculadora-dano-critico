@@ -1192,6 +1192,8 @@ $(document).ready(function(){
     if(parseInt($("#sor").val()) >= 125 && parseInt($("#refinoItemSapatos").val()) >= 12) { itemGDanoCriticoPorcentagem = itemGDanoCriticoPorcentagem + 20; }
     if(parseInt($("#for").val()) >= 125 && parseInt($("#refinoItemSapatos").val()) >= 8) { itemGAtaque = 90; }
     if(parseInt($("#for").val()) >= 125 && parseInt($("#refinoItemSapatos").val()) >= 12) { itemGAtaque = itemGAtaque + 90; }
+    if(parseInt($("#des").val()) >= 125 && parseInt($("#refinoItemSapatos").val()) >= 8) { itemGDanoDistancia = 10; }
+    if(parseInt($("#des").val()) >= 125 && parseInt($("#refinoItemSapatos").val()) >= 12) { itemGDanoDistancia += 10; }
   }
 
   function sluxuosos() {
