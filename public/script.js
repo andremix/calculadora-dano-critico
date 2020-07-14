@@ -1139,6 +1139,17 @@ $(document).ready(function(){
     if(parseInt($("#refinoItemCapa").val()) >= 8) { itemFDestreza = 12; }
   }
 
+  function smestre() {
+    imagemCapa = "https://www.divine-pride.net/img/items/item/bRO/480023";
+    slotsCapa = 1;
+    encantamentoCapa = "nenhum";
+    itemFDanoCriticoPorcentagem = 5;
+    if(parseInt($("#refinoItemCapa").val()) >= 7) { itemFDanoCriticoPorcentagem += 5; itemFTaxaCritico = 5; }
+    if(parseInt($("#refinoItemCapa").val()) >= 8) { itemFDanoCriticoPorcentagem += 20; itemFTaxaCritico += 10; }
+    if(parseInt($("#refinoItemCapa").val()) >= 9) { itemFDanoCriticoPorcentagem += 30; itemFTaxaCritico += 20; }
+    if(parseInt($("#refinoItemCapa").val()) >= 10) { itemFDanoCriticoPorcentagem += 50; itemFTaxaCritico += 30; }
+  }
+
   function temporaissor(slot) {
     imagemSapatos = "https://i.imgur.com/QQEY5Dg.png";
     slotsSapatos = slot;
@@ -2507,6 +2518,9 @@ $(document).ready(function(){
           break;
         case "20718a":
           vermea();
+          break;
+        case "480023":
+          smestre();
           break;
         default:
           resetarCapa();
