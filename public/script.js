@@ -570,6 +570,23 @@ $(document).ready(function(){
     if(parseInt($("#int").val()) >= 120) { itemBAtaque = itemBAtaque + 125; }
   }
 
+  function discretas() {
+    imagemMeio = "https://i.imgur.com/63Pu48I.png";
+    slotsMeio = 1;
+    itemBForca = 10;
+    itemBAgilidade = 10;
+    itemBDestreza = 10;
+    itemBSorte = 10;
+    if($("#itemArmadura").val() == "2375") {
+      itemBForca += 8;
+      itemBDestreza += 4;
+      itemBAtaque += (parseInt($("#refinoItemArmadura").val()) * 15);
+    }
+    if($("#itemSapatos").val() == "2433") {
+      itemBAtaque += (parseInt($("#refinoItemSapatos").val()) * 20);
+    }
+  }
+
   function grifo() {
     imagemMeio = "https://i.imgur.com/igqhUJn.png";
     slotsMeio = 0;
@@ -712,6 +729,20 @@ $(document).ready(function(){
     if(parseInt($("#refinoItemArmadura").val()) >= 7) { if($("#racaMonstro").val() == "3" || $("#racaMonstro").val() == "7") itemDDanoRacial += 10; if(parseInt($("#propriedadeMonstro").val()) >= 60 && parseInt($("#propriedadeMonstro").val()) <= 73) itemDDanoPropriedade += 10; }
     if(parseInt($("#refinoItemArmadura").val()) >= 9) { if($("#racaMonstro").val() == "3" || $("#racaMonstro").val() == "7") itemDDanoRacial += 15; if(parseInt($("#propriedadeMonstro").val()) >= 60 && parseInt($("#propriedadeMonstro").val()) <= 73) itemDDanoPropriedade += 15; }
     if(parseInt($("#refinoItemArmadura").val()) >= 11) { if($("#racaMonstro").val() == "3" || $("#racaMonstro").val() == "7") itemDDanoRacial += 15; if(parseInt($("#propriedadeMonstro").val()) >= 60 && parseInt($("#propriedadeMonstro").val()) <= 73) itemDDanoPropriedade += 15; }
+  }
+
+  function adiabolus() {
+    imagemArmadura = "https://i.imgur.com/qlY13yL.png";
+    slotsArmadura = 1;
+    encantamentoArmadura = "nenhum";
+    itemDForca = 2;
+    itemDDestreza = 1;
+  }
+
+  function tantimagia() {
+    imagemArmadura = "https://i.imgur.com/SsXeJWf.png";
+    slotsArmadura = 1;
+    encantamentoArmadura = "nenhum";
   }
 
   function robegraca() {
@@ -1105,6 +1136,34 @@ $(document).ready(function(){
     if(parseInt($("#refinoItemCapa").val()) >= 9 && parseInt($("#sor").val()) >= 90) { itemFDanoCriticoPorcentagem = 15; }
   }
 
+  function ccomandante() {
+    imagemCapa = "https://i.imgur.com/5QgrP4T.png";
+    slotsCapa = 1;
+    encantamentoCapa = "exploracapa";
+    itemFAtaque = 10;
+    if(parseInt($("#refinoItemCapa").val()) >= 5) { itemFAtaque = 30; }
+    if(parseInt($("#refinoItemCapa").val()) >= 7) { itemFAtaque = 60; }
+  }
+
+  function guardian() {
+    imagemCapa = "https://i.imgur.com/7n4ZHUI.png";
+    slotsCapa = 1;
+    encantamentoCapa = "exploracapa";
+    itemFAtaqueArmaPorcentagem = parseInt(parseInt($("#refinoItemCapa").val() / 2));
+    if(parseInt($("#refinoItemCapa").val()) >= 9) { itemFAtaque = 30; }
+  }
+
+  function cantimagia() {
+    imagemCapa = "https://i.imgur.com/rlmQekV.png";
+    slotsCapa = 1;
+    encantamentoCapa = "nenhum";
+    if(parseInt($("#refinoItemCapa").val()) >= 7) { itemFAtaqueArmaPorcentagem = 7; }
+    if($("#itemArmadura").val() == "15073") {
+      itemFAtaque += 30;
+      if(parseInt($("#refinoItemArmadura").val()) >= 11) { itemFAtaque += 40; }
+    }
+  }
+
   function mstempo() {
     imagemCapa = "https://i.imgur.com/i9hil1r.png";
     slotsCapa = 1;
@@ -1228,6 +1287,12 @@ $(document).ready(function(){
     if(parseInt($("#refinoItemSapatos").val()) >= 7) { itemGDanoDistancia = 10; itemGDanoCriticoPorcentagem = 10; }
   }
 
+  function bdiabolus() {
+    imagemSapatos = "https://i.imgur.com/z8WZdpW.png";
+    slotsSapatos = 1;
+    encantamentoSapatos = "nenhum";
+  }
+
   function bancestrais() {
     imagemSapatos = "https://i.imgur.com/ZI3nA12.png";
     slotsSapatos = 1;
@@ -1257,10 +1322,25 @@ $(document).ready(function(){
     encantamentoSapatos = "nenhum";
   }
 
+  function sperseguidor() {
+    imagemSapatos = "https://i.imgur.com/TCHGD57.png";
+    slotsSapatos = 0;
+    encantamentoSapatos = "nenhum";
+    itemGIgnorarDefesa = 100;
+    itemGDanoFisico = 20;
+    if(parseInt($("#refinoItemSapatos").val()) >= 5) {
+      itemGAspdPorcentagem += 5;
+    }
+    if(parseInt($("#refinoItemSapatos").val()) >= 7) {
+      itemGAspdPorcentagem += 5;
+    }
+  }
+
   function apresidiario(acessorio) {
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/6EyaVpZ.png";
       slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "nenhum";
       itemHAtaque = 10;
       if($("#itemSapatos").val() == "2408") { itemHAtaque += Math.min(10, parseInt($("#refinoItemSapatos").val())); }
       if($("#itemMeio").val() == "2295") { itemHAtaque += 10; }
@@ -1269,6 +1349,7 @@ $(document).ready(function(){
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/6EyaVpZ.png";
       slotsAcessorio2 = 1;
+      encantamentoAcessorio2 = "nenhum";
       itemIAtaque = 10;
       if($("#itemAcessorio1").val() != "2913") {
         if($("#itemSapatos").val() == "2408") { itemIAtaque += Math.min(10, parseInt($("#refinoItemSapatos").val())); }
@@ -1282,6 +1363,7 @@ $(document).ready(function(){
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/e89MbjU.png";
       slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "nenhum";
       itemHDanoCriticoPorcentagem = 5;
       itemHDanoMVP = 5;
       itemHAspdFixa = 1;
@@ -1304,6 +1386,7 @@ $(document).ready(function(){
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/e89MbjU.png";
       slotsAcessorio2 = 1;
+      encantamentoAcessorio2 = "nenhum";
       itemIDanoCriticoPorcentagem = 5;
       itemIDanoMVP = 5;
       itemIAspdFixa = 1;
@@ -1331,6 +1414,7 @@ $(document).ready(function(){
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/Kd25UwJ.png";
       slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "nenhum";
       itemHAgilidade = 2;
       itemHAspdPorcentagem = 2;
       if(parseInt($("#agi").val()) >= 100) itemHAspdPorcentagem += 5;
@@ -1340,6 +1424,7 @@ $(document).ready(function(){
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/Kd25UwJ.png";
       slotsAcessorio2 = 1;
+      encantamentoAcessorio2 = "nenhum";
       itemIAgilidade = 2;
       itemIAspdPorcentagem = 2;
       if(parseInt($("#agi").val()) >= 100) itemIAspdPorcentagem += 5;
@@ -1354,12 +1439,14 @@ $(document).ready(function(){
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/9lTIYxB.png";
       slotsAcessorio1 = 0;
+      encantamentoAcessorio1 = "nenhum";
       itemHAtaque = 5;
       itemHTaxaCritico = 3;
     }
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/9lTIYxB.png";
       slotsAcessorio2 = 0;
+      encantamentoAcessorio2 = "nenhum";
       itemIAtaque = 5;
       itemITaxaCritico = 3;
     }
@@ -1369,12 +1456,14 @@ $(document).ready(function(){
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/8UxsH8S.png";
       slotsAcessorio1 = 0;
+      encantamentoAcessorio1 = "nenhum";
       itemHForca = 2;
       itemHTaxaCritico = 3;
     }
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/8UxsH8S.png";
       slotsAcessorio2 = 0;
+      encantamentoAcessorio2 = "nenhum";
       itemIForca = 2;
       itemITaxaCritico = 3;
     }
@@ -1384,6 +1473,7 @@ $(document).ready(function(){
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/jzAXTTP.png";
       slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "nenhum";
       itemHSorte = parseInt($("#agi").val() / 18) * 3;
       itemHDestreza = parseInt($("#vit").val() / 18) * 3;
       itemHForca = parseInt($("#int").val() / 18) * 3;
@@ -1393,6 +1483,7 @@ $(document).ready(function(){
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/jzAXTTP.png";
       slotsAcessorio2 = 1;
+      encantamentoAcessorio2 = "nenhum";
       itemISorte = parseInt($("#agi").val() / 18) * 3;
       itemIDestreza = parseInt($("#vit").val() / 18) * 3;
       itemIForca = parseInt($("#int").val() / 18) * 3;
@@ -1405,6 +1496,7 @@ $(document).ready(function(){
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/wgmJ00i.png";
       slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "nenhum";
       itemHAtaque = 50;
       itemHAgilidade = 5;
       itemHDestreza = 5;
@@ -1412,9 +1504,47 @@ $(document).ready(function(){
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/wgmJ00i.png";
       slotsAcessorio2 = 1;
+      encantamentoAcessorio2 = "nenhum";
       itemIAtaque = 50;
       itemIAgilidade = 5;
       itemIDestreza = 5;
+    }
+  }
+
+  function aneltemporal(acessorio) {
+    if(acessorio == "acessorio1") {
+      imagemAcessorio1 = "https://i.imgur.com/yBbiKMQ.png";
+      slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "exploraacess";
+      itemHAtaque = 50;
+      if($("#btemp-e2").val() == "btemp-e2-ins") {
+        itemHDestreza = 40;
+      }
+      if($("#btemp-e2").val() == "btemp-e2-del") {
+        itemHForca = 40;
+      }
+      if($("#btemp-e2").val() == "btemp-e2-euf") {
+        itemHSorte = 40;
+        itemHDanoCriticoPorcentagem = 30;
+      }
+    }
+    if(acessorio == "acessorio2") {
+      imagemAcessorio2 = "https://i.imgur.com/yBbiKMQ.png";
+      slotsAcessorio2 = 1;
+      encantamentoAcessorio2 = "exploraacess";
+      itemIAtaque = 50;
+      if($("#itemAcessorio1").val() != "28594") {
+        if($("#btemp-e2").val() == "btemp-e2-ins") {
+          itemHDestreza = 40;
+        }
+        if($("#btemp-e2").val() == "btemp-e2-del") {
+          itemHForca = 40;
+        }
+        if($("#btemp-e2").val() == "btemp-e2-euf") {
+          itemHSorte = 40;
+          itemHDanoCriticoPorcentagem = 30;
+        }
+      }
     }
   }
 
@@ -1422,6 +1552,7 @@ $(document).ready(function(){
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/8enL9n6.png";
       slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "nenhum";
       itemHAtaqueArmaPorcentagem = 5;
       if($("#cartaAcessorio1").val() == "4908" || $("#cartaAcessorio2").val() == "4908" || $("#cartaTopo").val() == "4908" || $("#cartaSapatos").val() == "4908") { itemHAtaqueArmaPorcentagem += 5; }
       if($("#cartaAcessorio1").val() == "4909" || $("#cartaAcessorio2").val() == "4909" || $("#cartaTopo").val() == "4909" || $("#cartaSapatos").val() == "4909") { itemHAtaqueArmaPorcentagem += 5; }
@@ -1436,6 +1567,7 @@ $(document).ready(function(){
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/8enL9n6.png";
       slotsAcessorio2 = 1;
+      encantamentoAcessorio2 = "nenhum";
       itemIAtaqueArmaPorcentagem = 5;
       if($("#itemAcessorio1").val() != "28505") {
         if($("#cartaAcessorio1").val() == "4908" || $("#cartaAcessorio2").val() == "4908" || $("#cartaTopo").val() == "4908" || $("#cartaSapatos").val() == "4908") { itemIAtaqueArmaPorcentagem += 5; }
@@ -1455,12 +1587,14 @@ $(document).ready(function(){
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/ySyav4J.png";
       slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "nenhum";
       itemHAspdFixa = 1;
       if($("#itemMeio").val() == "19393") { itemHAtaque = 30; itemHDanoMVP = 20; }
     }
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/ySyav4J.png";
-      slotsAcessorio2 = 1;
+      slotsAcessorio1 = 1;
+      encantamentoAcessorio2 = "nenhum";
       itemIAspdFixa = 1;
       if($("#itemMeio").val() == "19393" && $("#itemAcessorio1").val() != "32243") { itemIAtaque = 30; itemIDanoMVP = 20; }
     }
@@ -1470,6 +1604,7 @@ $(document).ready(function(){
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/w2xDodr.png";
       slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "nenhum";
       itemHDestreza = 2;
       itemHDanoDistancia = 2;
       if(parseInt($("#des").val()) >= 100) { itemHDanoDistancia += 5; }
@@ -1483,6 +1618,7 @@ $(document).ready(function(){
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/w2xDodr.png";
       slotsAcessorio2 = 1;
+      encantamentoAcessorio2 = "nenhum";
       itemIDestreza = 2;
       itemIDanoDistancia = 2;
       if(parseInt($("#des").val()) >= 100) { itemIDanoDistancia += 5; }
@@ -1501,12 +1637,14 @@ $(document).ready(function(){
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/x3VAI6d.png";
       slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "nenhum";
       itemHAtaqueArmaPorcentagem = 5;
       if(parseInt($("#for").val()) >= 120) { itemHAtaque += 50; }
     }
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/x3VAI6d.png";
       slotsAcessorio2 = 1;
+      encantamentoAcessorio2 = "nenhum";
       itemIAtaqueArmaPorcentagem = 5;
       if(parseInt($("#for").val()) >= 120) { itemIAtaque += 50; }
     }
@@ -1516,12 +1654,14 @@ $(document).ready(function(){
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/w3OEp5Z.png";
       slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "nenhum";
       itemHDanoCriticoPorcentagem = 2;
       if(parseInt($("#sor").val()) >= 100) { itemHDanoCriticoPorcentagem = 12; }
     }
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/w3OEp5Z.png";
       slotsAcessorio2 = 1;
+      encantamentoAcessorio2 = "nenhum";
       itemIDanoCriticoPorcentagem = 2;
       if(parseInt($("#sor").val()) >= 100) { itemIDanoCriticoPorcentagem = 12; }
     }
@@ -1533,12 +1673,14 @@ $(document).ready(function(){
       itemHAgilidade = 5;
       itemHDestreza = 5;
       slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "nenhum";
     }
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/7GUM7xO.png";
       itemIAgilidade = 5;
       itemIDestreza = 5;
       slotsAcessorio2 = 1;
+      encantamentoAcessorio2 = "nenhum";
     }
   }
 
@@ -1548,18 +1690,22 @@ $(document).ready(function(){
       itemHForca = 10;
       itemHAgilidade = 10;
       slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "nenhum";
     }
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/HexWakw.png";
       itemIForca = 10;
       itemIAgilidade = 10;
       slotsAcessorio2 = 1;
+      encantamentoAcessorio2 = "nenhum";
     }
   }
 
   function pugilista(acessorio) {
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/S2qlDzg.png";
+      slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "nenhum";
       itemHForca = 2;
       itemHDanoRacial = 2;
       if(parseInt($("#for").val()) >= 100) { itemHDanoRacial += 5; }
@@ -1567,6 +1713,8 @@ $(document).ready(function(){
     }
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/S2qlDzg.png";
+      slotsAcessorio2 = 1;
+      encantamentoAcessorio2 = "nenhum";
       itemIForca = 2;
       itemIDanoRacial = 2;
       if(parseInt($("#for").val()) >= 100) { itemIDanoRacial += 5; }
@@ -1580,12 +1728,14 @@ $(document).ready(function(){
       itemHDanoMVP = 5;
       itemHIgnorarDefesa = 20;
       slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "nenhum";
     }
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/6bk46dI.png";
       itemIDanoMVP = 5;
       itemIIgnorarDefesa = 20;
       slotsAcessorio2 = 1;
+      encantamentoAcessorio2 = "nenhum";
     }
   }
 
@@ -1593,6 +1743,7 @@ $(document).ready(function(){
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/MxF2SxP.png";
       slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "nenhum";
       itemHSorte = 2;
       itemHTaxaCritico = 5;
       if(parseInt($("#sor").val()) >= 100) { itemHTaxaCritico += 10; }
@@ -1601,6 +1752,7 @@ $(document).ready(function(){
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/MxF2SxP.png";
       slotsAcessorio2 = 1;
+      encantamentoAcessorio2 = "nenhum";
       itemISorte = 2;
       itemITaxaCritico = 5;
       if(parseInt($("#sor").val()) >= 100) { itemITaxaCritico += 10; }
@@ -1612,12 +1764,14 @@ $(document).ready(function(){
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/u9SlViV.png";
       slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "nenhum";
       itemHAspdPorcentagem = 10;
       if($("#itemArmadura").val() == "15383" && $("#itemCapa").val() == "20939" && $("#itemSapatos").val() == "22204") { itemHAspdFixa += 2; }
     }
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/u9SlViV.png";
       slotsAcessorio2 = 1;
+      encantamentoAcessorio2 = "nenhum";
       itemIAspdPorcentagem = 10;
       if($("#itemArmadura").val() == "15383" && $("#itemCapa").val() == "20939" && $("#itemSapatos").val() == "22204" && $("#itemAcessorio1").val() != "32221") { itemIAspdFixa += 2; }
     }
@@ -1627,12 +1781,14 @@ $(document).ready(function(){
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/Qi5YAG9.png";
       slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "nenhum";
       itemHAspdPorcentagem = 10;
       if(parseInt($("#for").val()) >= 120) { itemHAtaque += 50; }
     }
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/Qi5YAG9.png";
       slotsAcessorio2 = 1;
+      encantamentoAcessorio2 = "nenhum";
       itemIAspdPorcentagem = 10;
       if(parseInt($("#for").val()) >= 120) { itemIAtaque += 50; }
     }
@@ -1642,11 +1798,28 @@ $(document).ready(function(){
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/jcXop1Y.png";
       slotsAcessorio1 = 0;
+      encantamentoAcessorio1 = "nenhum";
       if($("#itemSapatos").val() == "2408") { itemHAtaque = 50; }
     }
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/jcXop1Y.png";
       slotsAcessorio2 = 0;
+      encantamentoAcessorio2 = "nenhum";
+      if($("#itemSapatos").val() == "2408" && $("#itemAcessorio1").val() != "2655") { itemIAtaque = 50; }
+    }
+  }
+
+  function bferrob(acessorio) {
+    if(acessorio == "acessorio1") {
+      imagemAcessorio1 = "https://i.imgur.com/jcXop1Y.png";
+      slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "exploraacess";
+      if($("#itemSapatos").val() == "2408") { itemHAtaque = 50; }
+    }
+    if(acessorio == "acessorio2") {
+      imagemAcessorio2 = "https://i.imgur.com/jcXop1Y.png";
+      slotsAcessorio2 = 1;
+      encantamentoAcessorio2 = "exploraacess";
       if($("#itemSapatos").val() == "2408" && $("#itemAcessorio1").val() != "2655") { itemIAtaque = 50; }
     }
   }
@@ -1655,12 +1828,14 @@ $(document).ready(function(){
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/8BIfxTV.png";
       slotsAcessorio1 = 0;
+      encantamentoAcessorio1 = "nenhum";
       itemHTaxaCritico = 7;
       itemHAspdPorcentagem = 3;
     }
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/8BIfxTV.png";
       slotsAcessorio2 = 0;
+      encantamentoAcessorio2 = "nenhum";
       itemITaxaCritico = 7;
       itemIAspdPorcentagem = 3;
     }
@@ -1670,12 +1845,14 @@ $(document).ready(function(){
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/bdvRgV1.png";
       slotsAcessorio1 = slots;
+      encantamentoAcessorio1 = "nenhum";
       itemHTaxaCritico = parseInt(parseInt($("#sor").val()) / 10);
       if(parseInt($("#sor").val()) >= 110) itemHDanoCriticoPorcentagem = 1;
     }
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/bdvRgV1.png";
       slotsAcessorio2 = slots;
+      encantamentoAcessorio2 = "nenhum";
       itemITaxaCritico = parseInt(parseInt($("#sor").val()) / 10);
       if(parseInt($("#sor").val()) >= 110) itemIDanoCriticoPorcentagem = 1;
     }
@@ -1685,12 +1862,14 @@ $(document).ready(function(){
     if(acessorio == "acessorio1") {
       imagemAcessorio1 = "https://i.imgur.com/PlD9H6E.png";
       slotsAcessorio1 = 0;
+      encantamentoAcessorio1 = "nenhum";
       itemHDanoFisico = 7;
       itemHAspdPorcentagem = 10;
     }
     if(acessorio == "acessorio2") {
       imagemAcessorio2 = "https://i.imgur.com/PlD9H6E.png";
       slotsAcessorio2 = 0;
+      encantamentoAcessorio2 = "nenhum";
       itemIDanoFisico = 7;
       itemIAspdPorcentagem = 10;
     }
@@ -1812,15 +1991,22 @@ $(document).ready(function(){
       }
     }
     if(posicao == "capa") {
-      $(".encantamentosFAW, .encantamentosMotorEXC").hide();
+      $(".encantamentosFAW, .encantamentosMotorEXC, .encantamentosExploradoresCapa").hide();
       switch (encantamento) {
         case "faw":
           $(".encantamentosFAW").show();
           $(".encantamentosMotorEXC select").each(function(){ $(this).val(""); });
+          $(".encantamentosExploradoresCapa select").each(function(){ $(this).val(""); });
           break;
         case "exc":
           $(".encantamentosMotorEXC").show();
           $(".encantamentosFAW select").each(function(){ $(this).val(""); });
+          $(".encantamentosExploradoresCapa select").each(function(){ $(this).val(""); });
+          break;
+        case "exploracapa":
+          $(".encantamentosExploradoresCapa").show();
+          $(".encantamentosFAW select").each(function(){ $(this).val(""); });
+          $(".encantamentosMotorEXC select").each(function(){ $(this).val(""); });
           break;
         default:
           $(".encantamentosFAW select, .encantamentosMotorEXC select").each(function(){ $(this).val(""); });
@@ -1834,6 +2020,26 @@ $(document).ready(function(){
         default:
           $(".encantamentosBotasTemporais select").each(function(){ $(this).val(""); });
           $(".encantamentosBotasTemporais").hide();
+      }
+    }
+    if(posicao == "acessorio1") {
+      $(".encantamentosExploradoresAcess1").hide();
+      switch (encantamento) {
+        case "exploraacess":
+          $(".encantamentosExploradoresAcess1").show();
+          break;
+        default:
+          $(".encantamentosExploradoresAcess1 select").each(function(){ $(this).val(""); });
+      }
+    }
+    if(posicao == "acessorio2") {
+      $(".encantamentosExploradoresAcess2").hide();
+      switch (encantamento) {
+        case "exploraacess":
+          $(".encantamentosExploradoresAcess2").show();
+          break;
+        default:
+          $(".encantamentosExploradoresAcess2 select").each(function(){ $(this).val(""); });
       }
     }
   }
@@ -2042,6 +2248,16 @@ $(document).ready(function(){
     if($("#motexc-e2").val() == "exc-e2-atq") { itemFAtaque += 20; }
     if($("#motexc-e3").val() == "exc-e3-atq") { itemFAtaque += 20; }
     if($("#motexc-e3").val() == "exc-e3-vda") { itemFAspdFixa += 1; }
+    if($("#exploradorescapa-e1").val() == "exp-e1-sa") { itemFAgilidade += 1; if(parseInt($("#refinoItemCapa").val()) >= 8) { itemFAgilidade += 3; } if(parseInt($("#refinoItemCapa").val()) >= 9) { itemFDanoFisico += 1; } if(parseInt($("#refinoItemCapa").val()) >= 12) { itemFAspdFixa += 1; } }
+    if($("#exploradorescapa-e1").val() == "exp-e1-aa1") { itemFAspdPorcentagem += 4; }
+    if($("#exploradorescapa-e1").val() == "exp-e1-aa2") { itemFAspdPorcentagem += 6; }
+    if($("#exploradorescapa-e1").val() == "exp-e1-pc1") { itemFTaxaCritico += 6; }
+    if($("#exploradorescapa-e1").val() == "exp-e1-pc2") { itemFTaxaCritico += 9; }
+    if($("#exploradorescapa-e2").val() == "exp-e2-sa") { itemFAgilidade += 1; if(parseInt($("#refinoItemCapa").val()) >= 8) { itemFAgilidade += 3; } if(parseInt($("#refinoItemCapa").val()) >= 9) { itemFDanoFisico += 1; } if(parseInt($("#refinoItemCapa").val()) >= 12) { itemFAspdFixa += 1; } }
+    if($("#exploradorescapa-e2").val() == "exp-e2-aa1") { itemFAspdPorcentagem += 4; }
+    if($("#exploradorescapa-e2").val() == "exp-e2-aa2") { itemFAspdPorcentagem += 6; }
+    if($("#exploradorescapa-e2").val() == "exp-e2-pc1") { itemFTaxaCritico += 6; }
+    if($("#exploradorescapa-e2").val() == "exp-e2-pc2") { itemFTaxaCritico += 9; }
   }
 
   function cartaSapatos() {
@@ -2085,6 +2301,24 @@ $(document).ready(function(){
     if($("#cartaAcessorio1").val() == "4908") { itemHForca += 1; itemHAtaque += 3; }
     if($("#cartaAcessorio1").val() == "4909") { itemHForca += 2; itemHAtaque += 6; }
     if($("#cartaAcessorio1").val() == "4910") { itemHForca += 4; itemHAtaque += 12; }
+    if($("#exploradoresacess1-e1").val() == "exp-e1-atq3") { itemHDanoFisico += 3; }
+    if($("#exploradoresacess1-e1").val() == "exp-e1-aa1") { itemHAspdPorcentagem += 4; }
+    if($("#exploradoresacess1-e1").val() == "exp-e1-aa2") { itemHAspdPorcentagem += 6; }
+    if($("#exploradoresacess1-e1").val() == "exp-e1-pc1") { itemHTaxaCritico += 6; }
+    if($("#exploradoresacess1-e1").val() == "exp-e1-pc2") { itemHTaxaCritico += 9; }
+    if($("#exploradoresacess1-e1").val() == "exp-e1-ma1") { itemHDanoDistancia += 2; }
+    if($("#exploradoresacess1-e1").val() == "exp-e1-ma2") { itemHDanoDistancia += 4; }
+    if($("#exploradoresacess1-e1").val() == "exp-e1-el1") { itemHAtaque += 6; }
+    if($("#exploradoresacess1-e1").val() == "exp-e1-el2") { itemHAtaque += 9; }
+    if($("#exploradoresacess1-e2").val() == "exp-e2-atq3") { itemHDanoFisico += 3; }
+    if($("#exploradoresacess1-e2").val() == "exp-e2-aa1") { itemHAspdPorcentagem += 4; }
+    if($("#exploradoresacess1-e2").val() == "exp-e2-aa2") { itemHAspdPorcentagem += 6; }
+    if($("#exploradoresacess1-e2").val() == "exp-e2-pc1") { itemHTaxaCritico += 6; }
+    if($("#exploradoresacess1-e2").val() == "exp-e2-pc2") { itemHTaxaCritico += 9; }
+    if($("#exploradoresacess1-e2").val() == "exp-e2-ma1") { itemHDanoDistancia += 2; }
+    if($("#exploradoresacess1-e2").val() == "exp-e2-ma2") { itemHDanoDistancia += 4; }
+    if($("#exploradoresacess1-e2").val() == "exp-e2-el1") { itemHAtaque += 6; }
+    if($("#exploradoresacess1-e2").val() == "exp-e2-el2") { itemHAtaque += 9; }
   }
 
   function cartaAcessorio2() {
@@ -2105,6 +2339,24 @@ $(document).ready(function(){
     if($("#cartaAcessorio2").val() == "4908") { itemIForca += 1; itemIAtaque += 3; }
     if($("#cartaAcessorio2").val() == "4909") { itemIForca += 2; itemIAtaque += 6; }
     if($("#cartaAcessorio2").val() == "4910") { itemIForca += 4; itemIAtaque += 12; }
+    if($("#exploradoresacess2-e1").val() == "exp-e1-atq3") { itemIDanoFisico += 3; }
+    if($("#exploradoresacess2-e1").val() == "exp-e1-aa1") { itemIAspdPorcentagem += 4; }
+    if($("#exploradoresacess2-e1").val() == "exp-e1-aa2") { itemIAspdPorcentagem += 6; }
+    if($("#exploradoresacess2-e1").val() == "exp-e1-pc1") { itemITaxaCritico += 6; }
+    if($("#exploradoresacess2-e1").val() == "exp-e1-pc2") { itemITaxaCritico += 9; }
+    if($("#exploradoresacess2-e1").val() == "exp-e1-ma1") { itemIDanoDistancia += 2; }
+    if($("#exploradoresacess2-e1").val() == "exp-e1-ma2") { itemIDanoDistancia += 4; }
+    if($("#exploradoresacess2-e1").val() == "exp-e1-el1") { itemIAtaque += 6; }
+    if($("#exploradoresacess2-e1").val() == "exp-e1-el2") { itemIAtaque += 9; }
+    if($("#exploradoresacess2-e2").val() == "exp-e2-atq3") { itemIDanoFisico += 3; }
+    if($("#exploradoresacess2-e2").val() == "exp-e2-aa1") { itemIAspdPorcentagem += 4; }
+    if($("#exploradoresacess2-e2").val() == "exp-e2-aa2") { itemIAspdPorcentagem += 6; }
+    if($("#exploradoresacess2-e2").val() == "exp-e2-pc1") { itemITaxaCritico += 6; }
+    if($("#exploradoresacess2-e2").val() == "exp-e2-pc2") { itemITaxaCritico += 9; }
+    if($("#exploradoresacess2-e2").val() == "exp-e2-ma1") { itemIDanoDistancia += 2; }
+    if($("#exploradoresacess2-e2").val() == "exp-e2-ma2") { itemIDanoDistancia += 4; }
+    if($("#exploradoresacess2-e2").val() == "exp-e2-el1") { itemIAtaque += 6; }
+    if($("#exploradoresacess2-e2").val() == "exp-e2-el2") { itemIAtaque += 9; }
   }
 
   function definirTopo() {
@@ -2274,6 +2526,9 @@ $(document).ready(function(){
         case "19138":
           serafim();
           break;
+        case "19495":
+          discretas();
+          break;
         case "18823":
           grifo();
           break;
@@ -2353,6 +2608,12 @@ $(document).ready(function(){
           break;
         case "15254":
           abissal();
+          break;
+        case "15073":
+          tantimagia();
+          break;
+        case "2375":
+          adiabolus();
           break;
         case "15421":
           robegraca();
@@ -2507,6 +2768,15 @@ $(document).ready(function(){
         case "2576":
           mochila();
           break;
+        case "20925":
+          ccomandante();
+          break;
+        case "20955":
+          guardian();
+          break;
+        case "20944":
+          cantimagia();
+          break;
         case "20939":
           mstempo();
           break;
@@ -2571,6 +2841,9 @@ $(document).ready(function(){
         case "22172":
           aladas();
           break;
+        case "2433":
+          bdiabolus();
+          break;
         case "22171":
           bancestrais();
           break;
@@ -2582,6 +2855,9 @@ $(document).ready(function(){
           break;
         case "2408":
           grilhoes();
+          break;
+        case "470056":
+          sperseguidor();
           break;
         default:
           resetarSapatos();
@@ -2620,6 +2896,9 @@ $(document).ready(function(){
           break;
         case "28505":
           acapiroto("acessorio1");
+          break;
+        case "28594":
+          aneltemporal("acessorio1");
           break;
         case "32243":
           adesbravador("acessorio1");
@@ -2660,6 +2939,9 @@ $(document).ready(function(){
         case "2655":
           bferro("acessorio1");
           break;
+        case "28388":
+          bferrob("acessorio1");
+          break;
         case "2855":
           rabogp("acessorio1");
           break;
@@ -2677,6 +2959,7 @@ $(document).ready(function(){
       }
     }
     exibirSlots(slotsAcessorio1, "acessorio1");
+    exibirEnchants(encantamentoAcessorio1, "acessorio1");
     cartaAcessorio1();
     definirAcessorio1();
 
@@ -2707,6 +2990,9 @@ $(document).ready(function(){
           break;
         case "28505":
           acapiroto("acessorio2");
+          break;
+        case "28594":
+          aneltemporal("acessorio2");
           break;
         case "32243":
           adesbravador("acessorio2");
@@ -2747,6 +3033,9 @@ $(document).ready(function(){
         case "2655":
           bferro("acessorio2");
           break;
+        case "28388":
+          bferrob("acessorio2");
+          break;
         case "2855":
           rabogp("acessorio2");
           break;
@@ -2764,6 +3053,7 @@ $(document).ready(function(){
       }
     }
     exibirSlots(slotsAcessorio2, "acessorio2");
+    exibirEnchants(encantamentoAcessorio2, "acessorio2");
     cartaAcessorio2();
     definirAcessorio2();
 
@@ -2979,7 +3269,7 @@ $(document).ready(function(){
     hardDEF = parseInt($("#hardDEF").val());
 
     if($("#tamanho").val() == "0" || $("#tamanho").val() == "1") reducaoTamanho = 1; if($("#tamanho").val() == "2") reducaoTamanho = 0.75;
-    if($("#cartaArco1").val() == "4137" || $("#cartaArco2").val() == "4137" || $("#sobren-e1").val() == "sobren-e1-drake") { reducaoTamanho = 1; }
+    if($("#cartaArco1").val() == "4137" || $("#cartaArco2").val() == "4137" || $("#sobren-e1").val() == "sobren-e1-drake" || $("#itemSapatos").val() == "470056") { reducaoTamanho = 1; }
 
     somatoriaItensIgnorarDefesa = itemAIgnorarDefesa + itemBIgnorarDefesa + itemCIgnorarDefesa + itemDIgnorarDefesa + itemEIgnorarDefesa + itemFIgnorarDefesa + itemGIgnorarDefesa + itemHIgnorarDefesa + itemIIgnorarDefesa;
     if(somatoriaItensIgnorarDefesa > 100) { somatoriaItensIgnorarDefesa = 100; }
