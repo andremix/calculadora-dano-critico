@@ -860,6 +860,24 @@ $(document).ready(function(){
     if(parseInt($("#refinoItemArmadura").val()) >= 9) { itemDAtaque = 80; itemDIgnorarDefesa = 70; }
   }
 
+  function corc() {
+    imagemArmadura = "https://i.imgur.com/g7le4lT.png";
+    slotsArmadura = 1;
+    encantamentoArmadura = "nenhum";
+    if(parseInt($("#refinoItemArmadura").val()) >= 7) { itemDDanoFisico = 10; }
+    if(parseInt($("#refinoItemArmadura").val()) >= 9) { itemDDanoFisico += 10; }
+    if($("#cartaArmadura").val() == "4135") {
+      if(parseInt($("#propriedadeMonstro").val()) >= 60 && parseInt($("#propriedadeMonstro").val()) <= 63) {
+        if(parseInt($("#nivelPersonagem").val()) >= 100) {
+          itemDDanoPropriedade += (parseInt($("#refinoItemArmadura").val())) * 10;
+        }
+        if(parseInt($("#nivelPersonagem").val()) == 99) {
+          itemDDanoPropriedade += (parseInt($("#refinoItemArmadura").val())) * 3;
+        }
+      }
+    }
+  }
+
   function vorags() {
     imagemArmadura = "https://i.imgur.com/IeMptmo.png";
     slotsArmadura = 1;
@@ -2644,6 +2662,9 @@ $(document).ready(function(){
           break;
         case "15283":
           senshi();
+          break;
+        case "450142":
+          corc();
           break;
         case "19048":
           vorags();
