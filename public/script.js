@@ -913,6 +913,82 @@ $(document).ready(function(){
     if(parseInt($("#refinoItemArco").val()) >= 9) { itemEAspdFixa = 1; }
   }
 
+  function oxum() {
+    imagemArco = "https://i.imgur.com/ZT6Eh2F.png";
+    slotsArco = 2;
+    encantamentoArco = "armaBrasilis";
+    itemEAtaque = 120 + (refinoItemArco * 5);
+    if(parseInt($("#refinoItemArco").val()) >= 7) {
+      if($("#racaMonstro").val() == "0" || $("#racaMonstro").val() == "3") { itemEDanoRacial += 10; }
+      if(parseInt($("#propriedadeMonstro").val()) >= 10 && parseInt($("#propriedadeMonstro").val()) <= 13) { itemEDanoPropriedade += 10; }
+    }
+    if(parseInt($("#refinoItemArco").val()) >= 9) {
+      if($("#racaMonstro").val() == "0" || $("#racaMonstro").val() == "3") { itemEDanoRacial += 15; }
+      if(parseInt($("#propriedadeMonstro").val()) >= 10 && parseInt($("#propriedadeMonstro").val()) <= 13) { itemEDanoPropriedade += 15; }
+    }
+    if($("#itemFlecha").val() == "1750") {
+      if($("#racaMonstro").val() == "0" || $("#racaMonstro").val() == "3") { itemEDanoRacial += 15; }
+      if(parseInt($("#propriedadeMonstro").val()) >= 10 && parseInt($("#propriedadeMonstro").val()) <= 13) { itemEDanoPropriedade += 15; }
+    }
+  }
+
+  function xango() {
+    imagemArco = "https://i.imgur.com/HQTdZje.png";
+    slotsArco = 2;
+    encantamentoArco = "armaBrasilis";
+    itemEAtaque = 120 + (refinoItemArco * 5);
+    if(parseInt($("#refinoItemArco").val()) >= 7) {
+      if($("#racaMonstro").val() == "5" || $("#racaMonstro").val() == "6") { itemEDanoRacial += 10; }
+      if(parseInt($("#propriedadeMonstro").val()) >= 30 && parseInt($("#propriedadeMonstro").val()) <= 43) { itemEDanoPropriedade += 10; }
+    }
+    if(parseInt($("#refinoItemArco").val()) >= 9) {
+      if($("#racaMonstro").val() == "5" || $("#racaMonstro").val() == "6") { itemEDanoRacial += 15; }
+      if(parseInt($("#propriedadeMonstro").val()) >= 30 && parseInt($("#propriedadeMonstro").val()) <= 43) { itemEDanoPropriedade += 15; }
+    }
+    if($("#itemFlecha").val() == "1750") {
+      if($("#racaMonstro").val() == "5" || $("#racaMonstro").val() == "6") { itemEDanoRacial += 15; }
+      if(parseInt($("#propriedadeMonstro").val()) >= 30 && parseInt($("#propriedadeMonstro").val()) <= 43) { itemEDanoPropriedade += 15; }
+    }
+  }
+
+  function oxossi() {
+    imagemArco = "https://i.imgur.com/CkYVbPu.png";
+    slotsArco = 2;
+    encantamentoArco = "armaBrasilis";
+    itemEAtaque = 120 + (refinoItemArco * 5);
+    if(parseInt($("#refinoItemArco").val()) >= 7) {
+      if($("#racaMonstro").val() == "2" || $("#racaMonstro").val() == "9") { itemEDanoRacial += 10; }
+      if(parseInt($("#propriedadeMonstro").val()) >= 20 && parseInt($("#propriedadeMonstro").val()) <= 33) { itemEDanoPropriedade += 10; }
+    }
+    if(parseInt($("#refinoItemArco").val()) >= 9) {
+      if($("#racaMonstro").val() == "2" || $("#racaMonstro").val() == "9") { itemEDanoRacial += 15; }
+      if(parseInt($("#propriedadeMonstro").val()) >= 20 && parseInt($("#propriedadeMonstro").val()) <= 33) { itemEDanoPropriedade += 15; }
+    }
+    if($("#itemFlecha").val() == "1750") {
+      if($("#racaMonstro").val() == "2" || $("#racaMonstro").val() == "9") { itemEDanoRacial += 15; }
+      if(parseInt($("#propriedadeMonstro").val()) >= 20 && parseInt($("#propriedadeMonstro").val()) <= 33) { itemEDanoPropriedade += 15; }
+    }
+  }
+
+  function iansa() {
+    imagemArco = "https://i.imgur.com/KTHRgtr.png";
+    slotsArco = 2;
+    encantamentoArco = "armaBrasilis";
+    itemEAtaque = 120 + (refinoItemArco * 5);
+    if(parseInt($("#refinoItemArco").val()) >= 7) {
+      if($("#racaMonstro").val() == "8") { itemEDanoRacial += 10; }
+      if(parseInt($("#propriedadeMonstro").val()) >= 40 && parseInt($("#propriedadeMonstro").val()) <= 43) { itemEDanoPropriedade += 10; }
+    }
+    if(parseInt($("#refinoItemArco").val()) >= 9) {
+      if($("#racaMonstro").val() == "8") { itemEDanoRacial += 15; }
+      if(parseInt($("#propriedadeMonstro").val()) >= 40 && parseInt($("#propriedadeMonstro").val()) <= 43) { itemEDanoPropriedade += 15; }
+    }
+    if($("#itemFlecha").val() == "1750") {
+      if($("#racaMonstro").val() == "8") { itemEDanoRacial += 15; }
+      if(parseInt($("#propriedadeMonstro").val()) >= 40 && parseInt($("#propriedadeMonstro").val()) <= 43) { itemEDanoPropriedade += 15; }
+    }
+  }
+
   function rubi() {
     imagemArco = "https://i.imgur.com/1YZ30q6.png";
     slotsArco = 2;
@@ -1975,26 +2051,36 @@ $(document).ready(function(){
 
   function exibirEnchants(encantamento, posicao) {
     if(posicao == "arco") {
-      $(".encantamentosSobrenatural, .encantamentosCatapa").hide();
+      $(".encantamentosSobrenatural, .encantamentosCatapa, .encantamentosMalangdo2, .encantamentosArmasBrasilis").hide();
       switch (encantamento) {
         case "sobrenatural":
           $(".encantamentosCatapa select").each(function(){ $(this).val(""); }); $(".encantamentosCatapa").hide();
           $(".encantamentosMalangdo2 select").each(function(){ $(this).val(""); }); $(".encantamentosMalangdo2").hide();
+          $(".encantamentosArmasBrasilis select").each(function(){ $(this).val(""); }); $(".encantamentosArmasBrasilis").hide();
           $(".encantamentosSobrenatural").show();
           break;
         case "catapa":
           $(".encantamentosSobrenatural select").each(function(){ $(this).val(""); }); $(".encantamentosSobrenatural").hide();
           $(".encantamentosMalangdo2 select").each(function(){ $(this).val(""); }); $(".encantamentosMalangdo2").hide();
+          $(".encantamentosArmasBrasilis select").each(function(){ $(this).val(""); }); $(".encantamentosArmasBrasilis").hide();
           $(".encantamentosCatapa").show();
           break;
         case "malang2":
           $(".encantamentosSobrenatural select").each(function(){ $(this).val(""); }); $(".encantamentosSobrenatural").hide();
           $(".encantamentosCatapa select").each(function(){ $(this).val(""); }); $(".encantamentosCatapa").hide();
+          $(".encantamentosArmasBrasilis select").each(function(){ $(this).val(""); }); $(".encantamentosArmasBrasilis").hide();
           $(".encantamentosMalangdo2").show();
+          break;
+        case "armaBrasilis":
+          $(".encantamentosSobrenatural select").each(function(){ $(this).val(""); }); $(".encantamentosSobrenatural").hide();
+          $(".encantamentosCatapa select").each(function(){ $(this).val(""); }); $(".encantamentosCatapa").hide();
+          $(".encantamentosMalangdo2 select").each(function(){ $(this).val(""); }); $(".encantamentosMalangdo2").hide();
+          $(".encantamentosArmasBrasilis").show();
           break;
         default:
           $(".encantamentosCatapa select").each(function(){ $(this).val(""); }); $(".encantamentosCatapa").hide();
           $(".encantamentosMalangdo2 select").each(function(){ $(this).val(""); }); $(".encantamentosMalangdo2").hide();
+          $(".encantamentosArmasBrasilis select").each(function(){ $(this).val(""); }); $(".encantamentosArmasBrasilis").hide();
           $(".encantamentosSobrenatural select").each(function(){ $(this).val(""); }); $(".encantamentosSobrenatural").hide();
       }
     }
@@ -2198,6 +2284,10 @@ $(document).ready(function(){
     if($("#malang-e2").val() == "malang-e2-pc3") { itemETaxaCritico += 12; }
     if($("#malang-e2").val() == "malang-e2-pc2") { itemETaxaCritico += 9; }
     if($("#malang-e2").val() == "malang-e2-va1") { itemEAspdFixa += 1; }
+    if($("#armabrasillis-e1").val() == "armabrasillis-e1-aa4") { itemEAspdPorcentagem += 10; }
+    if($("#armabrasillis-e1").val() == "armabrasillis-e1-el10") { itemEAtaqueEquipamento += 50; }
+    if($("#armabrasillis-e1").val() == "armabrasillis-e1-ma10") { itemEDanoDistancia += 20; itemEAspdFixa += 1; }
+    if($("#armabrasillis-e1").val() == "armabrasillis-e1-mo4") { itemEDanoCriticoPorcentagem += 20; }
   }
 
   function flechaArco() {
@@ -2727,6 +2817,18 @@ $(document).ready(function(){
           break;
         case "1716":
           gakkung();
+          break;
+        case "18144":
+          oxum();
+          break;
+        case "18152":
+          xango();
+          break;
+        case "18142":
+          oxossi();
+          break;
+        case "18133":
+          iansa();
           break;
         default:
           resetarArco();
