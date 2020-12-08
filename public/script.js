@@ -2368,6 +2368,7 @@ $(document).ready(function(){
     if($("#cartaCapa").val() == "4595") { itemFAspdPorcentagem += parseInt(parseInt($("#agi").val()) / 10) * 2; }
     if($("#cartaCapa").val() == "4593") { itemFDanoDistancia = itemFDanoDistancia + parseInt(parseInt($("#des").val()) / 10) ; }
     if($("#cartaCapa").val() == "4594") { itemFDanoCriticoPorcentagem = itemFDanoCriticoPorcentagem + parseInt(parseInt($("#sor").val()) / 10) * 2 ; }
+    if($("#cartaCapa").val() == "4682") { itemFDanoRacial += 5; if(parseInt($("#refinoItemCapa").val()) >= 10) { itemFForca += 10; itemFAgilidade += 10; itemFDestreza += 10; itemFSorte += 10; } if(parseInt($("#nivelPersonagem").val()) >= 175) { itemFForca += 10; itemFAgilidade += 10; itemFDestreza += 10; itemFSorte += 10; } }
     if($("#cartaCapa").val() == "4588") { itemFAtaque = itemFAtaque + parseInt(parseInt($("#for").val()) / 10) * 5 ; }
     if($("#faw-e1").val() == "faw-e1-ma4") { itemFDanoDistancia += 8; }
     if($("#faw-e1").val() == "faw-e1-ma3") { itemFDanoDistancia += 6; }
