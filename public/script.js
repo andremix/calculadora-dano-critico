@@ -3482,9 +3482,9 @@ $(document).ready(function(){
     somatoriaItensAtaque = itemAAtaque + itemBAtaque + itemCAtaque + itemDAtaque + itemEAtaqueEquipamento + itemFAtaque + itemGAtaque + itemHAtaque + itemIAtaque;
     somatoriaItensAtaquePorcentagem = 1 + ((itemAAtaqueArmaPorcentagem + itemBAtaqueArmaPorcentagem + itemCAtaqueArmaPorcentagem + itemDAtaqueArmaPorcentagem + itemEAtaqueArmaPorcentagem + itemFAtaqueArmaPorcentagem + itemGAtaqueArmaPorcentagem + itemHAtaqueArmaPorcentagem + itemIAtaqueArmaPorcentagem) / 100);
     somatoriaItensDanoFisico = 1 + ((itemADanoFisico + itemBDanoFisico + itemCDanoFisico + itemDDanoFisico + itemEDanoFisico + itemFDanoFisico + itemGDanoFisico + itemHDanoFisico + itemIDanoFisico) / 100);
-    /* somatoriaItensDanoFisicoMonstro = 1 + ((itemADanoFisicoMonstro + itemBDanoFisicoMonstro + itemCDanoFisicoMonstro + itemDDanoFisicoMonstro + itemEDanoFisicoMonstro + itemFDanoFisicoMonstro + itemGDanoFisicoMonstro + itemHDanoFisicoMonstro + itemIDanoFisicoMonstro) / 100); */
     somatoriaItensDanoMVP = 1 + ((itemADanoMVP + itemBDanoMVP + itemCDanoMVP + itemDDanoMVP + itemEDanoMVP + itemFDanoMVP + itemGDanoMVP + itemHDanoMVP + itemIDanoMVP) / 100);
-    if(!$("#chefe").is(":checked")) somatoriaItensDanoMVP = 1;
+    if($("#chefe").is(":checked")) somatoriaItensDanoFisico += somatoriaItensDanoMVP - 1;
+    //if(!$("#chefe").is(":checked")) somatoriaItensDanoMVP = 1;
     somatoriaItensDanoDistancia = 1 + ((itemADanoDistancia + itemBDanoDistancia + itemCDanoDistancia + itemDDanoDistancia + itemEDanoDistancia + itemFDanoDistancia + itemGDanoDistancia + itemHDanoDistancia + itemIDanoDistancia) / 100);
     somatoriaItensDanoCritico = 1 + ((itemADanoCriticoPorcentagem + itemBDanoCriticoPorcentagem + itemCDanoCriticoPorcentagem + itemDDanoCriticoPorcentagem + itemEDanoCriticoPorcentagem + itemFDanoCriticoPorcentagem + itemGDanoCriticoPorcentagem + itemHDanoCriticoPorcentagem + itemIDanoCriticoPorcentagem) / 100);
     somatoriaItensDanoRacial = 1 + ((itemADanoRacial + itemBDanoRacial + itemCDanoRacial + itemDDanoRacial + itemEDanoRacial + itemFDanoRacial + itemGDanoRacial + itemHDanoRacial + itemIDanoRacial) / 100);
@@ -3548,7 +3548,7 @@ $(document).ready(function(){
     WeaponATK = Math.floor(((itemEAtaque) + Math.floor(itemEAtaque * Math.floor(DES / 200))) * reducaoTamanho); // removed Variance and OverUpgradeBonus
     ExtraATK = somatoriaItensAtaque + flechaAtaque + somatoriaConsumiveisAtaque; // removed PseudoBuffATK
 
-    danoCausado = Math.floor(Math.floor(Math.floor(Math.floor((((StatusATK * 2)) + Math.floor(Math.floor(Math.floor(Math.floor(Math.floor(Math.floor((Math.floor(WeaponATK * somatoriaItensAtaquePorcentagem) + ExtraATK + itemJAtaque + ataqueInvestigar) * multiplicadorElemental) * somatoriaItensDanoFisico) * somatoriaItensDanoMVP) * somatoriaItensDanoRacial) * somatoriaItensDanoPropriedade) * somatoriaItensDanoTamanho)) * somatoriaItensDanoDistancia) * 1.4) * somatoriaItensDanoCritico) * reducaoDanoMostro);
+    danoCausado = Math.floor(Math.floor(Math.floor(Math.floor((((StatusATK * 2)) + Math.floor(Math.floor(Math.floor(Math.floor(Math.floor(Math.floor((Math.floor(WeaponATK * somatoriaItensAtaquePorcentagem) + ExtraATK + itemJAtaque + ataqueInvestigar) * multiplicadorElemental) * somatoriaItensDanoFisico) * 1) * somatoriaItensDanoRacial) * somatoriaItensDanoPropriedade) * somatoriaItensDanoTamanho)) * somatoriaItensDanoDistancia) * 1.4) * somatoriaItensDanoCritico) * reducaoDanoMostro);
 
     contadorMudancas++;
 
