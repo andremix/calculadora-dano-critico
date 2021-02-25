@@ -456,6 +456,13 @@ $(document).ready(function(){
     if($("#itemAcessorio1").val() == "2855" || $("#itemAcessorio2").val() == "2855") { itemADanoCriticoPorcentagem += 10; if(parseInt($("#refinoItemTopo").val()) >= 6) { itemATaxaCritico += 5; } }
   }
 
+  function plumanegra() {
+    imagemTopo = "https://i.imgur.com/D1shBnL.png";
+    slotsTopo = 0;
+    itemAIgnorarDefesa = 100;
+    itemADanoMVP = 50;
+  }
+
   function xogunato() {
     imagemTopo = "https://i.imgur.com/iqqXShv.png";
     slotsTopo = 1;
@@ -1031,7 +1038,7 @@ $(document).ready(function(){
   function aancestral() {
     imagemArco = "https://i.imgur.com/JkWjOiM.png";
     slotsArco = 2;
-    encantamentoArco = "nenhum";
+    encantamentoArco = "ancestral";
     refinoArco = parseInt($("#refinoItemArco").val());
     itemEDanoDistancia = parseInt(refinoArco / 3) * 4;
     itemEAtaqueEquipamento = (parseInt(refinoArco / 2) * 10);
@@ -1041,7 +1048,7 @@ $(document).ready(function(){
   function aancestralb(selectAlterado) {
     imagemArco = "https://i.imgur.com/JkWjOiM.png";
     slotsArco = 2;
-    encantamentoArco = "nenhum";
+    encantamentoArco = "ancestral";
     refinoArco = parseInt($("#refinoItemArco").val());
     itemEDanoDistancia = parseInt(refinoArco / 3) * 4 + 20;
     if(selectAlterado.is("#itemArco")) { $("#itemSapatos").val("22171"); }
@@ -1062,7 +1069,7 @@ $(document).ready(function(){
   function bancestral() {
     imagemArco = "https://i.imgur.com/ImJGh9a.png";
     slotsArco = 2;
-    encantamentoArco = "nenhum";
+    encantamentoArco = "ancestral";
     refinoArco = parseInt($("#refinoItemArco").val());
     if(refinoArco >= 9) {
       itemEAspdPorcentagem = 10;
@@ -1077,7 +1084,7 @@ $(document).ready(function(){
   function bancestralb(selectAlterado) {
     imagemArco = "https://i.imgur.com/ImJGh9a.png";
     slotsArco = 2;
-    encantamentoArco = "nenhum";
+    encantamentoArco = "ancestral";
     if(selectAlterado.is("#itemArco")) { $("#itemSapatos").val("22171"); }
     itemEDestreza = 20;
     itemEDanoDistancia = 20;
@@ -1469,6 +1476,12 @@ $(document).ready(function(){
 
   function grilhoes() {
     imagemSapatos = "https://i.imgur.com/aj9womM.png";
+    slotsSapatos = 0;
+    encantamentoSapatos = "nenhum";
+  }
+
+  function pernaexc() {
+    imagemSapatos = "https://i.imgur.com/M7otn4F.png";
     slotsSapatos = 0;
     encantamentoSapatos = "nenhum";
   }
@@ -2110,28 +2123,39 @@ $(document).ready(function(){
     if(posicao == "arco") {
       $(".encantamentosSobrenatural, .encantamentosCatapa, .encantamentosMalangdo2, .encantamentosArmasBrasilis").hide();
       switch (encantamento) {
+        case "ancestral":
+          $(".encantamentosCatapa select").each(function(){ $(this).val(""); }); $(".encantamentosCatapa").hide();
+          $(".encantamentosMalangdo2 select").each(function(){ $(this).val(""); }); $(".encantamentosMalangdo2").hide();
+          $(".encantamentosArmasBrasilis select").each(function(){ $(this).val(""); }); $(".encantamentosArmasBrasilis").hide();
+          $(".encantamentosSobrenatural select").each(function(){ $(this).val(""); }); $(".encantamentosSobrenatural").hide();
+          $(".encantamentosAncestrais").show();
+          break;
         case "sobrenatural":
           $(".encantamentosCatapa select").each(function(){ $(this).val(""); }); $(".encantamentosCatapa").hide();
           $(".encantamentosMalangdo2 select").each(function(){ $(this).val(""); }); $(".encantamentosMalangdo2").hide();
           $(".encantamentosArmasBrasilis select").each(function(){ $(this).val(""); }); $(".encantamentosArmasBrasilis").hide();
+          $(".encantamentosAncestrais select").each(function(){ $(this).val(""); }); $(".encantamentosAncestrais").hide();
           $(".encantamentosSobrenatural").show();
           break;
         case "catapa":
           $(".encantamentosSobrenatural select").each(function(){ $(this).val(""); }); $(".encantamentosSobrenatural").hide();
           $(".encantamentosMalangdo2 select").each(function(){ $(this).val(""); }); $(".encantamentosMalangdo2").hide();
           $(".encantamentosArmasBrasilis select").each(function(){ $(this).val(""); }); $(".encantamentosArmasBrasilis").hide();
+          $(".encantamentosAncestrais select").each(function(){ $(this).val(""); }); $(".encantamentosAncestrais").hide();
           $(".encantamentosCatapa").show();
           break;
         case "malang2":
           $(".encantamentosSobrenatural select").each(function(){ $(this).val(""); }); $(".encantamentosSobrenatural").hide();
           $(".encantamentosCatapa select").each(function(){ $(this).val(""); }); $(".encantamentosCatapa").hide();
           $(".encantamentosArmasBrasilis select").each(function(){ $(this).val(""); }); $(".encantamentosArmasBrasilis").hide();
+          $(".encantamentosAncestrais select").each(function(){ $(this).val(""); }); $(".encantamentosAncestrais").hide();
           $(".encantamentosMalangdo2").show();
           break;
         case "armaBrasilis":
           $(".encantamentosSobrenatural select").each(function(){ $(this).val(""); }); $(".encantamentosSobrenatural").hide();
           $(".encantamentosCatapa select").each(function(){ $(this).val(""); }); $(".encantamentosCatapa").hide();
           $(".encantamentosMalangdo2 select").each(function(){ $(this).val(""); }); $(".encantamentosMalangdo2").hide();
+          $(".encantamentosAncestrais select").each(function(){ $(this).val(""); }); $(".encantamentosAncestrais").hide();
           $(".encantamentosArmasBrasilis").show();
           break;
         default:
@@ -2139,6 +2163,7 @@ $(document).ready(function(){
           $(".encantamentosMalangdo2 select").each(function(){ $(this).val(""); }); $(".encantamentosMalangdo2").hide();
           $(".encantamentosArmasBrasilis select").each(function(){ $(this).val(""); }); $(".encantamentosArmasBrasilis").hide();
           $(".encantamentosSobrenatural select").each(function(){ $(this).val(""); }); $(".encantamentosSobrenatural").hide();
+          $(".encantamentosAncestrais select").each(function(){ $(this).val(""); }); $(".encantamentosAncestrais").hide();
       }
     }
     if(posicao == "armadura") {
@@ -2279,6 +2304,437 @@ $(document).ready(function(){
     if($("#cartaArco2").val() == "4086") { itemETaxaCritico += 9; }
     if($("#cartaArco2").val() == "4634") { itemETaxaCritico += 9; if(parseInt($("#nivelPersonagem").val()) >= 100) { itemETaxaCritico += 1; itemEDanoCriticoPorcentagem +=5; } }
     if($("#cartaArco2").val() == "4466") { itemEDanoDistancia += 3; if(parseInt($("#refinoItemArco").val()) >= 10) { itemEAspdFixa += 1; } if(parseInt($("#refinoItemArco").val()) >= 14) { itemEAspdFixa += 1; } }
+
+
+    if($("#ancestr-e1").val() == "ancestr-e1-atq5") { itemEAtaqueEquipamento += 5; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq6") { itemEAtaqueEquipamento += 6; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq7") { itemEAtaqueEquipamento += 7; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq8") { itemEAtaqueEquipamento += 8; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq9") { itemEAtaqueEquipamento += 9; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq10") { itemEAtaqueEquipamento += 10; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq11") { itemEAtaqueEquipamento += 11; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq12") { itemEAtaqueEquipamento += 12;}
+    if($("#ancestr-e1").val() == "ancestr-e1-atq13") { itemEAtaqueEquipamento += 13; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq14") { itemEAtaqueEquipamento += 14; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq15") { itemEAtaqueEquipamento += 15; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq16") { itemEAtaqueEquipamento += 16; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq17") { itemEAtaqueEquipamento += 17; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq18") { itemEAtaqueEquipamento += 18; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq19") { itemEAtaqueEquipamento += 19; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq20") { itemEAtaqueEquipamento += 20; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq21") { itemEAtaqueEquipamento += 21; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq22") { itemEAtaqueEquipamento += 22; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq23") { itemEAtaqueEquipamento += 23; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq24") { itemEAtaqueEquipamento += 24; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq25") { itemEAtaqueEquipamento += 25; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq26") { itemEAtaqueEquipamento += 26; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq27") { itemEAtaqueEquipamento += 27; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq28") { itemEAtaqueEquipamento += 28; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq29") { itemEAtaqueEquipamento += 29; }
+    if($("#ancestr-e1").val() == "ancestr-e1-atq30") { itemEAtaqueEquipamento += 30; }
+    if($("#ancestr-e1").val() == "ancestr-e1-aspd1") { itemEAspdFixa += 1; }
+    if($("#ancestr-e1").val() == "ancestr-e1-aspd3") { itemEAspdPorcentagem += 3; }
+    if($("#ancestr-e1").val() == "ancestr-e1-aspd4") { itemEAspdPorcentagem += 4; }
+    if($("#ancestr-e1").val() == "ancestr-e1-aspd5") { itemEAspdPorcentagem += 5; }
+    if($("#ancestr-e1").val() == "ancestr-e1-aspd6") { itemEAspdPorcentagem += 6; }
+    if($("#ancestr-e1").val() == "ancestr-e1-aspd7") { itemEAspdPorcentagem += 7; }
+    if($("#ancestr-e1").val() == "ancestr-e1-aspd8") { itemEAspdPorcentagem += 8; }
+    if($("#ancestr-e1").val() == "ancestr-e1-aspd9") { itemEAspdPorcentagem += 9; }
+    if($("#ancestr-e1").val() == "ancestr-e1-aspd10") { itemEAspdPorcentagem += 10; }
+    if($("#ancestr-e1").val() == "ancestr-e1-agua3") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 3; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-agua4") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 4; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-agua5") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 5; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-agua6") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 6; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-agua7") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 7; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-agua8") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 8; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-agua9") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 9; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-agua10") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 10; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-agua11") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 11; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-agua12") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 12; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-agua13") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 13; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-agua14") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 14; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-agua15") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 15; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-agua16") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 16; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-agua17") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 17; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-agua18") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 18; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-agua19") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 19; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-agua20") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 20; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fant3") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 3; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fant4") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 4; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fant5") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 5; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fant6") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 6; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fant7") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 7; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fant8") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 8; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fant9") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 9; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fant10") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 10; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fant11") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 11; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fant12") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 12; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fant13") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 13; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fant14") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 14; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fant15") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 15; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fant16") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 16; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fant17") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 17; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fant18") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 18; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fant19") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 19; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fant20") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 20; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fogo3") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 3; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fogo4") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 4; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fogo5") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 5; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fogo6") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 6; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fogo7") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 7; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fogo8") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 8; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fogo9") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 9; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fogo10") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 10; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fogo11") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 11; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fogo12") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 12; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fogo13") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 13; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fogo14") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 14; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fogo15") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 15; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fogo16") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 16; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fogo17") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 17; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fogo18") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 18; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fogo19") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 19; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-fogo20") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 20; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-mald3") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 3; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-mald4") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 4; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-mald5") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 5; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-mald6") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 6; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-mald7") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 7; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-mald8") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 8; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-mald9") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 9; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-mald10") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 10; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-mald11") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 11; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-mald12") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 12; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-mald13") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 13; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-mald14") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 14; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-mald15") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 15; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-mald16") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 16; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-mald17") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 17; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-mald18") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 18; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-mald19") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 19; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-mald20") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 20; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-neut3") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 3; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-neut4") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 4; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-neut5") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 5; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-neut6") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 6; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-neut7") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 7; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-neut8") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 8; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-neut9") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 9; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-neut10") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 10; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-neut11") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 11; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-neut12") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 12; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-neut13") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 13; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-neut14") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 14; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-neut15") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 15; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-neut16") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 16; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-neut17") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 17; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-neut18") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 18; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-neut19") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 19; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-neut20") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 20; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-sagr3") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 3; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-sagr4") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 4; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-sagr5") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 5; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-sagr6") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 6; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-sagr7") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 7; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-sagr8") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 8; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-sagr9") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 9; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-sagr10") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 10; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-sagr11") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 11; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-sagr12") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 12; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-sagr13") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 13; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-sagr14") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 14; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-sagr15") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 15; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-sagr16") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 16; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-sagr17") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 17; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-sagr18") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 18; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-sagr19") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 19; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-sagr20") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 20; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-somb3") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 3; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-somb4") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 4; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-somb5") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 5; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-somb6") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 6; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-somb7") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 7; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-somb8") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 8; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-somb9") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 9; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-somb10") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 10; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-somb11") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 11; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-somb12") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 12; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-somb13") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 13; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-somb14") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 14; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-somb15") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 15; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-somb16") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 16; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-somb17") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 17; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-somb18") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 18; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-somb19") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 19; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-somb20") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 20; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-terr3") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 3; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-terr4") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 4; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-terr5") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 5; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-terr6") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 6; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-terr7") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 7; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-terr8") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 8; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-terr9") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 9; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-terr10") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 10; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-terr11") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 11; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-terr12") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 12; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-terr13") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 13; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-terr14") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 14; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-terr15") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 15; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-terr16") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 16; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-terr17") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 17; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-terr18") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 18; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-terr19") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 19; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-terr20") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 20; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vene3") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 3; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vene4") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 4; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vene5") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 5; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vene6") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 6; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vene7") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 7; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vene8") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 8; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vene9") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 9; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vene10") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 10; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vene11") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 11; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vene12") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 12; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vene13") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 13; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vene14") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 14; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vene15") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 15; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vene16") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 16; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vene17") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 17; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vene18") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 18; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vene19") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 19; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vene20") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 20; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vent3") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 3; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vent4") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 4; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vent5") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 5; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vent6") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 6; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vent7") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 7; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vent8") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 8; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vent9") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 9; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vent10") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 10; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vent11") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 11; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vent12") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 12; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vent13") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 13; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vent14") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 14; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vent15") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 15; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vent16") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 16; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vent17") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 17; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vent18") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 18; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vent19") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 19; } }
+    if($("#ancestr-e1").val() == "ancestr-e1-vent20") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 20; } }
+
+    if($("#ancestr-e2").val() == "ancestr-e2-atq1") { itemEAtaqueArmaPorcentagem += 1; }
+    if($("#ancestr-e2").val() == "ancestr-e2-atq2") { itemEAtaqueArmaPorcentagem += 2; }
+    if($("#ancestr-e2").val() == "ancestr-e2-atq3") { itemEAtaqueArmaPorcentagem += 3; }
+    if($("#ancestr-e2").val() == "ancestr-e2-atq4") { itemEAtaqueArmaPorcentagem += 4; }
+    if($("#ancestr-e2").val() == "ancestr-e2-atq5") { itemEAtaqueArmaPorcentagem += 5; }
+    if($("#ancestr-e2").val() == "ancestr-e2-crit3") { itemEDanoCriticoPorcentagem += 3; }
+    if($("#ancestr-e2").val() == "ancestr-e2-crit4") { itemEDanoCriticoPorcentagem += 4; }
+    if($("#ancestr-e2").val() == "ancestr-e2-crit5") { itemEDanoCriticoPorcentagem += 5; }
+    if($("#ancestr-e2").val() == "ancestr-e2-crit6") { itemEDanoCriticoPorcentagem += 6; }
+    if($("#ancestr-e2").val() == "ancestr-e2-crit7") { itemEDanoCriticoPorcentagem += 7; }
+    if($("#ancestr-e2").val() == "ancestr-e2-crit8") { itemEDanoCriticoPorcentagem += 8; }
+    if($("#ancestr-e2").val() == "ancestr-e2-crit9") { itemEDanoCriticoPorcentagem += 9; }
+    if($("#ancestr-e2").val() == "ancestr-e2-crit10") { itemEDanoCriticoPorcentagem += 10; }
+    if($("#ancestr-e2").val() == "ancestr-e2-chefe3") { itemEDanoMVP += 3; }
+    if($("#ancestr-e2").val() == "ancestr-e2-chefe4") { itemEDanoMVP += 4; }
+    if($("#ancestr-e2").val() == "ancestr-e2-chefe5") { itemEDanoMVP += 5; }
+    if($("#ancestr-e2").val() == "ancestr-e2-chefe6") { itemEDanoMVP += 6; }
+    if($("#ancestr-e2").val() == "ancestr-e2-chefe7") { itemEDanoMVP += 7; }
+    if($("#ancestr-e2").val() == "ancestr-e2-chefe8") { itemEDanoMVP += 8; }
+    if($("#ancestr-e2").val() == "ancestr-e2-chefe9") { itemEDanoMVP += 9; }
+    if($("#ancestr-e2").val() == "ancestr-e2-chefe10") { itemEDanoMVP += 10; }
+    if($("#ancestr-e2").val() == "ancestr-e2-chefe11") { itemEDanoMVP += 11; }
+    if($("#ancestr-e2").val() == "ancestr-e2-chefe12") { itemEDanoMVP += 12; }
+    if($("#ancestr-e2").val() == "ancestr-e2-chefe13") { itemEDanoMVP += 13; }
+    if($("#ancestr-e2").val() == "ancestr-e2-chefe14") { itemEDanoMVP += 14; }
+    if($("#ancestr-e2").val() == "ancestr-e2-chefe15") { itemEDanoMVP += 15; }
+    if($("#ancestr-e2").val() == "ancestr-e2-chefe16") { itemEDanoMVP += 16; }
+    if($("#ancestr-e2").val() == "ancestr-e2-chefe17") { itemEDanoMVP += 17; }
+    if($("#ancestr-e2").val() == "ancestr-e2-chefe18") { itemEDanoMVP += 18; }
+    if($("#ancestr-e2").val() == "ancestr-e2-chefe19") { itemEDanoMVP += 19; }
+    if($("#ancestr-e2").val() == "ancestr-e2-chefe20") { itemEDanoMVP += 20; }
+    if($("#ancestr-e2").val() == "ancestr-e2-agua3") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 3; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-agua4") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 4; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-agua5") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 5; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-agua6") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 6; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-agua7") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 7; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-agua8") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 8; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-agua9") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 9; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-agua10") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 10; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-agua11") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 11; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-agua12") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 12; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-agua13") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 13; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-agua14") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 14; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-agua15") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 15; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-agua16") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 16; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-agua17") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 17; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-agua18") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 18; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-agua19") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 19; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-agua20") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 4) { itemEDanoPropriedade += 20; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fant3") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 3; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fant4") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 4; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fant5") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 5; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fant6") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 6; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fant7") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 7; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fant8") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 8; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fant9") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 9; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fant10") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 10; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fant11") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 11; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fant12") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 12; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fant13") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 13; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fant14") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 14; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fant15") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 15; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fant16") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 16; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fant17") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 17; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fant18") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 18; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fant19") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 19; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fant20") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 9) { itemEDanoPropriedade += 20; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fogo3") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 3; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fogo4") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 4; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fogo5") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 5; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fogo6") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 6; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fogo7") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 7; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fogo8") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 8; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fogo9") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 9; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fogo10") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 10; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fogo11") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 11; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fogo12") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 12; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fogo13") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 13; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fogo14") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 14; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fogo15") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 15; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fogo16") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 16; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fogo17") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 17; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fogo18") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 18; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fogo19") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 19; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-fogo20") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 1) { itemEDanoPropriedade += 20; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-mald3") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 3; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-mald4") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 4; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-mald5") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 5; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-mald6") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 6; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-mald7") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 7; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-mald8") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 8; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-mald9") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 9; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-mald10") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 10; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-mald11") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 11; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-mald12") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 12; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-mald13") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 13; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-mald14") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 14; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-mald15") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 15; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-mald16") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 16; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-mald17") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 17; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-mald18") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 18; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-mald19") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 19; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-mald20") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 7) { itemEDanoPropriedade += 20; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-neut3") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 3; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-neut4") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 4; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-neut5") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 5; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-neut6") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 6; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-neut7") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 7; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-neut8") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 8; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-neut9") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 9; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-neut10") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 10; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-neut11") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 11; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-neut12") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 12; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-neut13") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 13; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-neut14") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 14; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-neut15") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 15; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-neut16") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 16; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-neut17") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 17; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-neut18") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 18; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-neut19") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 19; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-neut20") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 0) { itemEDanoPropriedade += 20; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-sagr3") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 3; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-sagr4") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 4; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-sagr5") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 5; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-sagr6") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 6; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-sagr7") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 7; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-sagr8") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 8; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-sagr9") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 9; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-sagr10") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 10; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-sagr11") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 11; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-sagr12") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 12; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-sagr13") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 13; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-sagr14") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 14; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-sagr15") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 15; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-sagr16") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 16; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-sagr17") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 17; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-sagr18") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 18; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-sagr19") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 19; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-sagr20") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 5) { itemEDanoPropriedade += 20; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-somb3") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 3; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-somb4") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 4; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-somb5") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 5; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-somb6") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 6; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-somb7") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 7; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-somb8") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 8; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-somb9") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 9; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-somb10") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 10; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-somb11") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 11; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-somb12") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 12; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-somb13") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 13; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-somb14") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 14; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-somb15") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 15; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-somb16") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 16; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-somb17") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 17; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-somb18") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 18; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-somb19") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 19; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-somb20") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 6) { itemEDanoPropriedade += 20; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-terr3") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 3; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-terr4") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 4; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-terr5") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 5; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-terr6") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 6; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-terr7") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 7; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-terr8") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 8; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-terr9") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 9; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-terr10") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 10; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-terr11") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 11; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-terr12") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 12; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-terr13") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 13; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-terr14") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 14; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-terr15") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 15; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-terr16") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 16; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-terr17") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 17; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-terr18") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 18; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-terr19") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 19; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-terr20") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 3) { itemEDanoPropriedade += 20; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vene3") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 3; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vene4") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 4; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vene5") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 5; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vene6") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 6; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vene7") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 7; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vene8") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 8; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vene9") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 9; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vene10") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 10; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vene11") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 11; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vene12") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 12; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vene13") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 13; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vene14") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 14; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vene15") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 15; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vene16") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 16; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vene17") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 17; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vene18") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 18; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vene19") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 19; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vene20") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 8) { itemEDanoPropriedade += 20; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vent3") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 3; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vent4") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 4; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vent5") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 5; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vent6") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 6; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vent7") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 7; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vent8") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 8; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vent9") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 9; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vent10") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 10; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vent11") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 11; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vent12") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 12; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vent13") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 13; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vent14") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 14; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vent15") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 15; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vent16") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 16; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vent17") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 17; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vent18") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 18; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vent19") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 19; } }
+    if($("#ancestr-e2").val() == "ancestr-e2-vent20") { if(parseInt(parseInt($("#propriedadeMonstro").val()) / 10) == 2) { itemEDanoPropriedade += 20; } }
+
+
     if($("#sobren-e1").val() == "sobren-e1-atqa5") { itemEAtaqueArmaPorcentagem += 5; }
     if($("#sobren-e1").val() == "sobren-e1-atqa10") { itemEAtaqueArmaPorcentagem += 10; }
     if($("#sobren-e2").val() == "sobren-e2-df10") { itemEDanoMVP += 10; }
@@ -2635,6 +3091,9 @@ $(document).ready(function(){
           break;
         case "5360":
           ofelinas();
+          break;
+        case "19409":
+          plumanegra();
           break;
         case "19263":
           xogunato();
@@ -3057,6 +3516,9 @@ $(document).ready(function(){
           break;
         case "2408":
           grilhoes();
+          break;
+        case "22103":
+          pernaexc();
           break;
         case "470056":
           sperseguidor();
@@ -3593,7 +4055,7 @@ $(document).ready(function(){
 
     var vaiQuebrar = "nao";
     if($("#itemAcessorio1").val() == "28492b" || $("#itemAcessorio1").val() == "28492d" || $("#itemAcessorio2").val() == "28492b" || $("#itemAcessorio2").val() == "28492d" || (($("#cartaMeio").val() == "4143" || $("#cartaTopo").val() == "4143") && $("#itemTopo").val() == "400006")) vaiQuebrar = "sim";
-    if($("#prevestirarma").prop("checked") == true || $("#cartaArco1").val() == "4407" || $("#cartaArco1").val() == "4072" || $("#cartaArco2").val() == "4407" || $("#cartaArco2").val() == "4072" || $("#sobren-e1").val() == "sobren-e1-golem") { vaiQuebrar = "nao"; }
+    if($("#prevestirarma").prop("checked") == true || $("#cartaArco1").val() == "4407" || $("#cartaArco1").val() == "4072" || $("#cartaArco2").val() == "4407" || $("#cartaArco2").val() == "4072" || $("#sobren-e1").val() == "sobren-e1-golem" || $("#ancestr-e2").val() == "ancestr-e2-golem") { vaiQuebrar = "nao"; }
 
     if(vaiQuebrar == "sim") {
       var golpesPraQuebrar = 0;
