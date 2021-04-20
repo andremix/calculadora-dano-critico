@@ -850,7 +850,7 @@ $(document).ready(function(){
   function afortunado() {
     imagemArmadura = "https://i.imgur.com/5yDR2ZP.png";
     slotsArmadura = 1;
-    encantamentoArmadura = "nenhum";
+    encantamentoArmadura = "atemporal";
     itemDAtaque = 50;
     itemDDanoCriticoPorcentagem = parseInt($("#refinoItemArmadura").val() / 3) * 2;
     if(parseInt($("#refinoItemArmadura").val()) >= 7 && ($("#racaMonstro").val() == "2" || $("#racaMonstro").val() == "3")) itemDIgnorarDefesa += 30;
@@ -865,7 +865,7 @@ $(document).ready(function(){
   function astuto() {
     imagemArmadura = "https://i.imgur.com/yqORvyJ.png";
     slotsArmadura = 1;
-    encantamentoArmadura = "nenhum";
+    encantamentoArmadura = "atemporal";
     itemDAtaque = 50;
     itemDDanoDistancia = parseInt($("#refinoItemArmadura").val() / 3) * 2;
     if(parseInt($("#refinoItemArmadura").val()) >= 7 && ($("#racaMonstro").val() == "2" || $("#racaMonstro").val() == "3")) itemDIgnorarDefesa += 30;
@@ -880,7 +880,7 @@ $(document).ready(function(){
   function agil() {
     imagemArmadura = "https://i.imgur.com/cDvAOA9.png";
     slotsArmadura = 1;
-    encantamentoArmadura = "nenhum";
+    encantamentoArmadura = "atemporal";
     itemDAtaque = 50;
     itemDAspdPorcentagem = parseInt($("#refinoItemArmadura").val() / 3) * 2;
     if(parseInt($("#refinoItemArmadura").val()) >= 7 && ($("#racaMonstro").val() == "2" || $("#racaMonstro").val() == "3")) itemDIgnorarDefesa += 30;
@@ -895,7 +895,7 @@ $(document).ready(function(){
   function robusto() {
     imagemArmadura = "https://i.imgur.com/f9guj3v.png";
     slotsArmadura = 1;
-    encantamentoArmadura = "nenhum";
+    encantamentoArmadura = "atemporal";
     itemDAtaque = 50;
     itemDDanoRacial = parseInt($("#refinoItemArmadura").val() / 3) * 2;
     if(parseInt($("#refinoItemArmadura").val()) >= 7 && ($("#racaMonstro").val() == "2" || $("#racaMonstro").val() == "3")) itemDIgnorarDefesa += 30;
@@ -1241,7 +1241,7 @@ $(document).ready(function(){
   function mantoagi() {
     imagemCapa = "https://i.imgur.com/4R3qvac.png";
     slotsCapa = 1;
-    encantamentoCapa = "nenhum";
+    encantamentoCapa = "mtemporal";
     itemFAtaque = parseInt($("#refinoItemCapa").val() / 2) * 10;
     itemFDanoCriticoPorcentagem = parseInt($("#refinoItemCapa").val() / 2) * 3;
     itemFDanoTamanho = parseInt($("#refinoItemCapa").val() / 4) * 5;
@@ -1257,7 +1257,7 @@ $(document).ready(function(){
   function mantodes() {
     imagemCapa = "https://i.imgur.com/4R3qvac.png";
     slotsCapa = 1;
-    encantamentoCapa = "nenhum";
+    encantamentoCapa = "mtemporal";
     itemFAtaque = parseInt($("#refinoItemCapa").val() / 2) * 10;
     itemFDanoDistancia = parseInt($("#refinoItemCapa").val() / 2);
     itemFDanoCriticoPorcentagem = parseInt($("#refinoItemCapa").val() / 4) * 3;
@@ -1273,7 +1273,7 @@ $(document).ready(function(){
   function mantofor() {
     imagemCapa = "https://i.imgur.com/4R3qvac.png";
     slotsCapa = 1;
-    encantamentoCapa = "nenhum";
+    encantamentoCapa = "mtemporal";
     itemFAtaque = parseInt($("#refinoItemCapa").val() / 2) * 10;
     itemFAtaqueArmaPorcentagem = parseInt($("#refinoItemCapa").val() / 2);
     itemFDanoTamanho = parseInt($("#refinoItemCapa").val() / 4) * 5;
@@ -1289,7 +1289,7 @@ $(document).ready(function(){
   function mantosor() {
     imagemCapa = "https://i.imgur.com/4R3qvac.png";
     slotsCapa = 1;
-    encantamentoCapa = "nenhum";
+    encantamentoCapa = "mtemporal";
     itemFTaxaCritico = parseInt($("#refinoItemCapa").val() / 2) * 3;
     itemFDanoCriticoPorcentagem = parseInt($("#refinoItemCapa").val() / 2) * 3;
     itemFAspdPorcentagem = parseInt($("#refinoItemCapa").val() / 4) * 5;
@@ -2228,35 +2228,49 @@ $(document).ready(function(){
       }
     }
     if(posicao == "armadura") {
-      $(".encantamentosColeteEXC").hide();
+      $(".encantamentosColeteEXC, .encantamentosAtemporal").hide();
       switch (encantamento) {
         case "exc":
           $(".encantamentosColeteEXC").show();
+          $(".encantamentosAtemporal select").each(function(){ $(this).val(""); });
+          break;
+        case "atemporal":
+          $(".encantamentosAtemporal").show();
+          $(".encantamentosColeteEXC select").each(function(){ $(this).val(""); });
           break;
         default:
-          $(".encantamentosColeteEXC select").each(function(){ $(this).val(""); }); $(".encantamentosColeteEXC").hide();
+          $(".encantamentosColeteEXC select, .encantamentosAtemporal select").each(function(){ $(this).val(""); });
       }
     }
     if(posicao == "capa") {
-      $(".encantamentosFAW, .encantamentosMotorEXC, .encantamentosExploradoresCapa").hide();
+      $(".encantamentosFAW, .encantamentosMotorEXC, .encantamentosExploradoresCapa, .encantamentosMtemporal").hide();
       switch (encantamento) {
         case "faw":
           $(".encantamentosFAW").show();
           $(".encantamentosMotorEXC select").each(function(){ $(this).val(""); });
           $(".encantamentosExploradoresCapa select").each(function(){ $(this).val(""); });
+          $(".encantamentosMtemporal select").each(function(){ $(this).val(""); });
+          break;
+        case "mtemporal":
+          $(".encantamentosMtemporal").show();
+          $(".encantamentosMotorEXC select").each(function(){ $(this).val(""); });
+          $(".encantamentosExploradoresCapa select").each(function(){ $(this).val(""); });
+          $(".encantamentosFAW select").each(function(){ $(this).val(""); });
           break;
         case "exc":
           $(".encantamentosMotorEXC").show();
           $(".encantamentosFAW select").each(function(){ $(this).val(""); });
           $(".encantamentosExploradoresCapa select").each(function(){ $(this).val(""); });
+          $(".encantamentosMtemporal select").each(function(){ $(this).val(""); });
           break;
         case "exploracapa":
           $(".encantamentosExploradoresCapa").show();
           $(".encantamentosFAW select").each(function(){ $(this).val(""); });
           $(".encantamentosMotorEXC select").each(function(){ $(this).val(""); });
+          $(".encantamentosMtemporal select").each(function(){ $(this).val(""); });
           break;
         default:
-          $(".encantamentosFAW select, .encantamentosMotorEXC select").each(function(){ $(this).val(""); });
+          $(".encantamentosFAW select, .encantamentosMotorEXC select, .encantamentosExploradoresCapa select, .encantamentosMtemporal select").each(function(){ $(this).val(""); });
       }
     }
     if(posicao == "sapatos") {
@@ -2326,6 +2340,18 @@ $(document).ready(function(){
     if($("#cartaArmadura").val() == "4408") { if($("#racaMonstro").val() == "1" || $("#racaMonstro").val() == "3") itemDDanoRacial += 40; if(parseInt($("#propriedadeMonstro").val()) >= 50 && parseInt($("#propriedadeMonstro").val()) <= 63) itemDDanoPropriedade += 40; }
     if($("#cartaArmadura").val() == "4337") { itemDAtaque = itemDAtaque + 25; }
     if($("#colexc-e1").val() == "exc-e1-for") { itemDAtaque += parseInt(parseInt($("#for").val()) / 10) * 5; if(parseInt($("#refinoItemArmadura").val()) >= 7) itemDAtaque += 10; }
+    if($("#atemporal-e1").val().includes("atemporal-e1-atq")) { itemDAtaque += parseInt($("#atemporal-e1").val().replace("atemporal-e1-atq","")); }
+    if($("#atemporal-e1").val().includes("atemporal-e1-arm")) { itemDAtaqueArmaPorcentagem += parseInt($("#atemporal-e1").val().replace("atemporal-e1-arm","")); }
+    if($("#atemporal-e1").val().includes("atemporal-e1-cri")) { itemDTaxaCritico += parseInt($("#atemporal-e1").val().replace("atemporal-e1-cri","")); }
+    if($("#atemporal-e1").val().includes("atemporal-e1-asp")) { itemDAspdPorcentagem += parseInt($("#atemporal-e1").val().replace("atemporal-e1-asp","")); }
+    if($("#atemporal-e1").val().includes("atemporal-e1-dcr")) { itemDDanoCriticoPorcentagem += parseInt($("#atemporal-e1").val().replace("atemporal-e1-dcr","")); }
+    if($("#atemporal-e1").val().includes("atemporal-e1-dis")) { itemDDanoDistancia += parseInt($("#atemporal-e1").val().replace("atemporal-e1-dis","")); }
+    if($("#atemporal-e2").val().includes("atemporal-e2-atq")) { itemDAtaque += parseInt($("#atemporal-e2").val().replace("atemporal-e2-atq","")); }
+    if($("#atemporal-e2").val().includes("atemporal-e2-arm")) { itemDAtaqueArmaPorcentagem += parseInt($("#atemporal-e2").val().replace("atemporal-e2-arm","")); }
+    if($("#atemporal-e2").val().includes("atemporal-e2-cri")) { itemDTaxaCritico += parseInt($("#atemporal-e2").val().replace("atemporal-e2-cri","")); }
+    if($("#atemporal-e2").val().includes("atemporal-e2-asp")) { itemDAspdPorcentagem += parseInt($("#atemporal-e2").val().replace("atemporal-e2-asp","")); }
+    if($("#atemporal-e2").val().includes("atemporal-e2-dcr")) { itemDDanoCriticoPorcentagem += parseInt($("#atemporal-e2").val().replace("atemporal-e2-dcr","")); }
+    if($("#atemporal-e2").val().includes("atemporal-e2-dis")) { itemDDanoDistancia += parseInt($("#atemporal-e2").val().replace("atemporal-e2-dis","")); }
     if($("#colexc-e1").val() == "exc-e1-atq") { itemDAtaque += 20; }
     if($("#colexc-e2").val() == "exc-e2-atq") { itemDAtaque += 20; }
     if($("#colexc-e3").val() == "exc-e3-atq") { itemDAtaque += 20; }
@@ -2887,6 +2913,12 @@ $(document).ready(function(){
     if($("#cartaCapa").val() == "4594") { itemFDanoCriticoPorcentagem = itemFDanoCriticoPorcentagem + parseInt(parseInt($("#sor").val()) / 10) * 2 ; }
     if($("#cartaCapa").val() == "4682") { itemFDanoRacial += 5; if(parseInt($("#refinoItemCapa").val()) >= 10) { itemFForca += 10; itemFAgilidade += 10; itemFDestreza += 10; itemFSorte += 10; } if(parseInt($("#nivelPersonagem").val()) >= 175) { itemFForca += 10; itemFAgilidade += 10; itemFDestreza += 10; itemFSorte += 10; } }
     if($("#cartaCapa").val() == "4588") { itemFAtaque = itemFAtaque + parseInt(parseInt($("#for").val()) / 10) * 5 ; }
+    if($("#mtemporal-e1").val().includes("mtemporal-e1-atq")) { itemFAtaque += parseInt($("#mtemporal-e1").val().replace("mtemporal-e1-atq","")); }
+    if($("#mtemporal-e1").val().includes("mtemporal-e1-arm")) { itemFAtaqueArmaPorcentagem += parseInt($("#mtemporal-e1").val().replace("mtemporal-e1-arm","")); }
+    if($("#mtemporal-e1").val().includes("mtemporal-e1-cri")) { itemFTaxaCritico += parseInt($("#mtemporal-e1").val().replace("mtemporal-e1-cri","")); }
+    if($("#mtemporal-e1").val().includes("mtemporal-e1-asp")) { itemFAspdPorcentagem += parseInt($("#mtemporal-e1").val().replace("mtemporal-e1-asp","")); }
+    if($("#mtemporal-e1").val().includes("mtemporal-e1-dcr")) { itemFDanoCriticoPorcentagem += parseInt($("#mtemporal-e1").val().replace("mtemporal-e1-dcr","")); }
+    if($("#mtemporal-e1").val().includes("mtemporal-e1-dis")) { itemFDanoDistancia += parseInt($("#mtemporal-e1").val().replace("mtemporal-e1-dis","")); }
     if($("#faw-e1").val() == "faw-e1-ma4") { itemFDanoDistancia += 8; }
     if($("#faw-e1").val() == "faw-e1-ma3") { itemFDanoDistancia += 6; }
     if($("#faw-e1").val() == "faw-e1-ma2") { itemFDanoDistancia += 4; }
