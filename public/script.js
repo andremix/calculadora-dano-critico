@@ -741,10 +741,10 @@ $(document).ready(function(){
     imagemBaixo = "https://i.imgur.com/WCX0ppU.png";
     if($("#itemCapa").val() == "20964" && $("#itemArmadura").val() == "15353") {
       itemCDanoRacial = 7;
-      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoArmadura").val()) >= 14 ) {
+      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoItemArmadura").val()) >= 14 ) {
         itemCAtaque = 80;
       }
-      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoArmadura").val()) >= 18 ) {
+      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoItemArmadura").val()) >= 18 ) {
         itemCAspdFixa = 1;
         itemCDanoRacial += 7;
       }
@@ -755,14 +755,14 @@ $(document).ready(function(){
     imagemBaixo = "https://i.imgur.com/WCX0ppU.png";
     if($("#itemCapa").val() == "20967" && $("#itemArmadura").val() == "15354") {
       itemCDanoTamanho = 7;
-      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoArmadura").val()) >= 14 ) {
+      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoItemArmadura").val()) >= 14 ) {
         itemCAtaque = 80;
       }
-      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoArmadura").val()) >= 18 ) {
+      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoItemArmadura").val()) >= 18 ) {
         itemCAtaqueArmaPorcentagem = 5;
         itemCDanoTamanho += 7;
       }
-      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoArmadura").val()) >= 22 ) {
+      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoItemArmadura").val()) >= 22 ) {
         itemCDanoDistancia = 10;
       }
     }
@@ -772,10 +772,10 @@ $(document).ready(function(){
     imagemBaixo = "https://i.imgur.com/WCX0ppU.png";
     if($("#itemCapa").val() == "20963" && $("#itemArmadura").val() == "15278") {
       itemCAtaqueArmaPorcentagem = 5;
-      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoArmadura").val()) >= 14 ) {
+      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoItemArmadura").val()) >= 14 ) {
         itemCAtaque = 80;
       }
-      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoArmadura").val()) >= 18 ) {
+      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoItemArmadura").val()) >= 18 ) {
         itemCAtaque += 30;
       }
     }
@@ -785,14 +785,14 @@ $(document).ready(function(){
     imagemBaixo = "https://i.imgur.com/WCX0ppU.png";
     if($("#itemCapa").val() == "20968" && $("#itemArmadura").val() == "15346") {
       itemCDanoRacial = 10;
-      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoArmadura").val()) >= 14 ) {
+      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoItemArmadura").val()) >= 14 ) {
         itemCAtaque = 80;
       }
-      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoArmadura").val()) >= 18 ) {
+      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoItemArmadura").val()) >= 18 ) {
         itemCDanoCriticoPorcentagem = 12;
         itemCDanoTamanho = 10;
       }
-      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoArmadura").val()) >= 22 ) {
+      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoItemArmadura").val()) >= 22 ) {
         itemCDanoDistancia = 10;
       }
     }
@@ -3306,7 +3306,7 @@ $(document).ready(function(){
     definirBaixo();
 
     itemArmadura = $("#itemArmadura").val();
-    refinoArmadura = parseInt($("#refinoArmadura").val());
+    refinoArmadura = parseInt($("#refinoItemArmadura").val());
     resetarArmadura();
     if(itemArmadura != "") {
       switch (itemArmadura) {
