@@ -737,6 +737,67 @@ $(document).ready(function(){
     imagemBaixo = "https://i.imgur.com/XPn04d9.png";
   }
 
+  function brotoagi() {
+    imagemBaixo = "https://i.imgur.com/WCX0ppU.png";
+    if($("#itemCapa").val() == "20964" && $("#itemArmadura").val() == "15353") {
+      itemCDanoRacial = 7;
+      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoArmadura").val()) >= 14 ) {
+        itemCAtaque = 80;
+      }
+      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoArmadura").val()) >= 18 ) {
+        itemCAspdFixa = 1;
+        itemCDanoRacial += 7;
+      }
+    }
+  }
+
+  function brotodes() {
+    imagemBaixo = "https://i.imgur.com/WCX0ppU.png";
+    if($("#itemCapa").val() == "20967" && $("#itemArmadura").val() == "15354") {
+      itemCDanoTamanho = 7;
+      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoArmadura").val()) >= 14 ) {
+        itemCAtaque = 80;
+      }
+      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoArmadura").val()) >= 18 ) {
+        itemCAtaqueArmaPorcentagem = 5;
+        itemCDanoTamanho += 7;
+      }
+      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoArmadura").val()) >= 22 ) {
+        itemCDanoDistancia = 10;
+      }
+    }
+  }
+
+  function brotofor() {
+    imagemBaixo = "https://i.imgur.com/WCX0ppU.png";
+    if($("#itemCapa").val() == "20963" && $("#itemArmadura").val() == "15278") {
+      itemCAtaqueArmaPorcentagem = 5;
+      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoArmadura").val()) >= 14 ) {
+        itemCAtaque = 80;
+      }
+      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoArmadura").val()) >= 18 ) {
+        itemCAtaque += 30;
+      }
+    }
+  }
+
+  function brotosor() {
+    imagemBaixo = "https://i.imgur.com/WCX0ppU.png";
+    if($("#itemCapa").val() == "20968" && $("#itemArmadura").val() == "15346") {
+      itemCDanoRacial = 10;
+      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoArmadura").val()) >= 14 ) {
+        itemCAtaque = 80;
+      }
+      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoArmadura").val()) >= 18 ) {
+        itemCDanoCriticoPorcentagem = 12;
+        itemCDanoTamanho = 10;
+      }
+      if( parseInt($("#refinoItemCapa").val()) + parseInt($("#refinoArmadura").val()) >= 22 ) {
+        itemCDanoDistancia = 10;
+      }
+    }
+  }
+
   function khalitzburg() {
     imagemArmadura = "https://i.imgur.com/sJnds93.png";
     slotsArmadura = 1;
@@ -3225,6 +3286,18 @@ $(document).ready(function(){
           break;
         case "19112":
           ptengu();
+          break;
+        case "420019":
+          brotoagi();
+          break;
+        case "420018":
+          brotodes();
+          break;
+        case "420017":
+          brotofor();
+          break;
+        case "420020":
+          brotosor();
           break;
         default:
           resetarBaixo();
