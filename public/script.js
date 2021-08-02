@@ -4170,12 +4170,12 @@ $(document).ready(function(){
         chance = Math.random();
         if(chance <= 0.001) { seraQueQuebrou = true; }
       }while(seraQueQuebrou == false);
-      $("#danofinal").val("Nada");
+      //$("#danofinal").val("Nada");
       $("#armaquebrada").text("Arma quebrou depois de " + golpesPraQuebrar + " ataques :(");
     } else {
-      $("#danofinal").val(danoCausadoFinal);
       $("#armaquebrada").text("");
     }
+      $("#danofinal").val(danoCausadoFinal);
 
     $("select").each(function() {
       let selectId = $(this).attr("id");
