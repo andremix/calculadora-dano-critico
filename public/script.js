@@ -706,6 +706,11 @@ $(document).ready(function(){
     }
   }
 
+  function coleira() {
+    imagemBaixo = "https://i.imgur.com/DBSDdPr.png";
+    itemCDanoTamanho = parseInt((parseInt($("#for").val()) + parseInt($("#sor").val())) / 50) * 4;
+  }
+
   function pouring() {
     imagemBaixo = "https://i.imgur.com/6fkfBf9.png";
     itemCForca = 2;
@@ -3304,6 +3309,9 @@ $(document).ready(function(){
         case "28502":
           infame();
           break;
+        case "420006":
+          coleira();
+          break;
         case "18844":
           pouring();
           break;
@@ -4151,7 +4159,7 @@ $(document).ready(function(){
     aspdMultiplier = ( 100 - aspdMultiplier ) / 100;
     AspdFinal = ( 200 - ( 200 - ( jobASPD - aspdCorrection + statASPD * aspdPenalty ) ) * aspdMultiplier );
     percentAspdEquipment = (195 - AspdFinal) * (somatoriaItensAspdPorcentagem / 100);
-    AspdFinal += percentAspdEquipment
+    AspdFinal += percentAspdEquipment;
     AspdFinal += somatoriaItensAspdFixa;
     AspdFinal = Math.min(AspdFinal, 193);
     $("#aspd").val(AspdFinal.toFixed(2));
