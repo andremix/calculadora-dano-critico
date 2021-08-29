@@ -4162,19 +4162,22 @@ $(document).ready(function(){
 
 
     // ASPD
-    aspdPenalty = 1 - ( jobASPD - 144 ) / 50;
+    aspdPenalty = Math.min(parseInt((1 - ( jobASPD - 144 ) / 50) * 100) / 100, 0.96);
     var aspdCorrection = 0;
-    if ( AGI < 205 ) { aspdCorrection = ( Math.sqrt( 205 ) - Math.sqrt( AGI ) ) / 7.15; }
+    if ( AGI < 205 ) {
+      aspdCorrection = Math.ceil((( Math.sqrt( 205 ) - Math.sqrt( AGI ) ) / 7.15) * 1000) / 1000;
+    }
     statASPD = Math.sqrt( ( AGI * 9.9987 ) + ( DES * 0.1922 ) );
     var aspdMultiplier = 0;
     if($("#itemAcessorio1").val() == "28492c" || $("#itemAcessorio1").val() == "28492d" || $("#itemAcessorio2").val() == "28492c" || $("#itemAcessorio2").val() == "28492d") { aspdMultiplier += 30; }
     aspdMultiplier = ( 100 - aspdMultiplier ) / 100;
-    AspdFinal = ( 200 - ( 200 - ( jobASPD - aspdCorrection + statASPD * aspdPenalty ) ) * aspdMultiplier );
-    percentAspdEquipment = (195 - AspdFinal) * (somatoriaItensAspdPorcentagem / 100);
+    AspdFinal = parseInt(( 200 - ( 200 - ( jobASPD - aspdCorrection + statASPD * aspdPenalty ) ) * aspdMultiplier ) * 100) / 100;
+    percentAspdEquipment = parseInt(((195 - AspdFinal) * (somatoriaItensAspdPorcentagem / 100)) * 10) / 10;
     AspdFinal += percentAspdEquipment;
     AspdFinal += somatoriaItensAspdFixa;
     AspdFinal = Math.min(AspdFinal, 193);
     $("#aspd").val(AspdFinal.toFixed(2));
+
 
     calcularPontosAtributo();
 
