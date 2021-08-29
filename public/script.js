@@ -512,6 +512,12 @@ $(document).ready(function(){
     }
   }
 
+  function heranca(slot) {
+    imagemMeio = "https://static.divine-pride.net/images/items/item/410025.png";
+    slotsMeio = slot;
+    itemBAtaque = parseInt($("#nivelPersonagem").val());
+  }
+
   function marcas(slot) {
     imagemMeio = "https://i.imgur.com/VlLLCRq.png";
     slotsMeio = slot;
@@ -3216,6 +3222,12 @@ $(document).ready(function(){
       switch (itemMeio) {
         case "19444a":
           tapaoa();
+          break;
+        case "410025":
+          heranca(0);
+          break;
+        case "410026":
+          heranca(1);
           break;
         case "19444b":
           tapaob();
