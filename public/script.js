@@ -2417,6 +2417,7 @@ $(document).ready(function(){
     if($("#cartaArmadura").val() == "4426") { itemDDanoFisico = itemDDanoFisico + 10; }
     if($("#cartaArmadura").val() == "4408") { if($("#racaMonstro").val() == "1" || $("#racaMonstro").val() == "3") itemDDanoRacial += 40; if(parseInt($("#propriedadeMonstro").val()) >= 50 && parseInt($("#propriedadeMonstro").val()) <= 63) itemDDanoPropriedade += 40; }
     if($("#cartaArmadura").val() == "4337") { itemDAtaque = itemDAtaque + 25; }
+    if($("#cartaArmadura").val() == "27326") { itemDAtaque += 100; itemDAspdPorcentagem += 25; }
     if($("#colexc-e1").val() == "exc-e1-for") { itemDAtaque += parseInt(parseInt($("#for").val()) / 10) * 5; if(parseInt($("#refinoItemArmadura").val()) >= 7) itemDAtaque += 10; }
     if($("#atemporal-e1").val().includes("atemporal-e1-atq")) { itemDAtaque += parseInt($("#atemporal-e1").val().replace("atemporal-e1-atq","")); }
     if($("#atemporal-e1").val().includes("atemporal-e1-arm")) { itemDAtaqueArmaPorcentagem += parseInt($("#atemporal-e1").val().replace("atemporal-e1-arm","")); }
