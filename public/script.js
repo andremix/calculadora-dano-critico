@@ -1591,6 +1591,13 @@ $(document).ready(function(){
     encantamentoSapatos = "nenhum";
   }
 
+  function sandalias() {
+    imagemSapatos = "https://static.divine-pride.net/images/items/item/470075.png";
+    slotsSapatos = 1;
+    encantamentoSapatos = "nenhum";
+    itemGAtaque += parseInt($("#nivelPersonagem").val());
+  }
+
   function sperseguidor() {
     imagemSapatos = "https://i.imgur.com/TCHGD57.png";
     slotsSapatos = 0;
@@ -3048,6 +3055,11 @@ $(document).ready(function(){
 
   function cartaSapatos() {
     if($("#cartaSapatos").val() == "4236") { itemGForca += 1; itemGAgilidade += 1; itemGDestreza += 1; itemGSorte += 1; }
+    if($("#cartaSapatos").val() == "27251") { itemGDanoCriticoPorcentagem += 3; itemGAspdPorcentagem += 5; }
+    if($("#cartaSapatos").val() == "27252") { itemGDanoCriticoPorcentagem += 5; itemGAspdPorcentagem += 3; }
+    if($("#cartaSapatos").val() == "27260") { itemGAspdPorcentagem += 3; itemGDanoDistancia += 5; }
+    if($("#cartaSapatos").val() == "27258") { itemGAtaqueArmaPorcentagem += 3; itemGAspdPorcentagem += 5; }
+    if($("#cartaSapatos").val() == "27257") { itemGDanoDistancia += 5; }
     if($("#cartaSapatos").val() == "31017") { itemGAtaqueArmaPorcentagem = itemGAtaqueArmaPorcentagem + 1 + parseInt(parseInt($("#refinoItemSapatos").val()) / 2); }
     if($("#cartaSapatos").val() == "27164") { itemGDanoCriticoPorcentagem = itemGDanoCriticoPorcentagem + parseInt($("#refinoItemSapatos").val()); itemGTaxaCritico = itemGTaxaCritico + 15 + parseInt($("#refinoItemSapatos").val()); }
     if($("#cartaSapatos").val() == "4922") { itemGDestreza += 4; itemGSorte -= 4; }
@@ -3710,6 +3722,9 @@ $(document).ready(function(){
           break;
         case "22103":
           pernaexc();
+          break;
+        case "470075":
+          sandalias();
           break;
         case "470056":
           sperseguidor();
