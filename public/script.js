@@ -1249,6 +1249,39 @@ $(document).ready(function(){
     }
   }
 
+  function fafnir() {
+    imagemCapa = "https://static.divine-pride.net/images/items/item/480084.png";
+    slotsCapa = 1;
+    encantamentoCapa = "nenhum";
+    itemFAspdPorcentagem += 3;
+    if(parseInt($("#refinoItemCapa").val()) >= 7) {
+      itemFAspdPorcentagem += 5;
+      itemFDanoDistancia += 10;
+    }
+    if(parseInt($("#refinoItemCapa").val()) >= 9) {
+      itemFAspdPorcentagem += 7;
+      itemFDanoDistancia += 10;
+    }
+  }
+
+  function javali() {
+    imagemCapa = "https://static.divine-pride.net/images/items/item/480094.png";
+    slotsCapa = 1;
+    encantamentoCapa = "nenhum";
+    itemFDestreza += 6;
+    itemFAspdPorcentagem += 3;
+    if(parseInt($("#refinoItemCapa").val()) >= 7) {
+      itemFDestreza += 12;
+      itemFAspdPorcentagem += 5;
+      itemFDanoDistancia += 10;
+    }
+    if(parseInt($("#refinoItemCapa").val()) >= 9) {
+      itemFDestreza += 12;
+      itemFAspdPorcentagem += 7;
+      itemFDanoDistancia += 10;
+    }
+  }
+
   function mantoagi() {
     imagemCapa = "https://i.imgur.com/4R3qvac.png";
     slotsCapa = 1;
@@ -1744,6 +1777,33 @@ $(document).ready(function(){
       itemIAtaque = 50;
       itemIAgilidade = 5;
       itemIDestreza = 5;
+    }
+  }
+
+  function jupiter(acessorio) {
+    if(acessorio == "acessorio1") {
+      imagemAcessorio1 = "https://static.divine-pride.net/images/items/item/32258.png";
+      slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "nenhum";
+      itemHAtaque += parseInt(parseInt($("#sor").val()) / 10) * 15;
+      if(parseInt($("#sor").val()) >= 125) {
+        itemHDanoMVP += 15;
+      }
+    }
+  }
+
+  function venus(acessorio) {
+    if(acessorio == "acessorio1") {
+      imagemAcessorio1 = "https://static.divine-pride.net/images/items/item/490068.png";
+      slotsAcessorio1 = 1;
+      encantamentoAcessorio1 = "nenhum";
+      itemHDanoFisico += parseInt(parseInt($("#agi").val()) / 10);
+    }
+    if(acessorio == "acessorio2") {
+      imagemAcessorio2 = "https://static.divine-pride.net/images/items/item/490068.png";
+      slotsAcessorio2 = 1;
+      encantamentoAcessorio2 = "nenhum";
+      itemIDanoDistancia += parseInt(parseInt($("#des").val()) / 10);
     }
   }
 
@@ -3527,6 +3587,12 @@ $(document).ready(function(){
         case "480053":
           mantobeh();
           break;
+        case "480084":
+          fafnir();
+          break;
+        case "480094":
+          javali();
+          break;
         case "20964":
           mantoagi();
           break;
@@ -3683,6 +3749,12 @@ $(document).ready(function(){
         case "32205":
           aesmeralda("acessorio1");
           break;
+        case "32258":
+          jupiter("acessorio1");
+          break;
+        case "490068":
+          venus("acessorio1");
+          break;
         case "28505":
           acapiroto("acessorio1");
           break;
@@ -3776,6 +3848,9 @@ $(document).ready(function(){
           break;
         case "32205":
           aesmeralda("acessorio2");
+          break;
+        case "490068":
+          venus("acessorio2");
           break;
         case "28505":
           acapiroto("acessorio2");
@@ -4167,7 +4242,7 @@ $(document).ready(function(){
     if ( AGI < 205 ) {
       aspdCorrection = Math.ceil((( Math.sqrt( 205 ) - Math.sqrt( AGI ) ) / 7.15) * 1000) / 1000;
     }
-    statASPD = Math.sqrt( ( AGI * 9.9987 ) + ( DES * 0.1922 ) );
+    statASPD = Math.sqrt( ( AGI * 9.999 ) + ( DES * 0.19212 ) );
     var aspdMultiplier = 0;
     if($("#itemAcessorio1").val() == "28492c" || $("#itemAcessorio1").val() == "28492d" || $("#itemAcessorio2").val() == "28492c" || $("#itemAcessorio2").val() == "28492d") { aspdMultiplier += 30; }
     aspdMultiplier = ( 100 - aspdMultiplier ) / 100;
